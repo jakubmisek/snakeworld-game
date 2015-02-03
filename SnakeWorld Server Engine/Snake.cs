@@ -158,20 +158,26 @@ namespace SnakeWorld_Server
         /// </summary>
         public void Logout()
         {
-            if (_loggedWebUser == null)
-                return;
-
             try
             {
                 DateTime playDate = DateTime.Now.Date;
 
                 // get and create snake user if not yet
                 var snakeDb = new snakeworldDataContext();
-                var loggedSnakeUser = snakeDb.SnakeInfos.SingleOrDefault(u => u.userId == _loggedWebUser.userId && u.playDate == playDate);
+                SnakeInfo loggedSnakeUser;
+
+                if (_loggedWebUser != null)
+                    loggedSnakeUser = snakeDb.SnakeInfos.SingleOrDefault(u => u.userId == _loggedWebUser.userId && u.playDate == playDate);
+                else
+                    loggedSnakeUser = snakeDb.SnakeInfos.SingleOrDefault(u => u.userId == null && u.playDate == playDate);
+                    
                 if (loggedSnakeUser == null)
                 {
                     loggedSnakeUser = new SnakeInfo();
-                    loggedSnakeUser.userId = _loggedWebUser.userId;
+
+                    if (_loggedWebUser != null) loggedSnakeUser.userId = _loggedWebUser.userId;
+                    else    loggedSnakeUser.userId = null;
+
                     loggedSnakeUser.playDate = playDate;
 
                     snakeDb.SnakeInfos.InsertOnSubmit(loggedSnakeUser);
