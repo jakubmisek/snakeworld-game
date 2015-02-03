@@ -14,6 +14,7 @@ CInGameScreen::CInGameScreen( int iChatMessageCommand )
 : CGameMenuScreen( D3DXVECTOR4(1,1,1,1), CString(L"In-Game") )
 , m_iChatMessageCommand(iChatMessageCommand)
 , flMessagesYAdd(0)
+, flLastMessageDeleted(0)
 , m_dLastSendTime(MIN_SEND_TIME_INTERVAL)
 , flAlphaVisibility( 1.0 )
 {
@@ -39,6 +40,8 @@ void	CInGameScreen::FrameMove(double dStep)
 
 	//
 	m_dLastSendTime += dStep;
+
+	flLastMessageDeleted += (float)dStep;
 	
 	// animate controls y-position
 	if ( flMessagesYAdd > 0.0f )
@@ -88,10 +91,13 @@ void	CInGameScreen::RenderScreen(CDXDevice &dev, CGameMenuContainer *pContainer,
 	}
 
 	// delete lines over cca a half a screen
-	if ( vecPos.y > 0.9f - flCtrlHeight )
+	// delete lines earlier if last one is too old
+	if ( (vecPos.y > 0.9f - flCtrlHeight)||
+		 (vecPos.y > 0.3f - flCtrlHeight && flLastMessageDeleted > 5.0f))
 	{
 		if ( m_controls.Count() > 0 )
 		{
+			flLastMessageDeleted = 0.0f;
 			flMessagesYAdd += flCtrlHeight;
 			m_controls.Remove(0,true);
 		}

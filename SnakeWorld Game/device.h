@@ -41,7 +41,7 @@ public:
 	void	EndRender();
 	void	Present();
 
-	void	RenderText(wchar_t*str, D3DXCOLOR&color, D3DXVECTOR2&position, bool bCenter, bool bRight);
+	void	RenderText(wchar_t*str, D3DXCOLOR&color, D3DXVECTOR2&position, bool bCenter, bool bRight, SIZE*pOutSize = 0);
 
 	// device objects
 	ID3D10Device			*pd3dDevice;
@@ -136,7 +136,7 @@ public:
 	// rendering
 	void	Present();
 
-	void	RenderText(wchar_t*str, D3DXCOLOR&color, D3DXVECTOR2&position, bool bCenter, bool bRight);
+	void	RenderText(wchar_t*str, D3DXCOLOR&color, D3DXVECTOR2&position, bool bCenter, bool bRight, SIZE*pOutSize = 0);
 
 	// DX9 objects
 	IDirect3DDevice9	*pd3dDevice;
@@ -214,7 +214,7 @@ public:
 	//
 	// text writing
 	//
-	virtual void	RenderText( wchar_t*str, D3DXCOLOR&color, D3DXVECTOR2&position, bool bCenter = false, bool bRight = false );
+	virtual void	RenderText( wchar_t*str, D3DXCOLOR&color, D3DXVECTOR2&position, bool bCenter = false, bool bRight = false, SIZE*pOutSize = 0 );
 
 	//
 	// texture loading

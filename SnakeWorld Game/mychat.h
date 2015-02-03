@@ -49,6 +49,7 @@ protected:
 	double	m_dLastSendTime;
 
 	float	flMessagesYAdd;
+	float	flLastMessageDeleted;
 
 	float	flAlphaVisibility;
 };

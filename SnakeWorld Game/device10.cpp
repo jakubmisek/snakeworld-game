@@ -489,7 +489,7 @@ bool	CDX10Device::Resize( UINT uiWidth, UINT uiHeight, UINT uiSampleCount )
 
 //////////////////////////////////////////////////////////////////////////
 // render string using DX10
-void	CDX10Device::RenderText( wchar_t*str, D3DXCOLOR&color, D3DXVECTOR2&position, bool bCenter, bool bRight )
+void	CDX10Device::RenderText( wchar_t*str, D3DXCOLOR&color, D3DXVECTOR2&position, bool bCenter, bool bRight, SIZE*pOutSize )
 {
 	if (m_pFont10)
 	{
@@ -519,6 +519,13 @@ void	CDX10Device::RenderText( wchar_t*str, D3DXCOLOR&color, D3DXVECTOR2&position
 
 		// draw the text
 		m_pFont10->DrawText( NULL, str, -1, &rc, flags, color );
+
+		if (pOutSize)
+		{
+			HDC dc = m_pFont10->GetDC();
+			int len = wcslen(str);
+			GetTextExtentPoint32( dc, str, len, pOutSize );
+		}
 	}
 }
 
