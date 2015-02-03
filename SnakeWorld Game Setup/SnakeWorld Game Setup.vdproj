@@ -15,13 +15,31 @@
     {
         "Entry"
         {
+        "MsmKey" = "8:_01674641A7C743C0B2A5D38A810E4E40"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_01E8CB8CC04B4D889074D963348878EF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
+        "MsmKey" = "8:_031C63B44C5244458C21F59851FC114A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_0938317D6D224B1AB7DF7B9A44FBCF34"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_0ADB60C42F774786865245402288A0D9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -39,13 +57,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_18A9953D8DD64431ADEC6FB2A30C6A42"
+        "MsmKey" = "8:_1E7290467EDA4446830D8ACE44EFFF0B"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_24895C0831BF4CEAA2A0CCE310C503E9"
+        "MsmKey" = "8:_23C8F1563EB143529ADACA06AB970993"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -57,7 +75,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_271FC92C0F004DE19A83C38030CA3F76"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_273F289ADE6947A38F8707D8119E8CB7"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_2ECE5161233343C3A4E6AFD2121684DF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -81,13 +111,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_3473BDB606DC47CD90DA252DE3BFE3C2"
+        "MsmKey" = "8:_3B28491897D24C86B12EE4854C22F76F"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_3D8797D5D7FE4809B09FA6B0ECE061A1"
+        "MsmKey" = "8:_41857E242A784FBAABACC3CE9CCC8191"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -99,25 +129,31 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_438B20C806E942CC89E5486EEBDE8B91"
+        "MsmKey" = "8:_521F8832D15F45B59DADA3B73A76DC44"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_50693ED82FCA4230BA8C03F59D7A6E18"
+        "MsmKey" = "8:_534F00A905944EB6A4BBC464C153936A"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_580843D131FC4493B87AFA1EA53E5B51"
+        "MsmKey" = "8:_56E056E45CC44470BC53867B92DE7DAD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_585ACCFCAB114ECB88FEA1B217186E4D"
+        "MsmKey" = "8:_57EC3BB9419F4AD6A67AF886C5E212CD"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_592F0CB35C1B484A8A5D681101D1F562"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -141,19 +177,37 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_6E85C4AEEE204A5EA7B3C6FF3D0ED452"
+        "MsmKey" = "8:_682D5F2E05F0441E9495E5F203AEBCA9"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_75CD3ED1B315463D858C5C8DE2A8A7C1"
+        "MsmKey" = "8:_6A44C53CC2EE419C9E3143262B5E0963"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_866A1C48B094455DAA1AF5F06A46BA95"
+        "MsmKey" = "8:_6AFACBAD773C41D6B9DA022E905B1C7A"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_784E997839564BB7AA44A737128C88C4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_7D79FCC9C3284D2FB170AC312498E8B5"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_822CA2CB38B24FACA2FFD52542580DDF"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -165,7 +219,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_8AD2D469B604423E9225A11A9C8A6AD6"
+        "MsmKey" = "8:_8D77D27B660840A68403855AAF5449F6"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_90F4A691CE7E4CE78913E1B863125895"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -189,7 +249,19 @@
         }
         "Entry"
         {
+        "MsmKey" = "8:_94D46FAF4BB4422E8498694053081A68"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
         "MsmKey" = "8:_969FDF0B7F6D400F8FE2C201D0C97D2B"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_A18BDBEE884E4329B0C847273ADD671C"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -219,19 +291,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_B8E0173A88834725BBE1165C07487884"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_BA92C649332641989A50B14D9B9F134A"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_C8F8F456495E4F27B43621E9B585F422"
+        "MsmKey" = "8:_B9B1DFA79F2A42798DDCA46949231769"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -244,6 +304,12 @@
         "Entry"
         {
         "MsmKey" = "8:_CCD6356A0B964658A54E5FBC9589E244"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_CE9517B91F694AA98964B5CADBD7D2C8"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -267,13 +333,25 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_D591CBA30B7A451CA58CAFAA85A8A150"
+        "MsmKey" = "8:_D65E2B71D33641E98FF33F83103EFB80"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_DBAFA2EA5A034DEABA96BA2D07BE99F5"
+        "MsmKey" = "8:_D8EC889DE67B4F959D7721DD397819C4"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DAC10F00FD62457F8D3839C4DDA99F5D"
+        "OwnerKey" = "8:_UNDEFINED"
+        "MsmSig" = "8:_UNDEFINED"
+        }
+        "Entry"
+        {
+        "MsmKey" = "8:_DD98DF63572A402A872C94D73DE3CCCD"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -291,13 +369,13 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F0058BBDCEC2418A9534951AF15151F1"
+        "MsmKey" = "8:_EF15167AC489429988276CDA276F0412"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
         "Entry"
         {
-        "MsmKey" = "8:_F0501FCAB99E49BAAB0681ECEA084CD7"
+        "MsmKey" = "8:_F0058BBDCEC2418A9534951AF15151F1"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -315,19 +393,7 @@
         }
         "Entry"
         {
-        "MsmKey" = "8:_F654A1EF0F964B5BB05173D7C0BE4512"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
         "MsmKey" = "8:_F70D0BB2953547F9856ACBF8175C3EC8"
-        "OwnerKey" = "8:_UNDEFINED"
-        "MsmSig" = "8:_UNDEFINED"
-        }
-        "Entry"
-        {
-        "MsmKey" = "8:_FD0FFEFA86AC4887A9CA408C7C8C6617"
         "OwnerKey" = "8:_UNDEFINED"
         "MsmSig" = "8:_UNDEFINED"
         }
@@ -433,6 +499,26 @@
         }
         "File"
         {
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_01674641A7C743C0B2A5D38A810E4E40"
+            {
+            "SourcePath" = "8:..\\Release\\media\\snakes\\blue.jpg"
+            "TargetName" = "8:blue.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_01E8CB8CC04B4D889074D963348878EF"
             {
             "SourcePath" = "8:..\\Release\\media\\apple.jpg"
@@ -453,12 +539,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_031C63B44C5244458C21F59851FC114A"
+            {
+            "SourcePath" = "8:..\\Release\\media\\snakes\\Yellow Snake.jpg"
+            "TargetName" = "8:Yellow Snake.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0938317D6D224B1AB7DF7B9A44FBCF34"
             {
             "SourcePath" = "8:..\\Release\\fx\\menu9.fxo"
             "TargetName" = "8:menu9.fxo"
             "Tag" = "8:"
             "Folder" = "8:_9AA4D53F1D84441BA756E4180A49C56F"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_0ADB60C42F774786865245402288A0D9"
+            {
+            "SourcePath" = "8:..\\Release\\media\\snakes\\safari.jpg"
+            "TargetName" = "8:safari.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -513,10 +639,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_18A9953D8DD64431ADEC6FB2A30C6A42"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_1E7290467EDA4446830D8ACE44EFFF0B"
             {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\snake03.JPG"
-            "TargetName" = "8:snake03.JPG"
+            "SourcePath" = "8:..\\Release\\media\\snakes\\greenbrown.jpg"
+            "TargetName" = "8:greenbrown.jpg"
             "Tag" = "8:"
             "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
@@ -533,10 +659,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_24895C0831BF4CEAA2A0CCE310C503E9"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_23C8F1563EB143529ADACA06AB970993"
             {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\snx.jpg"
-            "TargetName" = "8:snx.jpg"
+            "SourcePath" = "8:..\\Release\\media\\snakes\\blue3.jpg"
+            "TargetName" = "8:blue3.jpg"
             "Tag" = "8:"
             "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
@@ -573,12 +699,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_271FC92C0F004DE19A83C38030CA3F76"
+            {
+            "SourcePath" = "8:..\\Release\\media\\snakes\\xmass1.jpg"
+            "TargetName" = "8:xmass1.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_273F289ADE6947A38F8707D8119E8CB7"
             {
             "SourcePath" = "8:..\\Release\\media\\stone_texture.jpg"
             "TargetName" = "8:stone_texture.jpg"
             "Tag" = "8:"
             "Folder" = "8:_5AD0F9F0DC2043FCB98B7CD7181DA2FB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_2ECE5161233343C3A4E6AFD2121684DF"
+            {
+            "SourcePath" = "8:..\\Release\\media\\snakes\\lampropeltis.jpg"
+            "TargetName" = "8:lampropeltis.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -653,10 +819,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3473BDB606DC47CD90DA252DE3BFE3C2"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3B28491897D24C86B12EE4854C22F76F"
             {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\blue.jpg"
-            "TargetName" = "8:blue.jpg"
+            "SourcePath" = "8:..\\Release\\media\\snakes\\snake03.JPG"
+            "TargetName" = "8:snake03.JPG"
             "Tag" = "8:"
             "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
@@ -673,10 +839,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_3D8797D5D7FE4809B09FA6B0ECE061A1"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_41857E242A784FBAABACC3CE9CCC8191"
             {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\sn04.jpg"
-            "TargetName" = "8:sn04.jpg"
+            "SourcePath" = "8:..\\Release\\media\\snakes\\sn02.jpg"
+            "TargetName" = "8:sn02.jpg"
             "Tag" = "8:"
             "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
@@ -713,7 +879,27 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_438B20C806E942CC89E5486EEBDE8B91"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_521F8832D15F45B59DADA3B73A76DC44"
+            {
+            "SourcePath" = "8:..\\Release\\media\\snakes\\krajta.jpg"
+            "TargetName" = "8:krajta.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_534F00A905944EB6A4BBC464C153936A"
             {
             "SourcePath" = "8:..\\Release\\media\\snakes\\viper02.jpg"
             "TargetName" = "8:viper02.jpg"
@@ -733,10 +919,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_50693ED82FCA4230BA8C03F59D7A6E18"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_56E056E45CC44470BC53867B92DE7DAD"
             {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\lampropeltis.jpg"
-            "TargetName" = "8:lampropeltis.jpg"
+            "SourcePath" = "8:..\\Release\\media\\snakes\\leopard2.jpg"
+            "TargetName" = "8:leopard2.jpg"
             "Tag" = "8:"
             "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
@@ -753,10 +939,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_580843D131FC4493B87AFA1EA53E5B51"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_57EC3BB9419F4AD6A67AF886C5E212CD"
             {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\leopard.jpg"
-            "TargetName" = "8:leopard.jpg"
+            "SourcePath" = "8:..\\Release\\media\\snakes\\sn01.jpg"
+            "TargetName" = "8:sn01.jpg"
             "Tag" = "8:"
             "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
@@ -773,10 +959,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_585ACCFCAB114ECB88FEA1B217186E4D"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_592F0CB35C1B484A8A5D681101D1F562"
             {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\painted.jpg"
-            "TargetName" = "8:painted.jpg"
+            "SourcePath" = "8:..\\Release\\media\\snakes\\green.jpg"
+            "TargetName" = "8:green.jpg"
             "Tag" = "8:"
             "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
@@ -853,10 +1039,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6E85C4AEEE204A5EA7B3C6FF3D0ED452"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_682D5F2E05F0441E9495E5F203AEBCA9"
             {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\green.jpg"
-            "TargetName" = "8:green.jpg"
+            "SourcePath" = "8:..\\Release\\media\\snakes\\realskin.jpg"
+            "TargetName" = "8:realskin.jpg"
             "Tag" = "8:"
             "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
@@ -873,10 +1059,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_75CD3ED1B315463D858C5C8DE2A8A7C1"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6A44C53CC2EE419C9E3143262B5E0963"
             {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\Python 2.jpg"
-            "TargetName" = "8:Python 2.jpg"
+            "SourcePath" = "8:..\\Release\\media\\snakes\\skin001.jpg"
+            "TargetName" = "8:skin001.jpg"
             "Tag" = "8:"
             "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
@@ -893,10 +1079,70 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_866A1C48B094455DAA1AF5F06A46BA95"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_6AFACBAD773C41D6B9DA022E905B1C7A"
             {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\viper01.jpg"
-            "TargetName" = "8:viper01.jpg"
+            "SourcePath" = "8:..\\Release\\media\\snakes\\sn04.jpg"
+            "TargetName" = "8:sn04.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_784E997839564BB7AA44A737128C88C4"
+            {
+            "SourcePath" = "8:..\\Release\\media\\snakes\\sn05.JPG"
+            "TargetName" = "8:sn05.JPG"
+            "Tag" = "8:"
+            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_7D79FCC9C3284D2FB170AC312498E8B5"
+            {
+            "SourcePath" = "8:..\\Release\\media\\snakes\\brown.jpg"
+            "TargetName" = "8:brown.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_822CA2CB38B24FACA2FFD52542580DDF"
+            {
+            "SourcePath" = "8:..\\Release\\media\\snakes\\snx.jpg"
+            "TargetName" = "8:snx.jpg"
             "Tag" = "8:"
             "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
@@ -933,10 +1179,30 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8AD2D469B604423E9225A11A9C8A6AD6"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_8D77D27B660840A68403855AAF5449F6"
             {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\brown.jpg"
-            "TargetName" = "8:brown.jpg"
+            "SourcePath" = "8:..\\Release\\media\\snakes\\dalmation.jpg"
+            "TargetName" = "8:dalmation.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_90F4A691CE7E4CE78913E1B863125895"
+            {
+            "SourcePath" = "8:..\\Release\\media\\snakes\\skin002.jpg"
+            "TargetName" = "8:skin002.jpg"
             "Tag" = "8:"
             "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
@@ -1013,12 +1279,52 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_94D46FAF4BB4422E8498694053081A68"
+            {
+            "SourcePath" = "8:..\\Release\\media\\snakes\\Mamba.jpg"
+            "TargetName" = "8:Mamba.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_969FDF0B7F6D400F8FE2C201D0C97D2B"
             {
             "SourcePath" = "8:..\\Release\\media\\butterfly_v1.dds"
             "TargetName" = "8:butterfly_v1.dds"
             "Tag" = "8:"
             "Folder" = "8:_5AD0F9F0DC2043FCB98B7CD7181DA2FB"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_A18BDBEE884E4329B0C847273ADD671C"
+            {
+            "SourcePath" = "8:..\\Release\\media\\snakes\\glassy.jpg"
+            "TargetName" = "8:glassy.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1113,50 +1419,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B8E0173A88834725BBE1165C07487884"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_B9B1DFA79F2A42798DDCA46949231769"
             {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\realskin.jpg"
-            "TargetName" = "8:realskin.jpg"
-            "Tag" = "8:"
-            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_BA92C649332641989A50B14D9B9F134A"
-            {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\snake.jpg"
-            "TargetName" = "8:snake.jpg"
-            "Tag" = "8:"
-            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_C8F8F456495E4F27B43621E9B585F422"
-            {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\blue2.JPG"
-            "TargetName" = "8:blue2.JPG"
+            "SourcePath" = "8:..\\Release\\media\\snakes\\strawberry.jpg"
+            "TargetName" = "8:strawberry.jpg"
             "Tag" = "8:"
             "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
@@ -1199,6 +1465,26 @@
             "TargetName" = "8:start.wav"
             "Tag" = "8:"
             "Folder" = "8:_7F5AD95F91AF4B3AAD16DE9B50A072B6"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_CE9517B91F694AA98964B5CADBD7D2C8"
+            {
+            "SourcePath" = "8:..\\Release\\media\\snakes\\painted.jpg"
+            "TargetName" = "8:painted.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1273,10 +1559,10 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D591CBA30B7A451CA58CAFAA85A8A150"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D65E2B71D33641E98FF33F83103EFB80"
             {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\sn05.JPG"
-            "TargetName" = "8:sn05.JPG"
+            "SourcePath" = "8:..\\Release\\media\\snakes\\Python 2.jpg"
+            "TargetName" = "8:Python 2.jpg"
             "Tag" = "8:"
             "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
@@ -1293,10 +1579,50 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DBAFA2EA5A034DEABA96BA2D07BE99F5"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_D8EC889DE67B4F959D7721DD397819C4"
             {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\xmass1.jpg"
-            "TargetName" = "8:xmass1.jpg"
+            "SourcePath" = "8:..\\Release\\media\\snakes\\snake.jpg"
+            "TargetName" = "8:snake.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DAC10F00FD62457F8D3839C4DDA99F5D"
+            {
+            "SourcePath" = "8:..\\Release\\media\\snakes\\leopard.jpg"
+            "TargetName" = "8:leopard.jpg"
+            "Tag" = "8:"
+            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
+            "Condition" = "8:"
+            "Transitive" = "11:FALSE"
+            "Vital" = "11:TRUE"
+            "ReadOnly" = "11:FALSE"
+            "Hidden" = "11:FALSE"
+            "System" = "11:FALSE"
+            "Permanent" = "11:FALSE"
+            "SharedLegacy" = "11:FALSE"
+            "PackageAs" = "3:1"
+            "Register" = "3:1"
+            "Exclude" = "11:FALSE"
+            "IsDependency" = "11:FALSE"
+            "IsolateTo" = "8:"
+            }
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_DD98DF63572A402A872C94D73DE3CCCD"
+            {
+            "SourcePath" = "8:..\\Release\\media\\snakes\\blue2.JPG"
+            "TargetName" = "8:blue2.JPG"
             "Tag" = "8:"
             "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
@@ -1353,12 +1679,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F0058BBDCEC2418A9534951AF15151F1"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_EF15167AC489429988276CDA276F0412"
             {
-            "SourcePath" = "8:..\\Release\\media\\terrain.jpg"
-            "TargetName" = "8:terrain.jpg"
+            "SourcePath" = "8:..\\Release\\media\\snakes\\viper01.jpg"
+            "TargetName" = "8:viper01.jpg"
             "Tag" = "8:"
-            "Folder" = "8:_5AD0F9F0DC2043FCB98B7CD7181DA2FB"
+            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1373,12 +1699,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F0501FCAB99E49BAAB0681ECEA084CD7"
+            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F0058BBDCEC2418A9534951AF15151F1"
             {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\krajta.jpg"
-            "TargetName" = "8:krajta.jpg"
+            "SourcePath" = "8:..\\Release\\media\\terrain.jpg"
+            "TargetName" = "8:terrain.jpg"
             "Tag" = "8:"
-            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
+            "Folder" = "8:_5AD0F9F0DC2043FCB98B7CD7181DA2FB"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1433,52 +1759,12 @@
             "IsDependency" = "11:FALSE"
             "IsolateTo" = "8:"
             }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F654A1EF0F964B5BB05173D7C0BE4512"
-            {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\sn01.jpg"
-            "TargetName" = "8:sn01.jpg"
-            "Tag" = "8:"
-            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
             "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_F70D0BB2953547F9856ACBF8175C3EC8"
             {
             "SourcePath" = "8:..\\Release\\fx\\effects10.fxo"
             "TargetName" = "8:effects10.fxo"
             "Tag" = "8:"
             "Folder" = "8:_9AA4D53F1D84441BA756E4180A49C56F"
-            "Condition" = "8:"
-            "Transitive" = "11:FALSE"
-            "Vital" = "11:TRUE"
-            "ReadOnly" = "11:FALSE"
-            "Hidden" = "11:FALSE"
-            "System" = "11:FALSE"
-            "Permanent" = "11:FALSE"
-            "SharedLegacy" = "11:FALSE"
-            "PackageAs" = "3:1"
-            "Register" = "3:1"
-            "Exclude" = "11:FALSE"
-            "IsDependency" = "11:FALSE"
-            "IsolateTo" = "8:"
-            }
-            "{1FB2D0AE-D3B9-43D4-B9DD-F88EC61E35DE}:_FD0FFEFA86AC4887A9CA408C7C8C6617"
-            {
-            "SourcePath" = "8:..\\Release\\media\\snakes\\sn02.jpg"
-            "TargetName" = "8:sn02.jpg"
-            "Tag" = "8:"
-            "Folder" = "8:_F5C3F4D66C5046F88416D7FA5FBC29D0"
             "Condition" = "8:"
             "Transitive" = "11:FALSE"
             "Vital" = "11:TRUE"
@@ -1658,7 +1944,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:SnakeWorld Game"
         "ProductCode" = "8:{BCA5E6C5-8CD4-49B2-952E-1ABE356940AD}"
-        "PackageCode" = "8:{FAECDF11-0520-4671-9D9C-702E7C9C6D77}"
+        "PackageCode" = "8:{9ABCC120-C41A-40CE-B9D2-1A7CD534FE6C}"
         "UpgradeCode" = "8:{C51FD450-3DBB-4998-A335-8C13FDAF41C1}"
         "RestartWWWService" = "11:FALSE"
         "RemovePreviousVersions" = "11:TRUE"
