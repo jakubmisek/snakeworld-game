@@ -11,7 +11,7 @@
 
   <string key="stats_total" title="">Celkem</string>
   <string key="stats_day" title="">Dnes</string>
-  <string key="stats_week" title="">Tento týden</string>
+  <string key="stats_week" title="">Od neděle</string>
   <string key="stats_month" title="">Tento měsíc</string>
   
 </language>
