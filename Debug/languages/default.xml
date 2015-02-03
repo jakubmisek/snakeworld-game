@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <text key="mainmenu">Main Menu</text>
+  <text key="4:3">Classic 4:3</text>
+  <text key="16:10">Wide 16:10</text>
+  <text key="16:9">Wide 16:9</text>
+  <text key="lowest">Lowest</text>
+  <text key="low">Low</text>
+  <text key="medium">Medium</text>
+  <text key="high">High</text>
+  <text key="lowestsmooth">Lowest Smooth</text>
+  <text key="lowsmooth">Low Smooth</text>
+  <text key="mediumsmooth">Medium Smooth</text>
+  <text key="highsmooth">High Smooth</text>
+  <text key="settings">Settings</text>
+  <text key="off">Off</text>
+  <text key="yes">Yes</text>
+  <text key="no">No</text>
+  <text key="quitgame">Quit Game</text>
+  <text key="newgame">New Game</text>
+  <text key="startgame">Start Game</text>
+  <text key="texture">Texture</text>
+  <text key="name">Name</text>
+  <text key="description">Description</text>
+  <text key="back">Back</text>
+  <text key="audio">Audio volume</text>
+  <text key="graphics">Graphics</text>
+  <text key="grassdetail">Grass Detail</text>
+  <text key="fullscreen">FullScreen</text>
+  <text key="fullscreenaspectratio">Fullscreen Aspect Ratio</text>
+  <text key="connecting">Connecting ...</text>
+  <text key="connectto">Connect to:</text>
+  <text key="reconnect">Reconnect</text>
+  <text key="wait">Please wait ...</text>
+  <text key="cancel">Cancel</text>
+  <text key="length">Length</text>
+  <text key="youkilled">You killed '%s' !!</text>
+  <text key="selfkill">You killed yourself ...</text>
+  <text key="killedby">'%s' killed you ...</text>
+  <text key="bestscore">Best score</text>
+  <text key="chat">Chat</text>
+  <text key="chatflow">Do not send so many messages please ...</text>
+  <text key="chatvisibility">Chat visibility</text>
+
+</language>
