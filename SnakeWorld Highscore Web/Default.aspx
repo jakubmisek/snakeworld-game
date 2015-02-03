@@ -16,22 +16,22 @@
     <tr>
         <td>
             <%= (statsPeriod == StatsPeriod.Today) ? RoundBox.HtmlBeginEx(false,true,"c") : null %>
-            <asp:HyperLink runat="server" ID="statsDay"></asp:HyperLink>
+            <asp:LinkButton runat="server" ID="statsDay" onclick="statsDay_Click" />
             <%= (statsPeriod == StatsPeriod.Today) ? RoundBox.HtmlEnd : null%>
         </td>
         <td>
             <%= (statsPeriod == StatsPeriod.Week) ? RoundBox.HtmlBeginEx(false, true, "c") : null%>
-            <asp:HyperLink runat="server" ID="statsWeek"></asp:HyperLink>
+            <asp:LinkButton runat="server" ID="statsWeek" onclick="statsWeek_Click" />
             <%= (statsPeriod == StatsPeriod.Week) ? RoundBox.HtmlEnd : null%>
         </td>
         <td>
             <%= (statsPeriod == StatsPeriod.Month) ? RoundBox.HtmlBeginEx(false, true, "c") : null%>
-            <asp:HyperLink runat="server" ID="statsMonth"></asp:HyperLink>
+            <asp:LinkButton runat="server" ID="statsMonth" onclick="statsMonth_Click" />
             <%= (statsPeriod == StatsPeriod.Month) ? RoundBox.HtmlEnd : null%>
         </td>
         <td>
             <%= (statsPeriod == StatsPeriod.Total) ? RoundBox.HtmlBeginEx(false, true, "c") : null%>
-            <asp:HyperLink runat="server" ID="statsTotal"></asp:HyperLink>
+            <asp:LinkButton runat="server" ID="statsTotal" onclick="statsTotal_Click" />
             <%= (statsPeriod == StatsPeriod.Total) ? RoundBox.HtmlEnd : null%>
         </td>
     </tr>

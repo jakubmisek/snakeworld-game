@@ -76,10 +76,45 @@ public partial class _Default : System.Web.UI.Page
         Month = 3,
     }
 
-    protected StatsPeriod statsPeriod = StatsPeriod.Today;
     protected LanguageInfo CurrentLanguage = null;
-    protected string sortColumn = "length";
-    protected int skipItems = 0;
+
+    protected string sortColumn
+    {
+        get
+        {
+            object o = Session["s"];
+
+            if (o == null)
+            {
+                Session["s"] = o = "length";
+            }
+
+            return (string)o;
+        }
+        set
+        {
+            Session["s"] = value;
+        }
+    }
+
+    protected StatsPeriod statsPeriod
+    {
+        get
+        {
+            object o = Session["p"];
+
+            if (o == null)
+            {
+                Session["p"] = o = StatsPeriod.Today;
+            }
+
+            return (StatsPeriod)o;
+        }
+        set
+        {
+            Session["p"] = value;
+        }
+    }
 
     protected const int itemsOnPage = 15;
 
@@ -91,26 +126,10 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
-    protected string MakeLink( StatsPeriod p, string sort )
-    {
-        return string.Format("Default.aspx?l={0}&p={1}&s={2}", CurrentLanguage.CultureName, (int)p, sort);
-    }
-
     protected void Page_Load(object sender, EventArgs e)
     {
         // current language
         CurrentLanguage = Languages.LanguageByCulture(Request["l"]);
-
-        if (Request["p"] != null)
-        {
-            statsPeriod = (StatsPeriod)int.Parse(Request["p"]);
-        }
-        if (Request["s"] != null)
-        {
-            sortColumn = Request["s"];
-        }
-
-        skipItems = 0;
 
         if (IsPostBack)
             return;
@@ -132,7 +151,7 @@ public partial class _Default : System.Web.UI.Page
         RebindResults();
     }
 
-    protected void SetActiveHeader(string sortColumn)
+    protected void SetActiveHeader()
     {
         for (int i = 0; i < 7; ++i)
             results.Columns[i].HeaderStyle.CssClass = string.Empty;
@@ -158,19 +177,10 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
-    protected void ResetPeriodUrls()
-    {
-        statsTotal.NavigateUrl = MakeLink(StatsPeriod.Total, sortColumn);
-        statsMonth.NavigateUrl = MakeLink(StatsPeriod.Month, sortColumn);
-        statsWeek.NavigateUrl = MakeLink(StatsPeriod.Week, sortColumn);
-        statsDay.NavigateUrl = MakeLink(StatsPeriod.Today, sortColumn);
-    }
-
     protected void RebindResults()
     {
-        SetActiveHeader(sortColumn);
-        ResetPeriodUrls();
-
+        SetActiveHeader();
+        
         var snakeworldDb = new snakeworldDataContext();
         var webDb = new webDataContext();
 
@@ -272,7 +282,7 @@ public partial class _Default : System.Web.UI.Page
 
         // Set CurrentPageIndex to the page the user clicked.
         results.CurrentPageIndex = e.NewPageIndex;
-
+        
         RebindResults();
     }
 
@@ -281,7 +291,36 @@ public partial class _Default : System.Web.UI.Page
     {
         sortColumn = e.SortExpression;
         results.CurrentPageIndex = 0;
+
         RebindResults();
     }
-    
+
+    protected void statsDay_Click(object sender, EventArgs e)
+    {
+        results.CurrentPageIndex = 0;
+        statsPeriod = StatsPeriod.Today;
+
+        RebindResults();
+    }
+    protected void statsWeek_Click(object sender, EventArgs e)
+    {
+        results.CurrentPageIndex = 0;
+        statsPeriod = StatsPeriod.Week;
+
+        RebindResults();
+    }
+    protected void statsMonth_Click(object sender, EventArgs e)
+    {
+        results.CurrentPageIndex = 0;
+        statsPeriod = StatsPeriod.Month;
+
+        RebindResults();
+    }
+    protected void statsTotal_Click(object sender, EventArgs e)
+    {
+        results.CurrentPageIndex = 0;
+        statsPeriod = StatsPeriod.Total;
+
+        RebindResults();
+    }
 }
