@@ -9,7 +9,7 @@
       <Column Name="kills" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="suicides" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="plays" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="lastPlayTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="playDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

@@ -73,9 +73,10 @@ namespace SnakeWorld_Server
         /// <returns>new apple state</returns>
         public void ResetApple(UInt32 iApple)
         {
+            // new apple position (minimal 1.0 points from the scene border)
             Apple newApple = new Apple(
-                            rndNumbers.NextDouble() * sceneRect.Width + sceneRect.Left,
-                            rndNumbers.NextDouble() * sceneRect.Height + sceneRect.Top);
+                            rndNumbers.NextDouble() * (sceneRect.Width - 2.0) + (sceneRect.Left + 1.0),
+                            rndNumbers.NextDouble() * (sceneRect.Height - 2.0) + (sceneRect.Top + 1.0));
 
             lock (this)
             {
