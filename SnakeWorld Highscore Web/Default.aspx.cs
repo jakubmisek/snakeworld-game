@@ -12,6 +12,9 @@ public partial class _Default : System.Web.UI.Page
         private string _name;
         private int _length, _kills, _suicides, _plays;
         private TimeSpan _playtime;
+        private int _num = -1;
+
+        public readonly bool IsRegisteredPlayer;
 
         public string name
         {
@@ -55,10 +58,22 @@ public partial class _Default : System.Web.UI.Page
                 return _playtime;
             }
         }
-
+        public int num
+        {
+            get
+            {
+                return _num;
+            }
+            set
+            {
+                _num = value;
+            }
+        }
 
         public ResultInfo(UserInfo user, SnakeInfo snake)
         {
+            IsRegisteredPlayer = (user.userId != (-1));
+
             _name = user.name;
             _length = (int)snake.maxLength;
             _kills = snake.kills;
@@ -239,7 +254,7 @@ public partial class _Default : System.Web.UI.Page
 
         foreach (var v in users)
         {
-            UserInfo user = (v.userId != (-1)) ? webDb.UserInfos.SingleOrDefault(u => u.userId == v.userId) : (new UserInfo() { name = TextItems.unregistered });
+            UserInfo user = (v.userId != (-1)) ? webDb.UserInfos.SingleOrDefault(u => u.userId == v.userId) : (new UserInfo() { name = TextItems.unregistered, userId = (-1) });
 
             resultInfo.Add(new ResultInfo(user, v));
         }
@@ -272,7 +287,27 @@ public partial class _Default : System.Web.UI.Page
         results.PageSize = itemsOnPage;
         results.VirtualItemCount = shortedResults.Count();
 
-        results.DataSource = shortedResults.Skip(results.CurrentPageIndex * itemsOnPage).Take(itemsOnPage);
+        var resultItems = shortedResults.Skip(results.CurrentPageIndex * itemsOnPage).Take(itemsOnPage);
+
+        // rows num.
+        int i = results.CurrentPageIndex * itemsOnPage + 1;
+        int rowIndex = 0;
+        foreach (var r in resultItems)
+        {
+            if (r.IsRegisteredPlayer)
+            {
+                r.num = i++;
+            }
+            else
+            {
+                results.SelectedIndex = rowIndex;
+            }
+
+            ++rowIndex;
+        }
+
+        // data bind
+        results.DataSource = resultItems;
         results.DataBind();
 
     }
