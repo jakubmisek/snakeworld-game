@@ -116,14 +116,11 @@ namespace SnakeWorld_Server
         /// <summary>
         /// info about the logged snake
         /// </summary>
-        protected SnakeInfo loggedSnakeUser = null;
-
-        /// <summary>
-        /// snake world database connection
-        /// </summary>
-        protected snakeworldDataContext snakeDb = null;
+        private UserInfo _loggedWebUser = null;
 
         protected DateTime playStartTime = DateTime.Now;
+        protected int suicidesCount = 0;
+        protected int killsCount = 0;
 
         /// <summary>
         /// generate hash (to be send via emails and other unsafe paths)
@@ -146,27 +143,13 @@ namespace SnakeWorld_Server
         {
             // login, can throw an exception
             var webDb = new webDataContext();
-            var loggedWebUser = webDb.UserInfos.Single(u => u.email == userEmail.ToLower());
-            if (GenerateHash(password + loggedWebUser.saltHash) != loggedWebUser.passwordHash)
+            _loggedWebUser = webDb.UserInfos.Single(u => u.email == userEmail.ToLower());
+            if (GenerateHash(password + _loggedWebUser.saltHash) != _loggedWebUser.passwordHash)
                 throw new Exception("Invalid password");
 
-            this.Name = "® " + loggedWebUser.name;
+            this.Name = "® " + _loggedWebUser.name;  // registered user name
             
-            // get and create snake user if not yet
-            snakeDb = new snakeworldDataContext();
-            loggedSnakeUser = snakeDb.SnakeInfos.SingleOrDefault(u => u.userId == loggedWebUser.userId);
-            if (loggedSnakeUser == null)
-            {
-                loggedSnakeUser = new SnakeInfo();
-                loggedSnakeUser.userId = loggedWebUser.userId;
-
-                snakeDb.SnakeInfos.InsertOnSubmit(loggedSnakeUser);
-                snakeDb.SubmitChanges();
-            }
-
-            loggedSnakeUser.plays++;
-
-            // start time
+            // start values
             playStartTime = DateTime.Now;
         }
 
@@ -175,24 +158,41 @@ namespace SnakeWorld_Server
         /// </summary>
         public void Logout()
         {
+            if (_loggedWebUser == null)
+                return;
+
             try
             {
+                DateTime playDate = DateTime.Now.Date;
 
-                // update statistics
-                TimeSpan playLength = DateTime.Now - playStartTime;
-
-                if (loggedSnakeUser != null)
+                // get and create snake user if not yet
+                var snakeDb = new snakeworldDataContext();
+                var loggedSnakeUser = snakeDb.SnakeInfos.SingleOrDefault(u => u.userId == _loggedWebUser.userId && u.playDate == playDate);
+                if (loggedSnakeUser == null)
                 {
-                    loggedSnakeUser.timeSecondsPlayed += (int)playLength.TotalSeconds;
-                    loggedSnakeUser.lastPlayTime = DateTime.Now;
+                    loggedSnakeUser = new SnakeInfo();
+                    loggedSnakeUser.userId = _loggedWebUser.userId;
+                    loggedSnakeUser.playDate = playDate;
 
-                    if (snakeDb != null)
-                    {
-                        // save changes into the database
-                        snakeDb.SubmitChanges();
-                    }
+                    snakeDb.SnakeInfos.InsertOnSubmit(loggedSnakeUser);
                 }
 
+                // update statistics
+                loggedSnakeUser.plays++;
+                loggedSnakeUser.kills += killsCount;
+                loggedSnakeUser.suicides += suicidesCount;
+
+                TimeSpan playLength = DateTime.Now - playStartTime;
+                loggedSnakeUser.timeSecondsPlayed += (int)playLength.TotalSeconds;
+                
+                // update snake high score
+                if (loggedSnakeUser.maxLength < snakeLength)
+                    loggedSnakeUser.maxLength = snakeLength;
+                
+                // save changes into the database
+                snakeDb.SubmitChanges();
+
+                _loggedWebUser = null;
             }
             catch(Exception)
             {
@@ -206,17 +206,14 @@ namespace SnakeWorld_Server
         /// <param name="deadSnakeId"></param>
         public void SnakeKilled(uint deadSnakeId)
         {
-            if (loggedSnakeUser == null)
-                return;
-
             if (deadSnakeId == snakeId)
             {   // suicide
-                loggedSnakeUser.suicides++;
+                ++suicidesCount;
             }
             else
             {
                 // ++
-                loggedSnakeUser.kills++;
+                ++killsCount;
             }
         }
 
@@ -408,12 +405,6 @@ namespace SnakeWorld_Server
                 snakeLength = value;
 
                 DirtyValues |= DirtyValueBits.Length;
-
-                // update snake high score
-                if (loggedSnakeUser != null && loggedSnakeUser.maxLength < snakeLength)
-                {
-                    loggedSnakeUser.maxLength = snakeLength;
-                }
             }
             get
             {

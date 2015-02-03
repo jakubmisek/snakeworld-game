@@ -11,7 +11,7 @@ public partial class _Default : System.Web.UI.Page
     {
         private string _name;
         private int _length, _kills, _suicides, _plays;
-        private TimeSpan _playtime, _lastplayago;
+        private TimeSpan _playtime;
 
         public string name
         {
@@ -55,13 +55,6 @@ public partial class _Default : System.Web.UI.Page
                 return _playtime;
             }
         }
-        public TimeSpan lastplayago
-        {
-            get
-            {
-                return _lastplayago;
-            }
-        }
 
 
         public ResultInfo(UserInfo user, SnakeInfo snake)
@@ -72,11 +65,6 @@ public partial class _Default : System.Web.UI.Page
             _suicides = snake.suicides;
             _plays = snake.plays;
             _playtime = TimeSpan.FromSeconds((double)snake.timeSecondsPlayed);
-
-            if (snake.lastPlayTime != null)
-                _lastplayago = DateTime.Now - (DateTime)snake.lastPlayTime;
-            else
-                _lastplayago = TimeSpan.MaxValue;
         }
     }
 
@@ -143,8 +131,17 @@ public partial class _Default : System.Web.UI.Page
         var webDb = new webDataContext();
 
         var users = (from a in snakeworldDb.SnakeInfos
-                     //orderby a.maxLength descending
-                     select a);
+                     group a by a.userId into g
+                     select new SnakeInfo()
+                     {
+                         userId = g.Key,
+                         kills = g.Sum(s => s.kills),
+                         maxLength = g.Max(s => s.maxLength),
+                         playDate = g.Max(s => s.playDate),
+                         plays = g.Sum(s => s.plays),
+                         suicides = g.Sum(s => s.suicides),
+                         timeSecondsPlayed = g.Sum(s => s.timeSecondsPlayed)
+                     });
 
         List<ResultInfo> resultInfo = new List<ResultInfo>();
         

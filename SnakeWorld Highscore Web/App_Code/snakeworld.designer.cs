@@ -91,7 +91,7 @@ public partial class SnakeInfo : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private int _plays;
 	
-	private System.Nullable<System.DateTime> _lastPlayTime;
+	private System.DateTime _playDate;
 	
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -109,8 +109,8 @@ public partial class SnakeInfo : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnsuicidesChanged();
     partial void OnplaysChanging(int value);
     partial void OnplaysChanged();
-    partial void OnlastPlayTimeChanging(System.Nullable<System.DateTime> value);
-    partial void OnlastPlayTimeChanged();
+    partial void OnplayDateChanging(System.DateTime value);
+    partial void OnplayDateChanged();
     #endregion
 	
 	public SnakeInfo()
@@ -238,22 +238,22 @@ public partial class SnakeInfo : INotifyPropertyChanging, INotifyPropertyChanged
 		}
 	}
 	
-	[Column(Storage="_lastPlayTime", DbType="DateTime")]
-	public System.Nullable<System.DateTime> lastPlayTime
+	[Column(Storage="_playDate", DbType="DateTime NOT NULL")]
+	public System.DateTime playDate
 	{
 		get
 		{
-			return this._lastPlayTime;
+			return this._playDate;
 		}
 		set
 		{
-			if ((this._lastPlayTime != value))
+			if ((this._playDate != value))
 			{
-				this.OnlastPlayTimeChanging(value);
+				this.OnplayDateChanging(value);
 				this.SendPropertyChanging();
-				this._lastPlayTime = value;
-				this.SendPropertyChanged("lastPlayTime");
-				this.OnlastPlayTimeChanged();
+				this._playDate = value;
+				this.SendPropertyChanged("playDate");
+				this.OnplayDateChanged();
 			}
 		}
 	}
