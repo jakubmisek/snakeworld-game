@@ -243,6 +243,11 @@ LRESULT CALLBACK GameWndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam 
 					return 0;
 				}
 			}
+		case VK_MENU:
+			{
+
+				return 0;
+			}
 		}
 		break;
 	case WM_KEYDOWN:
