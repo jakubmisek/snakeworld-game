@@ -204,7 +204,7 @@ bool	CDX9Device::InitEffects()
 
 //////////////////////////////////////////////////////////////////////////
 // render string using DX9
-void	CDX9Device::RenderText(wchar_t*str, D3DXCOLOR&color, D3DXVECTOR2&position, bool bCenter, bool bRight)
+void	CDX9Device::RenderText(wchar_t*str, D3DXCOLOR&color, D3DXVECTOR2&position, bool bCenter, bool bRight, SIZE*pOutSize)
 {
 	if (m_pFont9)
 	{
@@ -234,6 +234,13 @@ void	CDX9Device::RenderText(wchar_t*str, D3DXCOLOR&color, D3DXVECTOR2&position, 
 
 		// draw the text
 		m_pFont9->DrawText( NULL, str, -1, &rc, flags, color );
+
+		if (pOutSize)
+		{
+			HDC dc = m_pFont9->GetDC();
+			int len = wcslen(str);
+			GetTextExtentPoint32( dc, str, len, pOutSize );
+		}
 	}
 }
 

@@ -288,6 +288,8 @@ public partial class _Default : System.Web.UI.Page
         results.PageSize = itemsOnPage;
         results.VirtualItemCount = shortedResults.Count();
 
+        results.SelectedIndex = -1;
+
         var resultItems = shortedResults.Skip(results.CurrentPageIndex * itemsOnPage).Take(itemsOnPage);
 
         // rows num.

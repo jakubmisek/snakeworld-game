@@ -72,12 +72,12 @@ void	CDXDevice::Present()
 
 
 // render text using some existing device
-void	CDXDevice::RenderText( wchar_t*str, D3DXCOLOR&color, D3DXVECTOR2&position, bool bCenter /*= false*/, bool bRight /*= false*/ )
+void	CDXDevice::RenderText( wchar_t*str, D3DXCOLOR&color, D3DXVECTOR2&position, bool bCenter /*= false*/, bool bRight /*= false*/, SIZE*pOutSize )
 {
 	if (pDX10)
-		pDX10->RenderText(str,color,position,bCenter,bRight);
+		pDX10->RenderText(str,color,position,bCenter,bRight,pOutSize);
 	else if (pDX9)
-		pDX9->RenderText(str,color,position,bCenter,bRight);
+		pDX9->RenderText(str,color,position,bCenter,bRight,pOutSize);
 }
 
 
