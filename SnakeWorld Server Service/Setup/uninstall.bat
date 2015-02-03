@@ -1,0 +1,1 @@
+InstallUtil.exe /u "..\Release\SnakeWorld Server Service.exe"
