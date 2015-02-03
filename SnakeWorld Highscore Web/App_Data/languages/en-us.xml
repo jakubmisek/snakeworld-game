@@ -12,6 +12,8 @@
   <string key="stats_total" title="">Total</string>
   <string key="stats_day" title="">Today</string>
   <string key="stats_week" title="">This week</string>
-  <string key="stats_month" title="">This month</string>  
-  
+  <string key="stats_month" title="">This month</string>
+
+  <string key="unregistered" title="">(Not registered)</string>
+
 </language>
