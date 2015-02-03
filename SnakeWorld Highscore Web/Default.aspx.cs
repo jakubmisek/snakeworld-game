@@ -165,7 +165,7 @@ public partial class _Default : System.Web.UI.Page
         // texts
         results.Columns[1].HeaderText = TextItems.username;
         results.Columns[2].HeaderText = TextItems.bestscore;
-        results.Columns[3].HeaderText = TextItems.playscount;
+        results.Columns[3].HeaderText = TextItems.apples;
         results.Columns[4].HeaderText = TextItems.kills;
         results.Columns[5].HeaderText = TextItems.suicides;
         results.Columns[6].HeaderText = TextItems.playtime;
