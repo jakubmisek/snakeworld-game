@@ -9,9 +9,18 @@ public partial class _Default : System.Web.UI.Page
 {
     public class ResultInfo
     {
+        private int _num;
         private string _name;
         private int _length, _kills, _suicides, _plays;
         private TimeSpan _playtime, _lastplayago;
+
+        public int num
+        {
+            get
+            {
+                return _num;
+            }
+        }
 
         public string name
         {
@@ -64,8 +73,9 @@ public partial class _Default : System.Web.UI.Page
         }
 
 
-        public ResultInfo(UserInfo user, SnakeInfo snake)
+        public ResultInfo(UserInfo user, SnakeInfo snake, int num)
         {
+            _num = num;
             _name = user.name;
             _length = (int)snake.maxLength;
             _kills = snake.kills;
@@ -98,19 +108,47 @@ public partial class _Default : System.Web.UI.Page
             return;
 
         // texts
-        results.Columns[0].HeaderText = TextItems.username;
-        results.Columns[1].HeaderText = TextItems.bestscore;
-        results.Columns[2].HeaderText = TextItems.playscount;
-        results.Columns[3].HeaderText = TextItems.kills;
-        results.Columns[4].HeaderText = TextItems.suicides;
-        results.Columns[5].HeaderText = TextItems.playtime;
-        
+        results.Columns[1].HeaderText = TextItems.username;
+        results.Columns[2].HeaderText = TextItems.bestscore;
+        results.Columns[3].HeaderText = TextItems.playscount;
+        results.Columns[4].HeaderText = TextItems.kills;
+        results.Columns[5].HeaderText = TextItems.suicides;
+        results.Columns[6].HeaderText = TextItems.playtime;
+
         // results
         RebindResults("length");
     }
 
-    protected void RebindResults(string shortColumn)
+    protected void SetActiveHeader(string sortColumn)
     {
+        for (int i = 0; i < 7; ++i)
+            results.Columns[i].HeaderStyle.CssClass = string.Empty;
+
+        switch (sortColumn)
+        {
+            case "length":
+                results.Columns[2].HeaderStyle.CssClass = "sort";
+                break;
+            case "plays":
+                results.Columns[3].HeaderStyle.CssClass = "sort";
+                break;
+            case "kills":
+                results.Columns[4].HeaderStyle.CssClass = "sort";
+                break;
+            case "suicides":
+                results.Columns[5].HeaderStyle.CssClass = "sort";
+                break;
+            case "playtime":
+                results.Columns[6].HeaderStyle.CssClass = "sort";
+                break;
+
+        }
+    }
+
+    protected void RebindResults(string sortColumn)
+    {
+        SetActiveHeader(sortColumn);
+
         var snakeworldDb = new snakeworldDataContext();
         var webDb = new webDataContext();
 
@@ -119,17 +157,18 @@ public partial class _Default : System.Web.UI.Page
                      select a);
 
         List<ResultInfo> resultInfo = new List<ResultInfo>();
+        int num = 0;
 
         foreach (var v in users)
         {
             var user = webDb.UserInfos.SingleOrDefault(u => u.userId == v.userId);
             if (user != null)
-                resultInfo.Add(new ResultInfo(user, v));
+                resultInfo.Add(new ResultInfo(user, v, ++num));
         }
 
         IEnumerable<ResultInfo> shortedResults = null;
 
-        switch (shortColumn)
+        switch (sortColumn)
         {
             case "length":
                 shortedResults = resultInfo.OrderByDescending(a => a.length);
