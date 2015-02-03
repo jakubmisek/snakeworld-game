@@ -27,7 +27,7 @@ namespace SnakeWorld_Server_Service
             System.IO.Directory.SetCurrentDirectory("C:\\Program Files\\SnakeWorldServer\\");
 
             ThreadPool.QueueUserWorkItem(new WaitCallback(Loader), new LoaderParams(1234, 400.0, 400.0, 300.0, 0.00006, 50));
-            ThreadPool.QueueUserWorkItem(new WaitCallback(Loader), new LoaderParams(1235, 200.0, 200.0, 300.0, 0.00004, 10));
+            ThreadPool.QueueUserWorkItem(new WaitCallback(Loader), new LoaderParams(1235, 400.0, 400.0, 300.0, 0.00006, 50));
         }
 
         protected override void OnStop()

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Text;
 using System.Diagnostics;
 using System.Threading;
+using System.Linq;
+using System.Security.Cryptography;
 
 using System.IO;
 using System.Net;
@@ -106,6 +108,86 @@ namespace SnakeWorld_Server
             // init ID
             this.snakeId = snakeId;
         }
+
+        #endregion
+
+        #region Logged snakes
+
+        /// <summary>
+        /// info about the logged snake
+        /// </summary>
+        protected SnakeInfo loggedSnakeUser = null;
+
+        /// <summary>
+        /// snake world database connection
+        /// </summary>
+        protected snakeworldDataContext snakeDb = null;
+
+        protected DateTime playStartTime = DateTime.Now;
+
+        /// <summary>
+        /// generate hash (to be send via emails and other unsafe paths)
+        /// </summary>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        private static string GenerateHash(string text)
+        {
+            byte[] bdata = Encoding.UTF8.GetBytes(text);
+            byte[] bhash = new SHA256Managed().ComputeHash(bdata);
+            return Convert.ToBase64String(bhash);
+        }
+
+        /// <summary>
+        /// Login the user using email and password.
+        /// </summary>
+        /// <param name="userEmail"></param>
+        /// <param name="passwordHash"></param>
+        public void Login(string userEmail, string password)
+        {
+            // login, can throw an exception
+            var webDb = new webDataContext();
+            var loggedWebUser = webDb.UserInfos.Single(u => u.email == userEmail.ToLower());
+            if (GenerateHash(password) != loggedWebUser.passwordHash)
+                throw new Exception("Invalid password");
+
+            this.Name = loggedWebUser.name;
+            
+            // get and create snake user if not yet
+            snakeDb = new snakeworldDataContext();
+            loggedSnakeUser = snakeDb.SnakeInfos.SingleOrDefault(u => u.userId == loggedWebUser.userId);
+            if (loggedSnakeUser == null)
+            {
+                loggedSnakeUser = new SnakeInfo();
+                loggedSnakeUser.userId = loggedWebUser.userId;
+
+                snakeDb.SnakeInfos.InsertOnSubmit(loggedSnakeUser);
+                snakeDb.SubmitChanges();
+            }
+
+            // start time
+            playStartTime = DateTime.Now;
+        }
+
+        /// <summary>
+        /// Users session end.
+        /// </summary>
+        public void Logout()
+        {
+            // update statistics
+            TimeSpan playLength = DateTime.Now - playStartTime;
+
+            if (loggedSnakeUser != null)
+            {
+                loggedSnakeUser.timeMinutesPlayed += playLength.Minutes;
+
+                if (snakeDb != null)
+                {
+                    // save changes into the database
+                    snakeDb.SubmitChanges();
+                }
+            }
+        }
+
         #endregion
 
         #region values
@@ -294,6 +376,12 @@ namespace SnakeWorld_Server
                 snakeLength = value;
 
                 DirtyValues |= DirtyValueBits.Length;
+
+                // update snake high score
+                if (loggedSnakeUser != null && loggedSnakeUser.maxLength < snakeLength)
+                {
+                    loggedSnakeUser.maxLength = snakeLength;
+                }
             }
             get
             {

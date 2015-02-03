@@ -23,6 +23,8 @@
 #define	MAX_NAME_LENGTH			(32)
 #define	MAX_DESCRIPTION_LENGTH	(64)
 #define MAX_TEXTUREFILE_LENGTH	(128)
+#define MAX_EMAIL_LENGTH	(255)
+#define MAX_PASSWORD_LENGTH	(255)
 
 //////////////////////////////////////////////////////////////////////////
 // game menu screens
@@ -79,6 +81,30 @@ public:
 	// get current command receiver
 	IGameControlReceiver*	GetCurrentReceiver();
 
+	struct SSettings
+	{
+		int m_iCurrentGraphics,		// current graphics settings index
+			m_iCurrentGrass,		// current grass settings index
+			m_iCurrentAspectRatio,	// current aspect ratio settings index
+			m_iCurrentFullscreen,	// full-screen enabled
+			m_iCurrentShadow;		// shadow enabled
+
+		WCHAR	m_szName[MAX_NAME_LENGTH+1];	// players name
+		WCHAR	m_szDescription[MAX_DESCRIPTION_LENGTH+1];	// players description
+		WCHAR	m_szTextureFile[MAX_TEXTUREFILE_LENGTH+1];	// texture file name
+
+		int	m_iAudio;		// audio enabled
+
+		int	m_iChatVisibility;	// 0 - 2
+
+		WCHAR	m_szUserEmail[MAX_EMAIL_LENGTH+1];	// user login email
+		WCHAR	m_szUserPassword[MAX_PASSWORD_LENGTH+1];	// user login password
+
+		void	Reset();
+		bool	Load( TCHAR*szFileName );
+		bool	Save( TCHAR*szFileName );
+	};
+
 private:
 
 	bool		CreateGameWindow( unsigned int iWidth, unsigned int iHeight, int nShowCmd );
@@ -104,6 +130,7 @@ private:
 	CGameMenu	m_menu;
 
 	CGameMenuScreen	*m_menuScreens[msCount];
+	IGameMenuControl*m_pEmailCtrl,*m_pPasswordCtrl,*m_pUsernameCtrl;
 
 	bool	InitMenuScreens();
 	void	InitConnectMenu();
@@ -114,26 +141,7 @@ private:
 
 	CMenuSelect	*m_pSelectFullscreen;
 
-	struct SSettings
-	{
-		int m_iCurrentGraphics,		// current graphics settings index
-			m_iCurrentGrass,		// current grass settings index
-			m_iCurrentAspectRatio,	// current aspect ratio settings index
-			m_iCurrentFullscreen,	// full-screen enabled
-			m_iCurrentShadow;		// shadow enabled
-
-		WCHAR	m_szName[MAX_NAME_LENGTH+1];	// players name
-		WCHAR	m_szDescription[MAX_DESCRIPTION_LENGTH+1];	// players description
-		WCHAR	m_szTextureFile[MAX_TEXTUREFILE_LENGTH+1];	// texture file name
-
-		int	m_iAudio;		// audio enabled
-
-		int	m_iChatVisibility;	// 0 - 2
-
-		void	Reset();
-		bool	Load( TCHAR*szFileName );
-		bool	Save( TCHAR*szFileName );
-	} m_iCurrentSettings;			// current settings ( = image of settings file )
+	SSettings m_iCurrentSettings;			// current settings ( = image of settings file )
 	
 	CAudioPath	m_audioStart;
 

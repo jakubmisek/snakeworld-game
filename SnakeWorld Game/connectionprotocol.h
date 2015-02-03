@@ -17,7 +17,7 @@ public:
 	//
 
 	
-	void Send_Request(CBinaryWriter*pbw,wchar_t*name, wchar_t*desc, wchar_t*type, wchar_t*texture, unsigned int lng);
+	void Send_Request(CBinaryWriter*pbw,wchar_t*name,wchar_t*email,wchar_t*password, wchar_t*desc, wchar_t*type, wchar_t*texture, unsigned int lng);
 	void Send_IDontKnow(CBinaryWriter*pbw, unsigned int unknownSnakeId);
 	void Send_AppleEaten(CBinaryWriter*pbw, unsigned int appleId);
 	void Send_ChatMesasage(CBinaryWriter*pbw, CString&targetuser, CString&message );

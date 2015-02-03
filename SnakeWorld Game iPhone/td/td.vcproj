@@ -143,7 +143,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="winmm.lib OpenAL32.lib EFX-Util.lib"
+				AdditionalDependencies="winmm.lib wininet.lib OpenAL32.lib EFX-Util.lib"
 				OutputFile="$(OutDir)\$(IntDir)\$(ProjectName).exe"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"

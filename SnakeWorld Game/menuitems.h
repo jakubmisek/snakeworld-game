@@ -3,6 +3,7 @@
 
 
 #include "menuscreen.h"
+#include "texts.h"
 
 //////////////////////////////////////////////////////////////////////////
 // menu controls
@@ -206,5 +207,92 @@ public:
 	CGameMenuScreen*m_pScreen;
 };
 
+
+
+//
+// CHECK BOX
+//
+class	CMenuCheckBox: public IGameMenuControl
+{
+public:
+	CMenuCheckBox( int iCmd, CString&strLabel, bool bChecked )
+		:m_iCmd(iCmd)
+		,m_bChecked(bChecked)
+	{
+		// label
+		m_strLabel = strLabel;
+		m_strLabel += L": ";
+	}
+
+	virtual ~CMenuCheckBox()
+	{
+		
+	}
+
+	virtual void	RenderControl( CDXDevice&dev, CGameMenuContainer*pContainer, D3DXVECTOR2&position, bool bSelected )
+	{
+		IGameMenuControl::RenderControl(dev,pContainer,position,bSelected);
+
+		CString str = m_strLabel;
+		
+		if (m_bChecked)
+			str += g_gameTexts[tYes];
+		else
+			str += g_gameTexts[tNo];
+	
+
+		D3DXCOLOR color = Enabled()?(bSelected?D3DXCOLOR(1,1,1,0.75f):D3DXCOLOR(0.0f,0.0f,0.1f,0.75f)):
+			(D3DXCOLOR(0.2f,0.2f,0.2f,0.75f));
+
+		dev.RenderText(str,color,position );
+
+	}
+
+	virtual void	OnEnter( CGameMenuObserver*pObserver )
+	{
+		
+		m_bChecked = !m_bChecked;
+
+		if (pObserver)
+			pObserver->OnCommandButton( this, m_iCmd );
+	}
+	virtual	void	OnLeft( CGameMenuObserver*pObserver )
+	{
+		OnEnter(pObserver);
+	}
+	virtual	void	OnRight( CGameMenuObserver*pObserver )
+	{
+		OnEnter(pObserver);
+	}
+	
+	virtual void	OnDelete( CGameMenuObserver*pObserver )
+	{
+		if (m_bChecked)
+		{
+			m_bChecked = false;
+
+			// callback
+			if (pObserver)
+				pObserver->OnCommandButton( this, m_iCmd );
+		}
+	}
+	virtual void	OnChar( CGameMenuObserver*pObserver, WCHAR wChar )
+	{
+		if (wChar == L' ')
+			OnEnter(pObserver);
+	}
+
+	bool IsChecked()
+	{
+		return m_bChecked;
+	}
+
+protected:
+
+	CString	m_strLabel;
+	int		m_iCmd;
+	
+	bool m_bChecked;
+};
 
 #endif//_MENUITEMS_H_

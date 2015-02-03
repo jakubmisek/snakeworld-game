@@ -33,6 +33,7 @@ public:
 
 	bool Add( T *pValue,CString&Name );	// insert new named item on the list end
 	bool Insert( T*pValue, CString&Name, int index );	// insert new named item on the specified position into the list
+	bool InsertAfter( T*pValue, T*pItemBefore );	// insert new named item after specified item
 
 	bool Remove( T *pValue, bool bDeleteValue );	// remove the item from the list
 	bool Remove( int index, bool bDeleteValue );	// remove the item[index] from the list
@@ -223,6 +224,32 @@ template<class T>
 bool	CList<T>::Insert(T *pValue, CString&Name, int index)
 {
 	return Insert( new CListNode<T>( pValue, Name ), index );
+}
+
+template<class T>
+bool	CList<T>::InsertAfter( T*pValue, T*pItemBefore )
+{
+	if ( !pValue || !pItemBefore)
+		return false;
+
+	for (CListNode<T>*p = pNodes;p;p = p->pNext)
+	{
+		if (p->pValue == pItemBefore)
+		{
+			CListNode<T> *newNode = new CListNode<T>( pValue );
+
+			newNode->pNext = p->pNext;
+			p->pNext = newNode;
+
+			if (!newNode->pNext)
+				pLastNode = newNode;
+
+			++ nNodes;
+			return true;
+		}
+	}
+
+	return false;
 }
 
 template<class T>

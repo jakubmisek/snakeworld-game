@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="snakeworld">
+  <DataContextMoniker Name="/snakeworldDataContext" />
+  <nestedChildShapes>
+    <classShape Id="f12527aa-b711-4dae-9fb3-4d92d6aa429b" absoluteBounds="1, 1.625, 2, 1.3862939453125">
+      <DataClassMoniker Name="/snakeworldDataContext/SnakeInfo" />
+      <nestedChildShapes>
+        <elementListCompartment Id="00dc9a3a-5cb8-420e-b8c1-026fd630f464" absoluteBounds="1.0150000000000001, 2.085, 1.9700000000000002, 0.8262939453125" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+      </nestedChildShapes>
+    </classShape>
+  </nestedChildShapes>
+</ordesignerObjectsDiagram>

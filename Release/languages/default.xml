@@ -21,6 +21,8 @@
   <text key="startgame">Start Game</text>
   <text key="texture">Texture</text>
   <text key="name">Name</text>
+  <text key="email">E-mail</text>
+  <text key="password">Password</text>
   <text key="description">Description</text>
   <text key="back">Back</text>
   <text key="audio">Audio volume</text>
@@ -41,5 +43,6 @@
   <text key="chat">Chat</text>
   <text key="chatflow">Do not send so many messages please ...</text>
   <text key="chatvisibility">Chat visibility</text>
+  <text key="useauthorization">Use your internet login (www.sacredware.com)</text>
 
 </language>

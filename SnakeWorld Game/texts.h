@@ -25,6 +25,8 @@ enum	ETexts
 	tStartGame,
 	tTexture,
 	tName,
+	tEmail,
+	tPassword,
 	tDescription,
 	tBack,
 	tAudio,
@@ -46,6 +48,8 @@ enum	ETexts
 	tChatFlowWarning,
 	tChatVisibility,
 	
+	tUseAuthorization,
+
 	tTextsCount
 };
 

@@ -230,6 +230,10 @@ namespace SnakeWorld_Server
             // close the connection
             newSnake.bw.StopSending();
             newSnake.networkStream.Close();
+
+            // finish logged snake session
+            // update statistics
+            newSnake.Logout();
         }
 
         #endregion
@@ -404,6 +408,14 @@ namespace SnakeWorld_Server
                 // Initialization commands
                 case ECmdIds.CMD_NAME:
                     snake.Name = ConnectionData.Receive_String(br);
+                    break;
+                case ECmdIds.CMD_LOGIN:
+                    {
+                        string userEmail = ConnectionData.Receive_String(br);
+                        string userPassword = ConnectionData.Receive_String(br);
+
+                        snake.Login(userEmail, userPassword);
+                    }
                     break;
                 case ECmdIds.CMD_DESCRIPTION:
                     snake.Description = ConnectionData.Receive_String(br);
