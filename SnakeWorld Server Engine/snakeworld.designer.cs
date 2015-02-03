@@ -80,7 +80,7 @@ namespace SnakeWorld_Server
 		
 		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
-		private System.Nullable<int> _userId;
+		private int _userId;
 		
 		private int _timeSecondsPlayed;
 		
@@ -100,7 +100,7 @@ namespace SnakeWorld_Server
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnuserIdChanging(System.Nullable<int> value);
+    partial void OnuserIdChanging(int value);
     partial void OnuserIdChanged();
     partial void OntimeSecondsPlayedChanging(int value);
     partial void OntimeSecondsPlayedChanged();
@@ -123,8 +123,8 @@ namespace SnakeWorld_Server
 			OnCreated();
 		}
 		
-		[Column(Storage="_userId", DbType="Int")]
-		public System.Nullable<int> userId
+		[Column(Storage="_userId", DbType="Int NOT NULL")]
+		public int userId
 		{
 			get
 			{

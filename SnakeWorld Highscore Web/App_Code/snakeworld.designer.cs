@@ -79,7 +79,7 @@ public partial class SnakeInfo : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 	
-	private System.Nullable<int> _userId;
+	private int _userId;
 	
 	private int _timeSecondsPlayed;
 	
@@ -99,7 +99,7 @@ public partial class SnakeInfo : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
-    partial void OnuserIdChanging(System.Nullable<int> value);
+    partial void OnuserIdChanging(int value);
     partial void OnuserIdChanged();
     partial void OntimeSecondsPlayedChanging(int value);
     partial void OntimeSecondsPlayedChanged();
@@ -122,8 +122,8 @@ public partial class SnakeInfo : INotifyPropertyChanging, INotifyPropertyChanged
 		OnCreated();
 	}
 	
-	[Column(Storage="_userId", DbType="Int")]
-	public System.Nullable<int> userId
+	[Column(Storage="_userId", DbType="Int NOT NULL")]
+	public int userId
 	{
 		get
 		{
