@@ -15,16 +15,18 @@ namespace SnakeWorld_Server
         /// <summary>
         /// Init.
         /// </summary>
-        /// <param name="ns"></param>
+        /// <param name="ostream">The buffered output stream.</param>
+        /// <param name="memorystream">The buffer.</param>
         public BufferedBinaryWriter( Stream ostream, MemoryStream memorystream )
             : base(memorystream)
         {
             ms = memorystream;
-
             ms.SetLength(0);
             ms.Position = 0;
 
             OutputStream = new BinaryWriter(ostream);
+
+            ThreadPool.QueueUserWorkItem(DelayFlush, null);
         }
 
         /// <summary>
@@ -38,73 +40,12 @@ namespace SnakeWorld_Server
         protected MemoryStream ms;
 
         /// <summary>
-        /// amount of bytes to be waiting in the buffer.
-        /// </summary>
-        protected const int maxbuffersize = 1024;
-
-        /// <summary>
-        /// The waiting thread is running. (flush will be called)
-        /// </summary>
-        protected bool IsDelayingFlush = false;
-
-        /// <summary>
         /// Delayed flush.
         /// </summary>
         public override void Flush()
         {
-            lock(this)
-            {
-                if (ms.Length >= maxbuffersize)
-                {
-                    DoFlushL();
-                }
-                else
-                {
-                    // flush after some time
-                    DelayFlush();
-                }
-            }
-            
+            // do nothing, data will be sent on the separate "send thread" (DelayFlush)
         }
-
-        /// <summary>
-        /// Flush the data to the output stream.
-        /// </summary>
-        private void DoFlushL()
-        {
-            if (IsDelayingFlush)
-                return;
-
-            try
-            {
-                ms.WriteTo(OutputStream.BaseStream);
-                OutputStream.Flush();
-
-                ms.SetLength(0);
-                ms.Position = 0;
-            }
-            catch(Exception)
-            {
-            }            
-        }
-
-
-        /// <summary>
-        /// Wait some time on another thread and then call flush.
-        /// </summary>
-        private void DelayFlush()
-        {
-            lock(this)
-            {
-                if (IsDelayingFlush)
-                    return;
-
-                IsDelayingFlush = true;
-
-                ThreadPool.QueueUserWorkItem(DelayFlush, null);
-            }
-        }
-
 
         /// <summary>
         /// Wait some time and then call FLUSH.
@@ -112,87 +53,100 @@ namespace SnakeWorld_Server
         /// <param name="obj"></param>
         private void DelayFlush(object obj)
         {
-            Thread.Sleep(250);
-
-            lock(this)
+            while (true)
             {
-                IsDelayingFlush = false;
+                // wait some time
+                Thread.Sleep(330);
 
-                DoFlushL();
+                lock(ms)
+                {
+                    try
+                    {
+                        ms.WriteTo(OutputStream.BaseStream);
+                        OutputStream.Flush();
+
+                        ms.SetLength(0);
+                        ms.Position = 0;
+                    }
+                    catch (Exception)
+                    {
+                        return; // stop sending the data
+                    }
+                }
             }
         }
 
         public override void Write(bool value)
         {
-            lock(this){base.Write(value);}
+            lock(ms){base.Write(value);}
         }
         public override void Write(byte value)
         {
-            lock(this){base.Write(value);}
+            lock(ms){base.Write(value);}
         }
         public override void Write(byte[] buffer)
         {
-            lock(this){base.Write(buffer);}
+            lock(ms){base.Write(buffer);}
         }
         public override void Write(byte[] buffer, int index, int count)
         {
-            lock(this){base.Write(buffer, index, count);}
+            lock(ms){base.Write(buffer, index, count);}
         }
         public override void Write(char ch)
         {
-            lock(this){base.Write(ch);}
+            lock(ms){base.Write(ch);}
         }
         public override void Write(char[] chars)
         {
-            lock(this){base.Write(chars);}
+            lock(ms){base.Write(chars);}
         }
         public override void Write(char[] chars, int index, int count)
         {
-            lock(this){base.Write(chars, index, count);}
+            lock(ms){base.Write(chars, index, count);}
         }
         public override void Write(decimal value)
         {
-            lock(this){base.Write(value);}
+            lock(ms){base.Write(value);}
         }
         public override void Write(double value)
         {
-            lock(this){base.Write(value);}
+            lock(ms){base.Write(value);}
         }
         public override void Write(float value)
         {
-            lock(this){base.Write(value);}
+            lock(ms){base.Write(value);}
         }
         public override void Write(int value)
         {
-            lock(this){base.Write(value);}
+            lock(ms){base.Write(value);}
         }
         public override void Write(long value)
         {
-            lock(this){base.Write(value);}
+            lock(ms){base.Write(value);}
         }
         public override void Write(sbyte value)
         {
-            lock(this){base.Write(value);}
+            lock(ms){base.Write(value);}
         }
         public override void Write(short value)
         {
-            lock(this){base.Write(value);}
+            lock(ms){base.Write(value);}
         }
         public override void Write(string value)
         {
-            lock(this){base.Write(value);}
+            lock(ms){base.Write(value);}
         }
         public override void Write(uint value)
         {
-            lock(this){base.Write(value);}
+            lock(ms){base.Write(value);}
         }
         public override void Write(ulong value)
         {
-            lock(this){base.Write(value);}
+            lock(ms){base.Write(value);}
         }
         public override void Write(ushort value)
         {
-            lock(this){base.Write(value);}
+            lock(ms){base.Write(value);}
         }
         
 
