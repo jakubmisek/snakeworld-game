@@ -41,10 +41,8 @@ HANDLE info_mutex = 0;
 
 MainObj* _mainObj;
 
-//int APIENTRY WinMain(HINSTANCE hInstance,
-//					 HINSTANCE hPrevInstance,
-//					 LPTSTR    lpCmdLine,
-//					 int       nCmdShow)
+
+// application entry point
 int APIENTRY _tWinMain(HINSTANCE hInstance,
 					   HINSTANCE hPrevInstance,
 					   LPTSTR    lpCmdLine,
@@ -56,7 +54,7 @@ int APIENTRY _tWinMain(HINSTANCE hInstance,
 	DWORD Res;
 
 	// Set the global instance
-	gInst=hInstance;
+	gInst = hInstance;
 
 	// Store the current screen resolution
 	//EnumDisplaySettings(NULL,ENUM_CURRENT_SETTINGS,&ScrRes);
@@ -361,15 +359,15 @@ bool StartGL()
 	hRot = CreateWindowEx(WS_EX_LEFT | WS_EX_WINDOWEDGE,
 		_T("OpenGLBaseRotated"),
 		WINDOW_TITLE_ROTATED,
-		WS_VISIBLE | WS_BORDER | WS_CAPTION ,
-		(1600-ScrX)/2 + (ScrX + x_edge + x_edge), 1200 - ScrY - 64, ScrY + x_edge + x_edge+2, ScrX + caption + y_edge + y_edge +2,
+		WS_VISIBLE | WS_BORDER | WS_CAPTION,
+		/*(1600-ScrX)/2 + (ScrX + x_edge + x_edge), 1200 - ScrY - 64*/ -1,-1 , ScrY + x_edge + x_edge+2, ScrX + caption + y_edge + y_edge +2,
 		NULL, NULL, gInst, NULL);
 
 	hGLWin = CreateWindowEx(WS_EX_LEFT | WS_EX_WINDOWEDGE,
 		_T("OpenGLBaseWin"),
 		WINDOW_TITLE_NORMAL,
 		/*WS_POPUP |*/ WS_VISIBLE | WS_BORDER | WS_CAPTION ,
-		(1600-ScrX+320) / 2, 1200 - ScrY - 64, ScrX + x_edge + x_edge+2, ScrY + caption + y_edge + y_edge+2,
+		/*(1600-ScrX+320) / 2, 1200 - ScrY - 64*/-1,-1, ScrX + x_edge + x_edge+2, ScrY + caption + y_edge + y_edge+2,
 		NULL,NULL,gInst,NULL);
 
 	Align2();
@@ -453,7 +451,7 @@ bool RenderProc(LPVOID lpParam)
 	_mainObj->SetOrientation(0);
 
 
-	// Here's were we bring in the Render funtion
+	// Here's were we bring in the Render function
 	Render();
 
 	//TDStopEngine();

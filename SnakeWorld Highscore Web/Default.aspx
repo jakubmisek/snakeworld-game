@@ -47,7 +47,7 @@
        GridLines="Vertical" CellSpacing="3" ShowHeader="true" Width="100%" BorderStyle="None"
         AutoGenerateColumns="false" onsortcommand="results_SortCommand">
     <Columns>
-        <asp:TemplateColumn><ItemTemplate><%# (Container.ItemIndex + results.CurrentPageIndex*itemsOnPage + 1) %></ItemTemplate></asp:TemplateColumn>
+        <asp:TemplateColumn><ItemTemplate><%# ((int)Eval("num") >= 0)?(Eval("num")):(null) %></ItemTemplate></asp:TemplateColumn>
         <asp:BoundColumn DataField="name" ></asp:BoundColumn>
         <asp:BoundColumn DataField="length" SortExpression="length"  />
         <asp:BoundColumn DataField="plays" SortExpression="plays"/>
@@ -58,6 +58,7 @@
     <PagerStyle Mode="NumericPages" CssClass="pager" HorizontalAlign="Center" PageButtonCount="15" Position="Bottom" />
     <ItemStyle BackColor="#ffffff" />
     <AlternatingItemStyle BackColor="#e5effc" />
+    <SelectedItemStyle ForeColor="DarkGray" />
     </asp:DataGrid>
     
     <%= RoundBox.HtmlEnd %>
