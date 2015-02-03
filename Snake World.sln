@@ -18,6 +18,27 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnakeWorld Server Service",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SnakeWorld Game iPhone", "SnakeWorld Game iPhone\td\td.vcproj", "{B864AF65-E83C-48CF-A5A1-8C72DC7195B0}"
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "SnakeWorld Highscore Web", "SnakeWorld Highscore Web\", "{8B1AA740-049E-4114-B45E-49E6972EEA1E}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFramework = "3.5"
+		Debug.AspNetCompiler.VirtualPath = "/SnakeWorld Highscore Web"
+		Debug.AspNetCompiler.PhysicalPath = "SnakeWorld Highscore Web\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\SnakeWorld Highscore Web\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/SnakeWorld Highscore Web"
+		Release.AspNetCompiler.PhysicalPath = "SnakeWorld Highscore Web\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\SnakeWorld Highscore Web\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "15545"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -94,6 +115,16 @@ Global
 		{B864AF65-E83C-48CF-A5A1-8C72DC7195B0}.Release|Mixed Platforms.Build.0 = Release|Win32
 		{B864AF65-E83C-48CF-A5A1-8C72DC7195B0}.Release|Win32.ActiveCfg = Release|Win32
 		{B864AF65-E83C-48CF-A5A1-8C72DC7195B0}.Release|Win32.Build.0 = Release|Win32
+		{8B1AA740-049E-4114-B45E-49E6972EEA1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B1AA740-049E-4114-B45E-49E6972EEA1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B1AA740-049E-4114-B45E-49E6972EEA1E}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8B1AA740-049E-4114-B45E-49E6972EEA1E}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8B1AA740-049E-4114-B45E-49E6972EEA1E}.Debug|Win32.ActiveCfg = Debug|Any CPU
+		{8B1AA740-049E-4114-B45E-49E6972EEA1E}.Release|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B1AA740-049E-4114-B45E-49E6972EEA1E}.Release|Any CPU.Build.0 = Debug|Any CPU
+		{8B1AA740-049E-4114-B45E-49E6972EEA1E}.Release|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{8B1AA740-049E-4114-B45E-49E6972EEA1E}.Release|Mixed Platforms.Build.0 = Debug|Any CPU
+		{8B1AA740-049E-4114-B45E-49E6972EEA1E}.Release|Win32.ActiveCfg = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
