@@ -147,10 +147,10 @@ namespace SnakeWorld_Server
             // login, can throw an exception
             var webDb = new webDataContext();
             var loggedWebUser = webDb.UserInfos.Single(u => u.email == userEmail.ToLower());
-            if (GenerateHash(password) != loggedWebUser.passwordHash)
+            if (GenerateHash(password + loggedWebUser.saltHash) != loggedWebUser.passwordHash)
                 throw new Exception("Invalid password");
 
-            this.Name = loggedWebUser.name;
+            this.Name = "® " + loggedWebUser.name;
             
             // get and create snake user if not yet
             snakeDb = new snakeworldDataContext();
@@ -163,6 +163,8 @@ namespace SnakeWorld_Server
                 snakeDb.SnakeInfos.InsertOnSubmit(loggedSnakeUser);
                 snakeDb.SubmitChanges();
             }
+
+            loggedSnakeUser.plays++;
 
             // start time
             playStartTime = DateTime.Now;
@@ -178,13 +180,33 @@ namespace SnakeWorld_Server
 
             if (loggedSnakeUser != null)
             {
-                loggedSnakeUser.timeMinutesPlayed += playLength.Minutes;
+                loggedSnakeUser.timeSecondsPlayed += (int)playLength.TotalSeconds;
 
                 if (snakeDb != null)
                 {
                     // save changes into the database
                     snakeDb.SubmitChanges();
                 }
+            }
+        }
+
+        /// <summary>
+        /// this snake killed another snake (or himself)
+        /// </summary>
+        /// <param name="deadSnakeId"></param>
+        public void SnakeKilled(uint deadSnakeId)
+        {
+            if (loggedSnakeUser == null)
+                return;
+
+            if (deadSnakeId == snakeId)
+            {   // suicide
+                loggedSnakeUser.suicides++;
+            }
+            else
+            {
+                // ++
+                loggedSnakeUser.kills++;
             }
         }
 
@@ -340,11 +362,11 @@ namespace SnakeWorld_Server
             }
             set
             {
-                string filename = "public\\media\\snakes\\" + value;
+                /*string filename = "public\\media\\snakes\\" + value;
                 FileInfo fi = new FileInfo(filename);
 
                 if (!fi.Exists)
-                    throw new InvalidDataException("\"" + value + "\" is not a valid texture!");
+                    throw new InvalidDataException("\"" + value + "\" is not a valid texture!");*/
 
                 _TextureFile = value;
             }

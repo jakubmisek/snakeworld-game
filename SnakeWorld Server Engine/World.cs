@@ -197,6 +197,10 @@ namespace SnakeWorld_Server
             catch (SnakeDeadException ex)
             {
                 newSnakeIsKilledBy = ex.KilledBySnakeId;
+
+                Snake killedBy = scene.FindSnakeById(ex.KilledBySnakeId);
+                if (killedBy != null)
+                    killedBy.SnakeKilled(newSnake.Id());
             }
             catch(IOException)
             {

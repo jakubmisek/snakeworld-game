@@ -4,8 +4,11 @@
   <Table Name="dbo.SnakeInfo" Member="SnakeInfos">
     <Type Name="SnakeInfo">
       <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="timeMinutesPlayed" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="timeSecondsPlayed" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="maxLength" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="kills" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="suicides" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="plays" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

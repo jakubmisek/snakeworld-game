@@ -30,6 +30,9 @@ public:
 
 			memcpy( m_pText, (wchar_t*)*pStrText, len * sizeof(wchar_t) );
 
+			for (int i = 0; i < len; ++i)
+				if (m_pText[i] == L'®') m_pText[i] = L'R';
+
 			m_pText[len] = 0;
 			m_iCursor = len;
 		}
@@ -130,6 +133,9 @@ public:
 	}
 	virtual void	OnChar( CGameMenuObserver*pObserver, WCHAR wChar )
 	{
+		if (wChar == L'®')	// ignore (R)
+			wChar = L'R';
+
 		int i = m_iCursor;
 
 		// find zero
