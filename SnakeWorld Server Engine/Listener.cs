@@ -100,7 +100,7 @@ namespace SnakeWorld_Server
             // used listener object
             TcpClient newClient = obj as TcpClient;
 
-            if (obj == null)
+            if (newClient == null)
                 throw new ArgumentNullException("obj", "not a TcpClient object");
 
             
