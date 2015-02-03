@@ -16,6 +16,8 @@ Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SnakeWorld Game Setup", "Sn
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SnakeWorld Server Service", "SnakeWorld Server Service\SnakeWorld Server Service.csproj", "{AC1C92F1-00EF-4DA3-8BDE-8EC31DAADC9F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SnakeWorld Game iPhone", "SnakeWorld Game iPhone\td\td.vcproj", "{B864AF65-E83C-48CF-A5A1-8C72DC7195B0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -82,6 +84,16 @@ Global
 		{AC1C92F1-00EF-4DA3-8BDE-8EC31DAADC9F}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{AC1C92F1-00EF-4DA3-8BDE-8EC31DAADC9F}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{AC1C92F1-00EF-4DA3-8BDE-8EC31DAADC9F}.Release|Win32.ActiveCfg = Release|Any CPU
+		{B864AF65-E83C-48CF-A5A1-8C72DC7195B0}.Debug|Any CPU.ActiveCfg = Debug|Win32
+		{B864AF65-E83C-48CF-A5A1-8C72DC7195B0}.Debug|Mixed Platforms.ActiveCfg = Debug|Win32
+		{B864AF65-E83C-48CF-A5A1-8C72DC7195B0}.Debug|Mixed Platforms.Build.0 = Debug|Win32
+		{B864AF65-E83C-48CF-A5A1-8C72DC7195B0}.Debug|Win32.ActiveCfg = Debug|Win32
+		{B864AF65-E83C-48CF-A5A1-8C72DC7195B0}.Debug|Win32.Build.0 = Debug|Win32
+		{B864AF65-E83C-48CF-A5A1-8C72DC7195B0}.Release|Any CPU.ActiveCfg = Release|Win32
+		{B864AF65-E83C-48CF-A5A1-8C72DC7195B0}.Release|Mixed Platforms.ActiveCfg = Release|Win32
+		{B864AF65-E83C-48CF-A5A1-8C72DC7195B0}.Release|Mixed Platforms.Build.0 = Release|Win32
+		{B864AF65-E83C-48CF-A5A1-8C72DC7195B0}.Release|Win32.ActiveCfg = Release|Win32
+		{B864AF65-E83C-48CF-A5A1-8C72DC7195B0}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
