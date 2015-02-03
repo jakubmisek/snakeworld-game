@@ -40,6 +40,11 @@ namespace SnakeWorld_Server
         protected MemoryStream ms;
 
         /// <summary>
+        /// The lock object, locks the operations on the ms.
+        /// </summary>
+        private object mslock = new object();
+
+        /// <summary>
         /// Delayed flush.
         /// </summary>
         public override void Flush()
@@ -53,20 +58,32 @@ namespace SnakeWorld_Server
         /// <param name="obj"></param>
         private void DelayFlush(object obj)
         {
+            // the buffer of the buffer
+            MemoryStream toSend = new MemoryStream();
+
             while (true)
             {
                 // wait some time
-                Thread.Sleep(330);
+                Thread.Sleep(250);
 
-                lock(ms)
+                // write ms to the second buffer, so other threads waiting for the ms should continue
+                lock(mslock)
+                {
+                    toSend.SetLength(0);
+                    toSend.Position = 0;
+
+                    ms.WriteTo(toSend);
+                    ms.SetLength(0);
+                    ms.Position = 0;
+                }
+
+                // sends the second buffer to the output stream (should take some time)
+                if (toSend.Length > 0)
                 {
                     try
                     {
-                        ms.WriteTo(OutputStream.BaseStream);
+                        toSend.WriteTo(OutputStream.BaseStream);
                         OutputStream.Flush();
-
-                        ms.SetLength(0);
-                        ms.Position = 0;
                     }
                     catch (Exception)
                     {
@@ -76,79 +93,80 @@ namespace SnakeWorld_Server
             }
         }
 
+        #region Overrided writes with locks
         public override void Write(bool value)
         {
-            lock(ms){base.Write(value);}
+            lock(mslock){base.Write(value);}
         }
         public override void Write(byte value)
         {
-            lock(ms){base.Write(value);}
+            lock(mslock){base.Write(value);}
         }
         public override void Write(byte[] buffer)
         {
-            lock(ms){base.Write(buffer);}
+            lock(mslock){base.Write(buffer);}
         }
         public override void Write(byte[] buffer, int index, int count)
         {
-            lock(ms){base.Write(buffer, index, count);}
+            lock(mslock){base.Write(buffer, index, count);}
         }
         public override void Write(char ch)
         {
-            lock(ms){base.Write(ch);}
+            lock(mslock){base.Write(ch);}
         }
         public override void Write(char[] chars)
         {
-            lock(ms){base.Write(chars);}
+            lock(mslock){base.Write(chars);}
         }
         public override void Write(char[] chars, int index, int count)
         {
-            lock(ms){base.Write(chars, index, count);}
+            lock(mslock){base.Write(chars, index, count);}
         }
         public override void Write(decimal value)
         {
-            lock(ms){base.Write(value);}
+            lock(mslock){base.Write(value);}
         }
         public override void Write(double value)
         {
-            lock(ms){base.Write(value);}
+            lock(mslock){base.Write(value);}
         }
         public override void Write(float value)
         {
-            lock(ms){base.Write(value);}
+            lock(mslock){base.Write(value);}
         }
         public override void Write(int value)
         {
-            lock(ms){base.Write(value);}
+            lock(mslock){base.Write(value);}
         }
         public override void Write(long value)
         {
-            lock(ms){base.Write(value);}
+            lock(mslock){base.Write(value);}
         }
         public override void Write(sbyte value)
         {
-            lock(ms){base.Write(value);}
+            lock(mslock){base.Write(value);}
         }
         public override void Write(short value)
         {
-            lock(ms){base.Write(value);}
+            lock(mslock){base.Write(value);}
         }
         public override void Write(string value)
         {
-            lock(ms){base.Write(value);}
+            lock(mslock){base.Write(value);}
         }
         public override void Write(uint value)
         {
-            lock(ms){base.Write(value);}
+            lock(mslock){base.Write(value);}
         }
         public override void Write(ulong value)
         {
-            lock(ms){base.Write(value);}
+            lock(mslock){base.Write(value);}
         }
         public override void Write(ushort value)
         {
-            lock(ms){base.Write(value);}
+            lock(mslock){base.Write(value);}
         }
-        
+        #endregion Overrided writes with locks
 
     }
 }
