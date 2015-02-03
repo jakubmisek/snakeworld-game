@@ -7,7 +7,7 @@
 
 @class EAGLView;
 
-@interface TowerAppDelegate : NSObject <UIAccelerometerDelegate, UIApplicationDelegate> {
+@interface SnakeworldAppDelegate : NSObject <UIAccelerometerDelegate, UIApplicationDelegate> {
 	IBOutlet UIWindow *window;
 	IBOutlet EAGLView *glView;
 }
