@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?><servers>
-  <server address="88.146.44.175" port="1234">Server 1</server>
-  <server address="88.146.44.175" port="1235">Server 2</server>
+  <server address="88.86.123.138" port="1234">1. Large World</server>
+  <server address="88.86.123.138" port="1235">2. Small World</server>
 </servers>

@@ -5,10 +5,10 @@
 
 //////////////////////////////////////////////////////////////////////////
 //
-#define ADD_SEGMENT_MININTERVAL	(0.15)		// only one segment can be created in this time
+#define ADD_SEGMENT_MININTERVAL	(0.165)		// only one segment can be created in this time
 #define ADD_SEGMENT_MAXINTERVAL	(10.0)		// after this time, new segment have to be created (to keep positions updated)
 
-#define	TEST_COLLISION_MIN_LENGTH	(10.0)	// collision is tested only with snakes with length greater or equal to this
+#define	TEST_COLLISION_MIN_LENGTH	(25.0)	// collision is tested only with snakes with length greater or equal to this
 
 
 //////////////////////////////////////////////////////////////////////////
@@ -194,7 +194,8 @@ void	CSnake::Move( double dStep )
 		if ( m_bUserControlled &&	// snake must be user controlled to allow him add segments by himself
 				(
 				((m_dAddSegmentAfter -= dStep) <= 0.0 && m_bHeadDirectionChanged) ||	// direction was changed and "minimal add segment time" elapsed
-				m_dAddSegmentAfter < -ADD_SEGMENT_MAXINTERVAL							// new segment was not created for "maximum add segment time"
+				m_dAddSegmentAfter < -(ADD_SEGMENT_MAXINTERVAL-ADD_SEGMENT_MININTERVAL) // new segment was not created for "maximum add segment time"
+				//m_dAddSegmentAfter < -(m_dLength / m_dSpeed * 0.75)
 				)
 			)
 		{
