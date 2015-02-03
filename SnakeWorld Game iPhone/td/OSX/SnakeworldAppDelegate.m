@@ -6,7 +6,7 @@
 #import "SnakeworldAppDelegate.h"
 #import "EAGLView.h"
 
-@implementation TowerAppDelegate
+@implementation SnakeworldAppDelegate
 
 @synthesize window;
 @synthesize glView;
