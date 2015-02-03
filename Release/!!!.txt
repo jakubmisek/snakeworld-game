@@ -1,0 +1,13 @@
+
+
+[en]
+run  dxwebsetup.exe  before playing
+
+open  readme.txt  for more information
+
+
+
+[cz]
+je tøeba spustit  dxwebsetup.exe  než zaènete hrát
+
+pro další informace si pøeètìte  readme.txt
