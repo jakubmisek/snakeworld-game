@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title>Sacredware Snakeworld Highscore table</title>
+    <title>Sacredware Snake World - Highscore table</title>
     <link rel="stylesheet" href="style/box.css" type="text/css" />
     <link rel="stylesheet" href="style/default.css" type="text/css" />
 </head>
@@ -48,5 +48,6 @@
     <%= RoundBox.HtmlEnd %>
     
     </form>
+    <div class="bottomLink">...<a href="http://www.sacredware.com/snake-world.aspx" title="Snake World Game">Snake World</a>...</div>
 </body>
 </html>
