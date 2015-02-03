@@ -80,7 +80,7 @@ void	CGrassModel10::InitModel( VertexGrass*pGrass, UINT n )
 		p->vecDirection = /*p->vecDefDirection =*/ vecDir*GRASS_WIDTH;
 
 		// segment height
-		p->flSegHeight = 0.5f * ( 2.0f +
+		p->flSegHeight = 0.5f * ( 2.5f +
 			( (float)(rand() & 0x7ff) / (float)0x7ff )*1.0f +
 			pow( (float)(rand() & 0x7ff) / (float)0x7ff, 8.0f )*4.0f );
 	}
@@ -119,7 +119,9 @@ void	CGrassModel10::RenderGrass( CDXDevice&dev, float flDetail, D3DXMATRIX&mat )
 	for( UINT p = 0; p < techDesc.Passes; ++p )
 	{
 		m_pContainer->pGrassRenderTechnique->GetPassByIndex( p )->Apply(0);
-		dev.pDX10->pd3dDevice->Draw( (UINT)( (float)m_nVertexes * flDetail ), 0 );
+
+		UINT nGrasses = (UINT)( (float)m_nVertexes * flDetail );
+		dev.pDX10->pd3dDevice->Draw( min(nGrasses, m_nVertexes), 0 );
 	}
 }
 

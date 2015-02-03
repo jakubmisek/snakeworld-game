@@ -599,9 +599,10 @@ bool	CGameWindow::InitMenuScreens()
 	// settings menu
 	CMenuSelect	*pSelectGrass = new CMenuSelect(mcGrass, g_gameTexts[tGrassDetail]);
 	pSelectGrass->Items().Add( new CMenuSelect::SMenuSelectItem( g_gameTexts[tOff], 0 ) );
-	pSelectGrass->Items().Add( new CMenuSelect::SMenuSelectItem( g_gameTexts[tLow], 1 ) );
-	pSelectGrass->Items().Add( new CMenuSelect::SMenuSelectItem( g_gameTexts[tMedium], 2 ) );
-	pSelectGrass->Items().Add( new CMenuSelect::SMenuSelectItem( g_gameTexts[tHigh], 3 ) );
+	pSelectGrass->Items().Add( new CMenuSelect::SMenuSelectItem( g_gameTexts[tLowest], 1 ) );
+	pSelectGrass->Items().Add( new CMenuSelect::SMenuSelectItem( g_gameTexts[tLow], 2 ) );
+	pSelectGrass->Items().Add( new CMenuSelect::SMenuSelectItem( g_gameTexts[tMedium], 3 ) );
+	pSelectGrass->Items().Add( new CMenuSelect::SMenuSelectItem( g_gameTexts[tHigh], 4 ) );
 	pSelectGrass->SetSelectedItemIndex( this, m_iCurrentSettings.m_iCurrentGrass );	// => m_gameWorld.SetGrassDetail
 	m_menuScreens[msSettings]->Controls().Add( pSelectGrass );
 
@@ -991,7 +992,7 @@ void	CGameWindow::OnCommandButton( IGameMenuControl*pControlFrom, int iCmd, int 
 			CMenuSelect*pSelectGrass = (CMenuSelect*)pControlFrom;
 			m_iCurrentSettings.m_iCurrentGrass = pSelectGrass->GetSelectedItem()->val;
 			
-			m_gameWorld.SetGrassDetail( (float)(m_iCurrentSettings.m_iCurrentGrass) / 3.0f );
+			m_gameWorld.SetGrassDetail( (float)(m_iCurrentSettings.m_iCurrentGrass) / 4.0f );
 		}
 		break;
 	case mcAudioEnable:
