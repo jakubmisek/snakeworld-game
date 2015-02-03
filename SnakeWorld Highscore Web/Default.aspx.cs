@@ -11,7 +11,7 @@ public partial class _Default : System.Web.UI.Page
     {
         private string _name;
         private int _length, _kills, _suicides, _plays;
-        private TimeSpan _playtime;
+        private TimeSpan _playtime, _lastplayago;
 
         public string name
         {
@@ -55,6 +55,13 @@ public partial class _Default : System.Web.UI.Page
                 return _playtime;
             }
         }
+        public TimeSpan lastplayago
+        {
+            get
+            {
+                return _lastplayago;
+            }
+        }
 
 
         public ResultInfo(UserInfo user, SnakeInfo snake)
@@ -65,6 +72,11 @@ public partial class _Default : System.Web.UI.Page
             _suicides = snake.suicides;
             _plays = snake.plays;
             _playtime = TimeSpan.FromSeconds((double)snake.timeSecondsPlayed);
+
+            if (snake.lastPlayTime != null)
+                _lastplayago = DateTime.Now - (DateTime)snake.lastPlayTime;
+            else
+                _lastplayago = TimeSpan.MaxValue;
         }
     }
 

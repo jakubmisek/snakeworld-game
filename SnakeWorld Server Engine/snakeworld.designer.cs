@@ -92,6 +92,8 @@ namespace SnakeWorld_Server
 		
 		private int _plays;
 		
+		private System.Nullable<System.DateTime> _lastPlayTime;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -108,6 +110,8 @@ namespace SnakeWorld_Server
     partial void OnsuicidesChanged();
     partial void OnplaysChanging(int value);
     partial void OnplaysChanged();
+    partial void OnlastPlayTimeChanging(System.Nullable<System.DateTime> value);
+    partial void OnlastPlayTimeChanged();
     #endregion
 		
 		public SnakeInfo()
@@ -231,6 +235,26 @@ namespace SnakeWorld_Server
 					this._plays = value;
 					this.SendPropertyChanged("plays");
 					this.OnplaysChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_lastPlayTime", DbType="DateTime")]
+		public System.Nullable<System.DateTime> lastPlayTime
+		{
+			get
+			{
+				return this._lastPlayTime;
+			}
+			set
+			{
+				if ((this._lastPlayTime != value))
+				{
+					this.OnlastPlayTimeChanging(value);
+					this.SendPropertyChanging();
+					this._lastPlayTime = value;
+					this.SendPropertyChanged("lastPlayTime");
+					this.OnlastPlayTimeChanged();
 				}
 			}
 		}
