@@ -81,9 +81,9 @@ public partial class _Default : System.Web.UI.Page
             _plays = snake.plays;
             _playtime = TimeSpan.FromSeconds((double)snake.timeSecondsPlayed);
 
-            if (_name.Length > 11)
+            if (_name.Length > 16)
             {
-                _name = _name.Remove(9) + "..";
+                _name = _name.Remove(14) + "..";
             }
         }
     }
