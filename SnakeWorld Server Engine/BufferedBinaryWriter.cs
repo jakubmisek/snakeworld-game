@@ -45,6 +45,11 @@ namespace SnakeWorld_Server
         private object mslock = new object();
 
         /// <summary>
+        /// Is the stream explicitly closed?
+        /// </summary>
+        private bool isClosed = false;
+
+        /// <summary>
         /// Delayed flush.
         /// </summary>
         public override void Flush()
@@ -61,7 +66,9 @@ namespace SnakeWorld_Server
             // the buffer of the buffer
             MemoryStream toSend = new MemoryStream();
 
-            while (true)
+            int nNothings = 0;
+
+            while (nNothings < 100)
             {
                 // wait some time
                 Thread.Sleep(250);
@@ -89,6 +96,12 @@ namespace SnakeWorld_Server
                     {
                         return; // stop sending the data
                     }
+
+                    nNothings = 0;
+                }
+                else
+                {
+                    ++nNothings;
                 }
             }
         }
