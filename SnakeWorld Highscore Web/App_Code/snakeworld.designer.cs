@@ -88,6 +88,8 @@ public partial class SnakeInfo
 	
 	private System.DateTime _playDate;
 	
+	private int _recordId;
+	
 	public SnakeInfo()
 	{
 	}
@@ -200,6 +202,22 @@ public partial class SnakeInfo
 			if ((this._playDate != value))
 			{
 				this._playDate = value;
+			}
+		}
+	}
+	
+	[Column(Storage="_recordId", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+	public int recordId
+	{
+		get
+		{
+			return this._recordId;
+		}
+		set
+		{
+			if ((this._recordId != value))
+			{
+				this._recordId = value;
 			}
 		}
 	}

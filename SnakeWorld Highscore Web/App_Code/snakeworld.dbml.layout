@@ -2,10 +2,10 @@
 <ordesignerObjectsDiagram dslVersion="1.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="snakeworld">
   <DataContextMoniker Name="/snakeworldDataContext" />
   <nestedChildShapes>
-    <classShape Id="ce233a45-e79c-43d6-bb66-037907faadab" absoluteBounds="3.25, 1.375, 2, 2.1554996744791666">
+    <classShape Id="407ca174-bf9b-4ee4-be03-1de0c592d992" absoluteBounds="4.125, 1.375, 2, 2.3478011067708335">
       <DataClassMoniker Name="/snakeworldDataContext/SnakeInfo" />
       <nestedChildShapes>
-        <elementListCompartment Id="0d98b92c-1106-456e-bee9-05bec8b1504c" absoluteBounds="3.265, 1.835, 1.9700000000000002, 1.5954996744791665" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
+        <elementListCompartment Id="74470b3e-a501-42b0-a3ba-58b0beedac89" absoluteBounds="4.14, 1.835, 1.9700000000000002, 1.7878011067708335" name="DataPropertiesCompartment" titleTextColor="Black" itemTextColor="Black" />
       </nestedChildShapes>
     </classShape>
   </nestedChildShapes>
