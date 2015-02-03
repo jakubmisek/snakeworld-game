@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<language>
+  <text key="mainmenu">Hlavní menu</text>
+  <text key="4:3">Klasický 4:3</text>
+  <text key="16:10">Široký 16:10</text>
+  <text key="16:9">Široký 16:9</text>
+  <text key="lowest">Nejnižší</text>
+  <text key="low">Nižší</text>
+  <text key="medium">Střední</text>
+  <text key="high">Vysoké</text>
+  <text key="lowestsmooth">Nejnižší vyhlazené</text>
+  <text key="lowsmooth">Nižší vyhlazené</text>
+  <text key="mediumsmooth">Střední vyhlazené</text>
+  <text key="highsmooth">Vysoké vyhlazené</text>
+  <text key="settings">Nastavení</text>
+  <text key="off">Vypnuto</text>
+  <text key="yes">Ano</text>
+  <text key="no">Ne</text>
+  <text key="quitgame">Konec hry</text>
+  <text key="newgame">Nová hra</text>
+  <text key="startgame">Start hry</text>
+  <text key="texture">Textura</text>
+  <text key="name">Jméno</text>
+  <text key="description">Popis</text>
+  <text key="back">Zpět</text>
+  <text key="audio">Zvuk</text>
+  <text key="graphics">Grafika</text>
+  <text key="grassdetail">Detail trávy</text>
+  <text key="fullscreen">Celá obrazovka</text>
+  <text key="fullscreenaspectratio">Poměr stran obrazovky</text>
+  <text key="connecting">Připojuji se ...</text>
+  <text key="connectto">Připojit k:</text>
+  <text key="reconnect">Připojit znovu</text>
+  <text key="wait">Počkejte prosím ...</text>
+  <text key="cancel">Storno</text>
+  <text key="length">Délka</text>
+  <text key="youkilled">Dostal(a) jsi hada '%s' !!</text>
+  <text key="selfkill">Sebevražda ...</text>
+  <text key="killedby">Had '%s' tě dostal ...</text>
+  <text key="bestscore">Nejlepší score</text>
+  <text key="chat">Zpráva</text>
+  <text key="chatflow">Nezaplavujte chat prosím ...</text>
+  <text key="chatvisibility">Viditelnost diskuze</text>
+
+</language>
