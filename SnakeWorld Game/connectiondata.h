@@ -42,6 +42,8 @@ enum ECmdIds
 
 	CMD_CHATMESSAGE = 25,	// send:[to user name,message]		|	receive:[from user name,message]
 
+	CMD_LOGIN = 26,   // [users email address][users password (hashed)]
+
 	CMD_BLOCKEND = 255	// command block end
 
 };

@@ -218,7 +218,7 @@ void	CGameWorld::OnConnectionConnected( CConnection*pConnection, CString*message
 			m_snakes.Clear(true);
 			
 			// request for new game
-			Send_Request( m_pConnection, m_strUsersName, m_strUsersDescription, L"default", m_strUsersDefaultTexture, m_iLanguageId );
+			Send_Request( m_pConnection, m_strUsersName, m_strUsersEmail,m_strUsersPassword, m_strUsersDescription, L"default", m_strUsersDefaultTexture, m_iLanguageId );
 		}
 		else
 		{

@@ -9,8 +9,9 @@
 class	CMenuEditBox: public IGameMenuControl
 {
 public:
-	CMenuEditBox( int iCmd, CString&strLabel, CString*pStrText, int nMaxTextLength )
+	CMenuEditBox( int iCmd, CString&strLabel, CString*pStrText, int nMaxTextLength, bool bPasswordChars = false )
 		:m_iCmd(iCmd)
+		,m_bPasswordChars(bPasswordChars)
 	{
 		// label
 		m_strLabel = strLabel;
@@ -51,6 +52,12 @@ public:
 		CString str = m_strLabel;
 		str += m_pText;
 
+		if (m_bPasswordChars)
+		{
+			for (int i = m_strLabel.length(); i < str.length(); ++i)
+				str.str()[i] = L'*';
+		}
+
 		if ( bSelected )
 		{	// insert caret
 			int iTo = m_strLabel.length() + m_iCursor;
@@ -58,12 +65,19 @@ public:
 			str.Insert( iTo, L'|' );
 		}
 
-		dev.RenderText(
-			str,
-			Enabled()?
-			(bSelected?D3DXCOLOR(1,1,1,0.75f):D3DXCOLOR(0.0f,0.0f,0.1f,0.75f)):
-			(D3DXCOLOR(0.2f,0.2f,0.2f,0.75f)),
-			position );
+		D3DXCOLOR color = Enabled()?(bSelected?D3DXCOLOR(1,1,1,0.75f):D3DXCOLOR(0.0f,0.0f,0.1f,0.75f)):
+			(D3DXCOLOR(0.2f,0.2f,0.2f,0.75f));
+
+		dev.RenderText(str,color,position );
+
+		/*if (m_bTopLine)
+		{
+			D3DXCOLOR lineColor = D3DXCOLOR(1,1,1,0.35f);
+			D3DXVECTOR2 linePosition = position;
+			linePosition.y -= ((float)FONT_HEIGHT / (float)dev.ScreenHeight()) * 0.75f;
+
+			dev.RenderText(L"...",lineColor,linePosition );
+		}*/
 	}
 
 	virtual void	OnEnter( CGameMenuObserver*pObserver )
@@ -154,6 +168,7 @@ protected:
 
 	CString	m_strLabel;
 	int		m_iCmd;
+	bool	m_bPasswordChars;
 
 	// edit box state
 	WCHAR	*m_pText;

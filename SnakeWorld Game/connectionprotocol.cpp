@@ -23,7 +23,7 @@ void CConnectionProtocol::Send_IDontKnow(CBinaryWriter*pbw, unsigned int unknown
 
 	);
 }
-void CConnectionProtocol::Send_Request(CBinaryWriter*pbw,wchar_t*name, wchar_t*desc, wchar_t*type, wchar_t*texture, unsigned int lng)
+void CConnectionProtocol::Send_Request(CBinaryWriter*pbw,wchar_t*name,wchar_t*email,wchar_t*password, wchar_t*desc, wchar_t*type, wchar_t*texture, unsigned int lng)
 {
 	if ( !pbw )	return;
 
@@ -31,9 +31,18 @@ void CConnectionProtocol::Send_Request(CBinaryWriter*pbw,wchar_t*name, wchar_t*d
 	// "NEW SNAKE" COMMAND 
 	pbw->Write( CMD_NEWGAMECMD );
 
-	// NAME
-	pbw->Write( (unsigned char)CMD_NAME );
-	pbw->Write( name );
+	if (email != 0 && password != 0 && wcslen(email) > 0 && wcslen(password) > 0)
+	{	// authorized login
+		pbw->Write( (unsigned char)CMD_LOGIN );
+		pbw->Write( email );
+		pbw->Write( password );
+	}
+	else
+	{	// anonymous login
+		// NAME
+		pbw->Write( (unsigned char)CMD_NAME );
+		pbw->Write( name );
+	}
 
 	// DESCIPTION
 	pbw->Write( (unsigned char)CMD_DESCRIPTION );

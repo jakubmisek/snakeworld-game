@@ -46,6 +46,10 @@ enum	EMenuCommands
 	mcName,
 	mcDescription,
 
+	mcUseAuthorization,
+	mcUserEmail,
+	mcUserPassword,
+
 	mcChatMessage,
 
 	mcNone,
@@ -80,6 +84,21 @@ const SAspectRatioSettings aspectratiosettings[] =
 const int aspectratiosettingscount = sizeof(aspectratiosettings) / sizeof(aspectratiosettings[0]);
 
 //////////////////////////////////////////////////////////////////////////
+// menu items creation
+void	AddLoginMenuItems(CGameMenuScreen*pScreen, IGameMenuControl*pAuthorizationControl, CGameWindow::SSettings&iCurrentSettings, IGameMenuControl*pEmailCtrl,IGameMenuControl*pPswdCtrl)
+{
+	pScreen->Controls().InsertAfter(pPswdCtrl, pAuthorizationControl );
+	pScreen->Controls().InsertAfter(pEmailCtrl, pAuthorizationControl );
+}
+
+void	AddUsernameMenuItems(CGameMenuScreen*pScreen, IGameMenuControl*pAuthorizationControl, CGameWindow::SSettings&iCurrentSettings, IGameMenuControl*pUsernameCtrl)
+{
+	pScreen->Controls().InsertAfter(pUsernameCtrl, pAuthorizationControl );
+}
+
+
+
+//////////////////////////////////////////////////////////////////////////
 // settings
 
 //////////////////////////////////////////////////////////////////////////
@@ -95,6 +114,8 @@ void	CGameWindow::SSettings::Reset()
 	wcscpy_s( m_szName, MAX_NAME_LENGTH+1, L"NoName" );
 	wcscpy_s( m_szDescription, MAX_DESCRIPTION_LENGTH+1, L"..." );
 	wcscpy_s( m_szTextureFile, MAX_TEXTUREFILE_LENGTH+1, L"snake1.jpg" );
+	wcscpy_s( m_szUserEmail, MAX_EMAIL_LENGTH+1, L"" );
+	wcscpy_s( m_szUserPassword, MAX_PASSWORD_LENGTH+1, L"" );
 
 	m_iAudio = 3;
 
@@ -509,14 +530,37 @@ bool	CGameWindow::InitMenuScreens()
 	// new game menu
 	m_menuScreens[msNewGame]->Controls().Add( new CMenuGoToButton( mcGoTo, g_gameTexts[tStartGame], m_menuScreens[msConnect] ) );
 
+	{
+		bool bUseAuthorization = m_iCurrentSettings.m_szUserEmail[0]!=0&&m_iCurrentSettings.m_szUserPassword[0]!=0;
+
+		m_gameWorld.SetUsersName( CString(m_iCurrentSettings.m_szName) );
+		m_gameWorld.SetUsersEmail( CString(m_iCurrentSettings.m_szUserEmail) );
+		m_gameWorld.SetUsersPassword( CString(m_iCurrentSettings.m_szUserPassword) );
+		m_gameWorld.SetUsersDescription( CString(m_iCurrentSettings.m_szDescription) );
+
+		CMenuCheckBox*pAuthorizationBox;
+		m_menuScreens[msNewGame]->Controls().Add( pAuthorizationBox = new CMenuCheckBox( mcUseAuthorization, g_gameTexts[tUseAuthorization], bUseAuthorization ) );
+
+		m_pEmailCtrl = new CMenuEditBox( mcUserEmail, g_gameTexts[tEmail], &CString(m_iCurrentSettings.m_szUserEmail), MAX_EMAIL_LENGTH);
+		m_pPasswordCtrl = new CMenuEditBox( mcUserPassword, g_gameTexts[tPassword], &CString(m_iCurrentSettings.m_szUserPassword), MAX_PASSWORD_LENGTH, true);
+		m_pUsernameCtrl = new CMenuEditBox( mcName, g_gameTexts[tName], &CString(m_iCurrentSettings.m_szName), MAX_NAME_LENGTH);
+
+		if (bUseAuthorization)
+		{
+			AddLoginMenuItems(m_menuScreens[msNewGame],pAuthorizationBox,m_iCurrentSettings, m_pEmailCtrl, m_pPasswordCtrl);
+		}
+		else
+		{
+			AddUsernameMenuItems(m_menuScreens[msNewGame],pAuthorizationBox,m_iCurrentSettings, m_pUsernameCtrl);
+		}
+
+		
+		//m_menuScreens[msNewGame]->Controls().Add( new CMenuEditBox( mcDescription, g_gameTexts[tDescription], &CString(m_iCurrentSettings.m_szDescription), MAX_DESCRIPTION_LENGTH ) );
+	}
+
 	CMenuTextureSelect*pTextureSelect = new CMenuTextureSelect( mcTexture, g_gameTexts[tTexture], CString(L"media\\snakes\\") );
 	InitTextureSelect(pTextureSelect);
 	m_menuScreens[msNewGame]->Controls().Add( pTextureSelect );
-
-	m_menuScreens[msNewGame]->Controls().Add( new CMenuEditBox( mcName, g_gameTexts[tName], &CString(m_iCurrentSettings.m_szName), MAX_NAME_LENGTH ) );
-	m_gameWorld.SetUsersName( CString(m_iCurrentSettings.m_szName) );
-	//m_menuScreens[msNewGame]->Controls().Add( new CMenuEditBox( mcDescription, g_gameTexts[tDescription], &CString(m_iCurrentSettings.m_szDescription), MAX_DESCRIPTION_LENGTH ) );
-	m_gameWorld.SetUsersDescription( CString(m_iCurrentSettings.m_szDescription) );
 
 	m_menuScreens[msNewGame]->Controls().Add( new CMenuGoToButton( mcGoTo, g_gameTexts[tBack], m_menuScreens[msMain] ) );
 
@@ -964,6 +1008,28 @@ void	CGameWindow::OnCommandButton( IGameMenuControl*pControlFrom, int iCmd )
 			}
 		}
 		break;
+	case mcUseAuthorization:
+		{
+			CMenuCheckBox*pUse = (CMenuCheckBox*)pControlFrom;
+
+			m_menuScreens[msNewGame]->Controls().Remove( m_pEmailCtrl,false );
+			m_menuScreens[msNewGame]->Controls().Remove( m_pPasswordCtrl,false );
+			m_menuScreens[msNewGame]->Controls().Remove( m_pUsernameCtrl,false );
+
+			if (pUse->IsChecked())
+			{
+				AddLoginMenuItems(m_menuScreens[msNewGame],pUse,m_iCurrentSettings, m_pEmailCtrl, m_pPasswordCtrl);
+			}
+			else
+			{
+				AddUsernameMenuItems(m_menuScreens[msNewGame],pUse,m_iCurrentSettings, m_pUsernameCtrl);
+
+				wcscpy_s( m_iCurrentSettings.m_szUserPassword, MAX_PASSWORD_LENGTH+1, L"" );
+				m_gameWorld.SetUsersPassword( CString(L"") );
+				((CMenuEditBox*)m_pPasswordCtrl)->ResetText();
+			}
+		}
+		break;
 	case mcName:
 		{
 			CMenuEditBox*pName = (CMenuEditBox*)pControlFrom;
@@ -991,6 +1057,22 @@ void	CGameWindow::OnCommandButton( IGameMenuControl*pControlFrom, int iCmd )
 				wcscpy_s( m_iCurrentSettings.m_szTextureFile, MAX_TEXTUREFILE_LENGTH+1, pSelected->str );
 				m_gameWorld.SetUsersDefaultTexture( pSelected->str );
 			}
+		}
+		break;
+	case mcUserEmail:
+		{
+			CMenuEditBox*pEmail = (CMenuEditBox*)pControlFrom;
+
+			wcscpy_s( m_iCurrentSettings.m_szUserEmail, MAX_EMAIL_LENGTH+1, pEmail->Text() );
+			m_gameWorld.SetUsersEmail( CString(pEmail->Text()) );
+		}
+		break;
+	case mcUserPassword:
+		{
+			CMenuEditBox*pPassword = (CMenuEditBox*)pControlFrom;
+
+			wcscpy_s( m_iCurrentSettings.m_szUserPassword, MAX_PASSWORD_LENGTH+1, pPassword->Text() );
+			m_gameWorld.SetUsersPassword( CString(pPassword->Text()) );
 		}
 		break;
 	case mcChatMessage:
@@ -1030,7 +1112,7 @@ void	CGameWindow::OnChatMessageReceived( CString&strFrom, CString&strMessage )
 
 //////////////////////////////////////////////////////////////////////////
 // current command receiver
-IGameControlReceiver*	CGameWindow::GetCurrentReceiver()
+IGameControlReceiver*CGameWindow::GetCurrentReceiver()
 {
 	if ( m_menu.WantInput() )
 		return &m_menu;

@@ -21,6 +21,8 @@
   <text key="startgame">Start hry</text>
   <text key="texture">Textura</text>
   <text key="name">Jméno</text>
+  <text key="email">E-mail</text>
+  <text key="password">Heslo</text>
   <text key="description">Popis</text>
   <text key="back">Zpět</text>
   <text key="audio">Zvuk</text>
@@ -41,5 +43,6 @@
   <text key="chat">Zpráva</text>
   <text key="chatflow">Nezaplavujte chat prosím ...</text>
   <text key="chatvisibility">Viditelnost diskuze</text>
+  <text key="useauthorization">Použít internetový účet (www.sacredware.com)</text>
 
 </language>

@@ -40,6 +40,8 @@ namespace SnakeWorld_Server
 
         CMD_CHATMESSAGE = 25,	// client send:[to user name,message]		|	client receive:[from user name,message]
 
+        CMD_LOGIN = 26,   // [users email address][users password (hashed)]
+
         CMD_BLOCKEND = 255	// command block end
     };
 

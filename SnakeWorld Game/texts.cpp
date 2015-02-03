@@ -31,6 +31,8 @@ bool CGameTexts::LoadTexts( unsigned int language )
 	texts[tStartGame] = L"startgame";
 	texts[tTexture] = L"texture";
 	texts[tName] = L"name";
+	texts[tEmail] = L"email";
+	texts[tPassword] = L"password";
 	texts[tDescription] = L"description";
 	texts[tBack] = L"back";
 	texts[tAudio] = L"audio";
@@ -51,6 +53,7 @@ bool CGameTexts::LoadTexts( unsigned int language )
 	texts[tChat] = L"chat";
 	texts[tChatFlowWarning] = L"chatflow";
 	texts[tChatVisibility] = L"chatvisibility";
+	texts[tUseAuthorization] = L"useauthorization";
 
 	//
 	// load texts

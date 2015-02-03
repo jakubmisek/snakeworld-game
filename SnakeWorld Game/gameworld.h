@@ -46,6 +46,14 @@ public:
 	{
 		m_strUsersName = strName;
 	}
+	inline	void	SetUsersEmail( CString&strEmail )
+	{
+		m_strUsersEmail = strEmail;
+	}
+	inline	void	SetUsersPassword( CString&strPassword )
+	{
+		m_strUsersPassword = strPassword;
+	}
 	inline	void	SetUsersDescription( CString&strDescription )
 	{
 		m_strUsersDescription = strDescription;
@@ -75,7 +83,7 @@ protected:
 	AppleList	m_apples;		// scene apples
 
 	// current snake info
-	CString		m_strUsersName, m_strUsersDescription, m_strUsersDefaultTexture;	// users info
+	CString		m_strUsersName, m_strUsersEmail, m_strUsersPassword, m_strUsersDescription, m_strUsersDefaultTexture;	// users info
 	unsigned int	m_iLanguageId;		// language id (LANGID)
 
 	// best snake score
