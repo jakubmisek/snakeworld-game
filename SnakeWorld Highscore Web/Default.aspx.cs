@@ -112,18 +112,18 @@ public partial class _Default : System.Web.UI.Page
     {
         get
         {
-            object o = Session["s"];
+            object o = ViewState["sortcolumn"];
 
             if (o == null)
             {
-                Session["s"] = o = "length";
+                ViewState["sortcolumn"] = o = "length";
             }
 
             return (string)o;
         }
         set
         {
-            Session["s"] = value;
+            ViewState["sortcolumn"] = value;
         }
     }
 
@@ -131,18 +131,18 @@ public partial class _Default : System.Web.UI.Page
     {
         get
         {
-            object o = Session["p"];
+            object o = ViewState["statsperiod"];
 
             if (o == null)
             {
-                Session["p"] = o = StatsPeriod.Today;
+                ViewState["statsperiod"] = o = StatsPeriod.Today;
             }
 
             return (StatsPeriod)o;
         }
         set
         {
-            Session["p"] = value;
+            ViewState["statsperiod"] = value;
         }
     }
 
@@ -164,6 +164,8 @@ public partial class _Default : System.Web.UI.Page
         if (IsPostBack)
             return;
 
+        results.PageSize = itemsOnPage;
+        
         // texts
         results.Columns[1].HeaderText = TextItems.username;
         results.Columns[2].HeaderText = TextItems.bestscore;
@@ -306,10 +308,8 @@ public partial class _Default : System.Web.UI.Page
         }
 
         // paging
-        results.AllowPaging = true;
-        results.AllowCustomPaging = true;
-        results.PageSize = itemsOnPage;
-        results.VirtualItemCount = shortedResults.Count();
+        if (results.CurrentPageIndex == 0)
+            results.VirtualItemCount = shortedResults.Count();
 
         results.SelectedIndex = -1;
 
