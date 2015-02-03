@@ -275,6 +275,8 @@ namespace SnakeWorld_Server
                 // set as new last segment
                 lastSegment = newSegment;
 
+                RealSpeedCheck();
+
                 // remove old segments
                 CutOldSegments();
 
@@ -343,6 +345,39 @@ namespace SnakeWorld_Server
                 {   // there are no old segments
                     break;
                 }   
+            }
+        }
+
+        /// <summary>
+        /// Real speed check failures count.
+        /// </summary>
+        private int _realSpeedCheckFailCount = 0;
+
+        /// <summary>
+        /// Checks the real snake speed.
+        /// Throws the InvalidDataException in case of too high snake speed.
+        /// </summary>
+        private void RealSpeedCheck()
+        {
+            if (segments != null && lastSegment != null)
+            {
+                TimeSpan segmentsTimeSpan = lastSegment.timeCreated - segments.timeCreated;
+
+                if (segmentsTimeSpan.TotalSeconds > 2.0)
+                {   // at least 2 seconds of active segments
+
+                    double realSpeed = segmentsLength / segmentsTimeSpan.TotalSeconds;
+
+                    if (realSpeed > (snakeSpeed + 2.0))
+                    {
+                        if ((++_realSpeedCheckFailCount) > 8)
+                            throw new InvalidDataException("Real snake speed does not match ...");
+                    }
+                    else
+                    {
+                        _realSpeedCheckFailCount = 0;
+                    }
+                }
             }
         }
 
@@ -438,9 +473,6 @@ namespace SnakeWorld_Server
         {
             set
             {
-                if (value - 1.0 > snakeSpeed)
-                    throw new InvalidDataException("Speed changed");
-
                 snakeSpeed = value;
 
                 DirtyValues |= DirtyValueBits.Speed;

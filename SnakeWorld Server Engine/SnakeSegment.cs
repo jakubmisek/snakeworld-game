@@ -10,6 +10,11 @@ namespace SnakeWorld_Server
         public readonly Position position;
 
         /// <summary>
+        /// Time the segment was created.
+        /// </summary>
+        public readonly DateTime timeCreated = DateTime.Now;
+
+        /// <summary>
         /// The next segment of the snake body.
         /// Next segment is more closely to the head.
         /// </summary>
