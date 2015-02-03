@@ -57,6 +57,14 @@ namespace SnakeWorld_Server
             // do nothing, data will be sent on the separate "send thread" (DelayFlush)
         }
 
+        public void StopSending()
+        {
+            lock(mslock)
+            {
+                isClosed = true;
+            }
+        }
+
         /// <summary>
         /// Wait some time and then call FLUSH.
         /// </summary>
@@ -66,9 +74,7 @@ namespace SnakeWorld_Server
             // the buffer of the buffer
             MemoryStream toSend = new MemoryStream();
 
-            int nNothings = 0;
-
-            while (nNothings < 100)
+            while (true)
             {
                 // wait some time
                 Thread.Sleep(250);
@@ -76,6 +82,9 @@ namespace SnakeWorld_Server
                 // write ms to the second buffer, so other threads waiting for the ms should continue
                 lock(mslock)
                 {
+                    if (isClosed)
+                        return;
+
                     toSend.SetLength(0);
                     toSend.Position = 0;
 
@@ -96,12 +105,6 @@ namespace SnakeWorld_Server
                     {
                         return; // stop sending the data
                     }
-
-                    nNothings = 0;
-                }
-                else
-                {
-                    ++nNothings;
                 }
             }
         }

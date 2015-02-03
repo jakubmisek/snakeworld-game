@@ -228,6 +228,7 @@ namespace SnakeWorld_Server
                 SendHeIsDead, new DeadSnake(newSnake, newSnakeIsKilledBy));     // call this method
             
             // close the connection
+            newSnake.bw.StopSending();
             newSnake.networkStream.Close();
         }
 
