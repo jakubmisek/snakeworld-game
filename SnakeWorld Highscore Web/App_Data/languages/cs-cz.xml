@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<language>
+  <string key="username" title="">Jméno</string>
+  <string key="bestscore" title="">Nejlepší score</string>
+  <string key="playscount" title="">Počet her</string>
+  <string key="kills" title="">Zabito hadů</string>
+  <string key="suicides" title="">Sebevražd</string>
+  <string key="playtime" title="">Čas celkem</string>
+  <string key="lastplaybefore" title="">Naposledy hrál</string>
+  <string key="playingnow" title="">Teď hraje</string>
+  
+</language>

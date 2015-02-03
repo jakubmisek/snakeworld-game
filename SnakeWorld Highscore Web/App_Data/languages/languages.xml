@@ -1,0 +1,5 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<languages>
+  <language id="1" title="English (United States)" culture="en-us" default="true" />
+  <language id="2" title="Česká Republika" culture="cs-cz" />
+</languages>

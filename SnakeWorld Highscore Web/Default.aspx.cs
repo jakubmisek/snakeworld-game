@@ -80,16 +80,42 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
+    protected LanguageInfo CurrentLanguage = null;
+    protected Texts TextItems
+    {
+        get
+        {
+            return CurrentLanguage.TextItems;
+        }
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
+        // current language
+        CurrentLanguage = Languages.LanguageByCulture(Request["l"]);
+
         if (IsPostBack)
             return;
 
+        // texts
+        results.Columns[0].HeaderText = TextItems.username;
+        results.Columns[1].HeaderText = TextItems.bestscore;
+        results.Columns[2].HeaderText = TextItems.playscount;
+        results.Columns[3].HeaderText = TextItems.kills;
+        results.Columns[4].HeaderText = TextItems.suicides;
+        results.Columns[5].HeaderText = TextItems.playtime;
+        
+        // results
+        RebindResults("length");
+    }
+
+    protected void RebindResults(string shortColumn)
+    {
         var snakeworldDb = new snakeworldDataContext();
         var webDb = new webDataContext();
 
         var users = (from a in snakeworldDb.SnakeInfos
-                     orderby a.maxLength descending
+                     //orderby a.maxLength descending
                      select a);
 
         List<ResultInfo> resultInfo = new List<ResultInfo>();
@@ -101,8 +127,34 @@ public partial class _Default : System.Web.UI.Page
                 resultInfo.Add(new ResultInfo(user, v));
         }
 
-        results.DataSource = resultInfo;
+        IEnumerable<ResultInfo> shortedResults = null;
+
+        switch (shortColumn)
+        {
+            case "length":
+                shortedResults = resultInfo.OrderByDescending(a => a.length);
+                break;
+            case "plays":
+                shortedResults = resultInfo.OrderByDescending(a => a.plays);
+                break;
+            case "kills":
+                shortedResults = resultInfo.OrderByDescending(a => a.kills);
+                break;
+            case "suicides":
+                shortedResults = resultInfo.OrderByDescending(a => a.suicides);
+                break;
+            case "playtime":
+                shortedResults = resultInfo.OrderByDescending(a => a.playtime);
+                break;
+            
+        }
+
+        results.DataSource = shortedResults;
         results.DataBind();
     }
 
+    protected void results_SortCommand(object source, DataGridSortCommandEventArgs e)
+    {
+        RebindResults(e.SortExpression);
+    }
 }
