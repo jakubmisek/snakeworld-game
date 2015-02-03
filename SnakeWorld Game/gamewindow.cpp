@@ -282,7 +282,15 @@ LRESULT CALLBACK GameWndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam 
 				return 0;
 		}
 		break;
+	case WM_MOVE:
+		if (pGameWindow)
+			pGameWindow->DoFrame();
+		break;
 	}
+
+	/*WCHAR x[128];
+	wsprintf(x,L"0x%x\n",msg);
+	OutputDebugString(x);*/
 
 	// default procedure
 	return DefWindowProc(hWnd, msg, wParam, lParam);
