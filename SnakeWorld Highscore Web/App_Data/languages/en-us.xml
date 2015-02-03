@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<language>
+  <string key="username" title="">User name</string>
+  <string key="bestscore" title="">Best score</string>
+  <string key="playscount" title="">Plays count</string>
+  <string key="kills" title="">Kills</string>
+  <string key="suicides" title="">Suicides</string>
+  <string key="playtime" title="">Total time</string>
+  <string key="lastplaybefore" title="">Last play</string>
+  <string key="playingnow" title="">Playing now</string>
+  
+</language>

@@ -14,14 +14,14 @@
      runat="server" ID="results"
       AllowSorting="true"
        CellSpacing="8" GridLines="Vertical" ShowHeader="true" Width="100%" BorderStyle="None"
-        AutoGenerateColumns="false">
+        AutoGenerateColumns="false" onsortcommand="results_SortCommand">
     <Columns>
-        <asp:BoundColumn DataField="name" HeaderText="User name" />
-        <asp:BoundColumn DataField="length" SortExpression="length" HeaderText="Best score" />
-        <asp:BoundColumn DataField="plays" SortExpression="plays" HeaderText="Plays count" />
-        <asp:BoundColumn DataField="kills" SortExpression="kills" HeaderText="Kills" />
-        <asp:BoundColumn DataField="suicides" SortExpression="suicides" HeaderText="Suicides" />
-        <asp:BoundColumn DataField="playtime" SortExpression="playtime" HeaderText="Total play time" />
+        <asp:BoundColumn DataField="name" ></asp:BoundColumn>
+        <asp:BoundColumn DataField="length" SortExpression="length"  />
+        <asp:BoundColumn DataField="plays" SortExpression="plays"/>
+        <asp:BoundColumn DataField="kills" SortExpression="kills" />
+        <asp:BoundColumn DataField="suicides" SortExpression="suicides"  />
+        <asp:BoundColumn DataField="playtime" SortExpression="playtime" />
     </Columns>
     <HeaderStyle BackColor="#c0c0c0"  />
     <ItemStyle BackColor="#ffffff" />
