@@ -8,5 +8,10 @@
   <string key="playtime" title="">Čas celkem</string>
   <string key="lastplaybefore" title="">Naposledy hrál</string>
   <string key="playingnow" title="">Teď hraje</string>
+
+  <string key="stats_total" title="">Celkem</string>
+  <string key="stats_day" title="">Dnes</string>
+  <string key="stats_week" title="">Tento týden</string>
+  <string key="stats_month" title="">Tento měsíc</string>
   
 </language>

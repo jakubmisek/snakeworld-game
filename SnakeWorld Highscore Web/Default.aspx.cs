@@ -68,7 +68,18 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
+    protected enum StatsPeriod
+    {
+        Total = 0,
+        Today = 1,
+        Week = 2,
+        Month = 3,
+    }
+
+    protected StatsPeriod statsPeriod = StatsPeriod.Total;
     protected LanguageInfo CurrentLanguage = null;
+    protected string sortColumn = "length";
+    
     protected Texts TextItems
     {
         get
@@ -77,10 +88,24 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
+    protected string MakeLink( StatsPeriod p, string sort )
+    {
+        return string.Format("Default.aspx?l={0}&p={1}&s={2}", CurrentLanguage.CultureName, (int)p, sort);
+    }
+
     protected void Page_Load(object sender, EventArgs e)
     {
         // current language
         CurrentLanguage = Languages.LanguageByCulture(Request["l"]);
+
+        if (Request["p"] != null)
+        {
+            statsPeriod = (StatsPeriod)int.Parse(Request["p"]);
+        }
+        if (Request["s"] != null)
+        {
+            sortColumn = Request["s"];
+        }
 
         if (IsPostBack)
             return;
@@ -93,8 +118,13 @@ public partial class _Default : System.Web.UI.Page
         results.Columns[5].HeaderText = TextItems.suicides;
         results.Columns[6].HeaderText = TextItems.playtime;
 
+        statsTotal.Text = statsTotal.ToolTip = TextItems.stats_total;
+        statsMonth.Text = statsMonth.ToolTip = TextItems.stats_month;
+        statsWeek.Text = statsWeek.ToolTip = TextItems.stats_week;
+        statsDay.Text = statsDay.ToolTip = TextItems.stats_day;
+        
         // results
-        RebindResults("length");
+        RebindResults();
     }
 
     protected void SetActiveHeader(string sortColumn)
@@ -123,14 +153,61 @@ public partial class _Default : System.Web.UI.Page
         }
     }
 
-    protected void RebindResults(string sortColumn)
+    protected void ResetPeriodUrls()
+    {
+        statsTotal.NavigateUrl = MakeLink(StatsPeriod.Total, sortColumn);
+        statsMonth.NavigateUrl = MakeLink(StatsPeriod.Month, sortColumn);
+        statsWeek.NavigateUrl = MakeLink(StatsPeriod.Week, sortColumn);
+        statsDay.NavigateUrl = MakeLink(StatsPeriod.Today, sortColumn);
+    }
+
+    protected void RebindResults()
     {
         SetActiveHeader(sortColumn);
+        ResetPeriodUrls();
 
         var snakeworldDb = new snakeworldDataContext();
         var webDb = new webDataContext();
 
-        var users = (from a in snakeworldDb.SnakeInfos
+        IEnumerable<SnakeInfo> requestedInfos = null;
+
+        switch (statsPeriod)
+        {
+            case StatsPeriod.Total:
+                requestedInfos = (from a in snakeworldDb.SnakeInfos
+                                  select a);
+                break;
+            case StatsPeriod.Today:
+                {
+                    DateTime todayDate = DateTime.Now.Date;
+
+                    requestedInfos = (from a in snakeworldDb.SnakeInfos
+                                      where a.playDate == todayDate
+                                      select a);
+                }
+                break;
+            case StatsPeriod.Week:
+                {
+                    DateTime weekStart = DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek);
+                    DateTime week2Start = weekStart.AddDays(7.0);
+                    requestedInfos = (from a in snakeworldDb.SnakeInfos
+                                      where a.playDate >= weekStart && a.playDate < week2Start
+                                      select a);
+                }
+                break;
+            case StatsPeriod.Month:
+                {
+                    DateTime monthStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
+                    DateTime month2Start = monthStart.AddMonths(1);
+                    
+                    requestedInfos = (from a in snakeworldDb.SnakeInfos
+                                      where a.playDate >= monthStart && a.playDate < month2Start
+                                      select a);
+                }
+                break;
+        }
+
+        var users = (from a in requestedInfos
                      group a by a.userId into g
                      select new SnakeInfo()
                      {
@@ -180,6 +257,7 @@ public partial class _Default : System.Web.UI.Page
 
     protected void results_SortCommand(object source, DataGridSortCommandEventArgs e)
     {
-        RebindResults(e.SortExpression);
+        sortColumn = e.SortExpression;
+        RebindResults();
     }
 }

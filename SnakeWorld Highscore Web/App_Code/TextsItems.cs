@@ -29,9 +29,21 @@ public partial class Texts
 	/// <summary>Playing now</summary>
 	public TextField playingnow;
 
+	/// <summary>Total</summary>
+	public TextField stats_total;
+
+	/// <summary>Today</summary>
+	public TextField stats_day;
+
+	/// <summary>This week</summary>
+	public TextField stats_week;
+
+	/// <summary>This month</summary>
+	public TextField stats_month;
+
 	// Text items initialization
 	private void InitTextItems()
 	{
-username=new TextField("username", this);bestscore=new TextField("bestscore", this);playscount=new TextField("playscount", this);kills=new TextField("kills", this);suicides=new TextField("suicides", this);playtime=new TextField("playtime", this);lastplaybefore=new TextField("lastplaybefore", this);playingnow=new TextField("playingnow", this);
+username=new TextField("username", this);bestscore=new TextField("bestscore", this);playscount=new TextField("playscount", this);kills=new TextField("kills", this);suicides=new TextField("suicides", this);playtime=new TextField("playtime", this);lastplaybefore=new TextField("lastplaybefore", this);playingnow=new TextField("playingnow", this);stats_total=new TextField("stats_total", this);stats_day=new TextField("stats_day", this);stats_week=new TextField("stats_week", this);stats_month=new TextField("stats_month", this);
 	}
 }
