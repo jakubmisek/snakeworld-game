@@ -95,6 +95,8 @@ public partial class SnakeInfo : INotifyPropertyChanging, INotifyPropertyChanged
 	
 	private int _recordId;
 	
+	private int _applesEaten;
+	
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -115,6 +117,8 @@ public partial class SnakeInfo : INotifyPropertyChanging, INotifyPropertyChanged
     partial void OnplayDateChanged();
     partial void OnrecordIdChanging(int value);
     partial void OnrecordIdChanged();
+    partial void OnapplesEatenChanging(int value);
+    partial void OnapplesEatenChanged();
     #endregion
 	
 	public SnakeInfo()
@@ -278,6 +282,26 @@ public partial class SnakeInfo : INotifyPropertyChanging, INotifyPropertyChanged
 				this._recordId = value;
 				this.SendPropertyChanged("recordId");
 				this.OnrecordIdChanged();
+			}
+		}
+	}
+	
+	[Column(Storage="_applesEaten", DbType="Int NOT NULL")]
+	public int applesEaten
+	{
+		get
+		{
+			return this._applesEaten;
+		}
+		set
+		{
+			if ((this._applesEaten != value))
+			{
+				this.OnapplesEatenChanging(value);
+				this.SendPropertyChanging();
+				this._applesEaten = value;
+				this.SendPropertyChanged("applesEaten");
+				this.OnapplesEatenChanged();
 			}
 		}
 	}
