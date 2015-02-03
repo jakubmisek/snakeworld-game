@@ -1,13 +1,18 @@
-﻿body{padding:0;margin:0;}
-a{color:#244d87;font-size:16px;}
+﻿body{padding:0;margin:0;font-size:10px;color:#202020;}
+a{color:#244d87;font-size:14px;}
 a:hover{color:#ff0000;}
+form{padding:0;margin:0;}
 
+table{padding:0;margin:0;}
 td.sort{background:url(sortArrow.gif) 100% 50% no-repeat;}
 td.sort a{text-decoration:none;color:#ffffff;}
 
-.period{padding:0 0 0 24px;}
-.period a{margin:0 18px 0 18px;}
+.period{padding:0;}
+.period a{margin:0 14px 0 14px;padding:0;}
 .period .c a{color:#ffffff;text-decoration:none;}
 
 .pager{border-top:solid 1px #d5dfec;}
 .pager a,.pager span{padding:4px;}
+
+.bottomLink{text-align:center;font-size:10px;}
+.bottomLink a,.bottomLink a:visited{text-decoration:underline;color:#0000ff;}
