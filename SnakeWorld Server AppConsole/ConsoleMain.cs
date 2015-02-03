@@ -12,15 +12,15 @@ namespace SnakeWorld_Server_ConsoleApp
         /// server objects
         /// </summary>
         private Listener listener;
-        private World world;
+        private Listener.WorldParams world;
 
         /// <summary>
         /// App ctor
         /// </summary>
-        public ConsoleMain(int port, double sceneCX, double sceneCY, double refreshDistace, double applesCountInSqueareUnit)
+        public ConsoleMain(int port, double sceneCX, double sceneCY, double refreshDistace, double applesCountInSqueareUnit, uint maxSnakes)
         {
             // create the world
-            InitWorld(sceneCX,sceneCY,refreshDistace,applesCountInSqueareUnit);
+            InitWorld(sceneCX, sceneCY, refreshDistace, applesCountInSqueareUnit, maxSnakes);
 
             // start listening on specified port
             StartListening(port);
@@ -30,11 +30,11 @@ namespace SnakeWorld_Server_ConsoleApp
         /// <summary>
         /// Init the world
         /// </summary>
-        private void InitWorld(double sceneCX, double sceneCY, double refreshDistace, double applesCountInSqueareUnit)
+        private void InitWorld(double sceneCX, double sceneCY, double refreshDistace, double applesCountInSqueareUnit, uint maxSnakes)
         {
             Console.Write("Creating world object ... ");
 
-            world = new World(OnNewSnake, null, sceneCX, sceneCY, refreshDistace, applesCountInSqueareUnit);
+            world = new Listener.WorldParams(sceneCX, sceneCY, refreshDistace, applesCountInSqueareUnit, maxSnakes);
 
             Console.WriteLine("ok");
         }
@@ -60,59 +60,5 @@ namespace SnakeWorld_Server_ConsoleApp
             }
         }
 
-        /// <summary>
-        /// maximum snakes count at same time
-        /// </summary>
-        private UInt32 maxSnakesAtTime = 0;
-
-        /// <summary>
-        /// maximum snakes count at same time
-        /// </summary>
-        /// <returns>maximum snakes count at same time</returns>
-        public UInt32 MaxSnakesAtSameTime
-        {
-            get
-            {
-                return maxSnakesAtTime;
-            }
-        }
-
-        /// <summary>
-        /// callback from the world when new snake is created
-        /// </summary>
-        /// <param name="id">id of the new snake</param>
-        /// <param name="strName">name of the new snake</param>
-        private void OnNewSnake(Snake newSnake)
-        {
-            UInt32 cnt = world.SnakesCount;
-
-            // check max snakes count
-            if (maxSnakesAtTime < cnt)
-            {
-                maxSnakesAtTime = cnt;
-            }
-        }
-
-        /// <summary>
-        /// Snake world object
-        /// </summary>
-        public World SnakeWorld
-        {
-            get
-            {
-                return world;
-            }
-        }
-
-        /// <summary>
-        /// Snake world TCP listener
-        /// </summary>
-        public Listener SnakeListener
-        {
-            get
-            {
-                return listener;
-            }
-        }
     }
 }

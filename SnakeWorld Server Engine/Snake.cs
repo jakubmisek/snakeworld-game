@@ -438,6 +438,9 @@ namespace SnakeWorld_Server
         {
             set
             {
+                if (value - 1.0 > snakeSpeed)
+                    throw new InvalidDataException("Speed changed");
+
                 snakeSpeed = value;
 
                 DirtyValues |= DirtyValueBits.Speed;

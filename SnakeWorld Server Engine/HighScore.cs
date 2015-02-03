@@ -8,22 +8,47 @@ namespace SnakeWorld_Server
     public class HighScore
     {
         /// <summary>
-        /// Score associated with the port number.
+        /// Score associated with the file name id.
         /// </summary>
-        private int _PortNumber = 0;
+        private string _FileNameId = null;
 
-        public int PortNumber
+        public string FileNameId
         {
             get
             {
-                return _PortNumber;
+                return _FileNameId;
             }
             set
             {
-                _PortNumber = value;
+                _FileNameId = value;
+
+                if (_FileNameId != null)
+                {   // fix special characters
+                    _FileNameId = _FileNameId
+                        .Replace('\"', ' ')
+                        .Replace('\\', ' ')
+                        .Replace('?', ' ')
+                        .Replace('/', ' ')
+                        .Replace(':', ' ')
+                        .Replace('*', ' ')
+                        .Replace('|', ' ')
+                        .Replace('<', ' ')
+                        .Replace('>', ' ');
+                }
 
                 // init high score
                 ReadScore();
+            }
+        }
+
+        /// <summary>
+        /// File name for best score
+        /// </summary>
+        private string FileName
+        {
+            get
+            {
+                return (FileNameId != null) ? ("record." + FileNameId + ".txt") : null;
             }
         }
 
@@ -58,11 +83,11 @@ namespace SnakeWorld_Server
 
         private void ReadScore()
         {
-            if (PortNumber != 0)
+            if (FileName != null)
             {
                 try
                 {
-                    FileStream fs = new FileStream("record." + PortNumber + ".txt", FileMode.Open);
+                    FileStream fs = new FileStream(FileName, FileMode.Open);
                     TextReader tr = new StreamReader(fs);
 
                     BestSnakeLengthName = tr.ReadLine();
@@ -79,11 +104,11 @@ namespace SnakeWorld_Server
 
         private void WriteScore()
         {
-            if (PortNumber != 0)
+            if (FileName != null)
             {
                 try
                 {
-                    FileStream fs = new FileStream("record." + PortNumber + ".txt", FileMode.Create);
+                    FileStream fs = new FileStream(FileName, FileMode.Create);
                     TextWriter tw = new StreamWriter(fs);
 
                     tw.WriteLine(BestName);

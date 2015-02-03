@@ -179,16 +179,18 @@ protected:
 class	CMenuConnectButton: public CMenuButton
 {
 public:
-	CMenuConnectButton( int iCmd, CString&strLabel, char*szAddress, int iPort  )
+	CMenuConnectButton( int iCmd, CString&strLabel, char*szAddress, int iPort, CString&worldName  )
 		: CMenuButton(iCmd,strLabel)
 	{
 
 		strcpy_s(m_szAddress,16,szAddress);
 		m_iPort = iPort;
+		m_strWorldName = worldName;
 	}
 
 	char m_szAddress[16];
 	int m_iPort;
+	CString m_strWorldName;
 };
 
 

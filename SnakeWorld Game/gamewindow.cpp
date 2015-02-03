@@ -2,7 +2,6 @@
 #include <stdio.h>
 
 #include "gamewindow.h"
-#include "menuitemedit.h"	// edit box
 #include "mychat.h"	// in game menu screen with chat
 
 #include "errorlog.h"
@@ -49,6 +48,8 @@ enum	EMenuCommands
 	mcUseAuthorization,
 	mcUserEmail,
 	mcUserPassword,
+
+	mcCustomWorldConnect,
 
 	mcChatMessage,
 
@@ -116,6 +117,8 @@ void	CGameWindow::SSettings::Reset()
 	wcscpy_s( m_szTextureFile, MAX_TEXTUREFILE_LENGTH+1, L"snake1.jpg" );
 	wcscpy_s( m_szUserEmail, MAX_EMAIL_LENGTH+1, L"" );
 	wcscpy_s( m_szUserPassword, MAX_PASSWORD_LENGTH+1, L"" );
+	
+	wcscpy_s( m_szCustomWorldName, MAX_NAME_LENGTH+1, L"Custom World" );
 
 	m_iAudio = 3;
 
@@ -286,6 +289,7 @@ CGameWindow::CGameWindow(HINSTANCE hInstance)
 {
 	m_hInstance = hInstance;
 	m_hWnd = NULL;
+	m_pDefaultConnectButton = 0;
 
 	m_dwLastFrameTime = 0;
 
@@ -311,6 +315,9 @@ CGameWindow::~CGameWindow()
 {
 	// close connection
 	m_connection.Disconnect();
+
+	// remove invalid pointers
+	m_customWorldNameCopies.Clear(false);
 
 	// close WSA
 	WSACleanup();
@@ -686,6 +693,8 @@ void	CGameWindow::InitConnectMenu()
 
 	locked( 
 
+		m_customWorldNameCopies.Clear(false);
+
 		FillConnectMenu( m_menuScreens[msConnect], docServers );
 		FillConnectMenu( m_menuScreens[msReconnect], docServers );		
 		
@@ -716,6 +725,7 @@ bool	CGameWindow::FillConnectMenu( CGameMenuScreen*pScreen, XmlDocument&doc )
 	{
 		XmlAttribute*paddr = it->Attributes[L"address"];
 		XmlAttribute*pport = it->Attributes[L"port"];
+		XmlAttribute*pworldname = it->Attributes[L"worldname"];
 		if ( paddr && pport )
 		{
 			// address to char
@@ -725,9 +735,27 @@ bool	CGameWindow::FillConnectMenu( CGameMenuScreen*pScreen, XmlDocument&doc )
 			int port = wcstol( pport->Value.str(), NULL, 10 );
 
 			// insert connect button
-			pScreen->Controls().Add( new CMenuConnectButton( mcConnect, it->InnerText, buff, port ) );
+			pScreen->Controls().Add(
+				m_pDefaultConnectButton = 
+				new CMenuConnectButton(
+					mcConnect,
+					it->InnerText,
+					buff,
+					port,
+					pworldname?(pworldname->Value):(CString(L""))
+					)
+				);
 		}
 	}
+
+	// custom world name
+	// insert connect button
+	CMenuEditBox *b;
+	pScreen->Controls().Add(
+		b = new CMenuEditBox( mcCustomWorldConnect, CString(L""), &CString(m_iCurrentSettings.m_szCustomWorldName), MAX_NAME_LENGTH)
+		);
+
+	m_customWorldNameCopies.Add(b);
 
 
 	return true;
@@ -893,7 +921,7 @@ void	CGameWindow::Render9( CDX9Device&dev )
 
 //////////////////////////////////////////////////////////////////////////
 // menu button pressed
-void	CGameWindow::OnCommandButton( IGameMenuControl*pControlFrom, int iCmd )
+void	CGameWindow::OnCommandButton( IGameMenuControl*pControlFrom, int iCmd, int cmdParam )
 {
 	EMenuCommands cmd = (EMenuCommands)iCmd;
 
@@ -911,9 +939,36 @@ void	CGameWindow::OnCommandButton( IGameMenuControl*pControlFrom, int iCmd )
 
 			m_menu.SetCurrentScreen( m_menuScreens[msConnecting] );
 
+			m_gameWorld.SetWorldName( pbtn->m_strWorldName );
+
 			m_downloader.SetAddress(pbtn->m_szAddress, pbtn->m_iPort);
-			m_connection.Connect( pbtn->m_szAddress, pbtn->m_iPort, /*m_hWnd, WM_CONNECTIONRECEIVE,*/ this, true );
+			m_connection.Connect( pbtn->m_szAddress, pbtn->m_iPort, this, true );
 		}
+		break;
+	case mcCustomWorldConnect:
+		{
+			CMenuEditBox*pbtn = (CMenuEditBox*)pControlFrom;
+
+			wcscpy_s( m_iCurrentSettings.m_szCustomWorldName, MAX_NAME_LENGTH+1, pbtn->Text() );
+			
+			if (cmdParam == 1)
+			{
+				for (CList<CMenuEditBox>::iterator i = m_customWorldNameCopies.GetIterator(); !i.EndOfList(); ++i)
+				{
+					i->ResetText();
+					wcscpy_s( i->Text(), MAX_NAME_LENGTH+1, m_iCurrentSettings.m_szCustomWorldName );
+				}
+
+
+				m_menu.SetCurrentScreen( m_menuScreens[msConnecting] );
+
+				m_gameWorld.SetWorldName( CString(pbtn->Text()) );
+
+				m_downloader.SetAddress(m_pDefaultConnectButton->m_szAddress, m_pDefaultConnectButton->m_iPort);
+				m_connection.Connect( m_pDefaultConnectButton->m_szAddress, m_pDefaultConnectButton->m_iPort, this, true );
+			}
+		}
+		break;
 		break;
 	case mcCancelConnect:
 		m_connection.Disconnect();

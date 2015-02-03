@@ -12,6 +12,8 @@
 
 #include "menu.h"		// game menu
 #include "menuitemtextureselect.h"	// texture select
+#include "menuitemedit.h"	// edit box
+
 #include "xml.h"		// XmlDocument
 
 #include "device.h"			// graphics
@@ -76,7 +78,7 @@ public:
 	//
 
 	// handles press button event
-	virtual void	OnCommandButton( IGameMenuControl*pControlFrom, int iCmd );
+	virtual void	OnCommandButton( IGameMenuControl*pControlFrom, int iCmd, int cmdParam = 0 );
 
 	// get current command receiver
 	IGameControlReceiver*	GetCurrentReceiver();
@@ -99,6 +101,8 @@ public:
 
 		WCHAR	m_szUserEmail[MAX_EMAIL_LENGTH+1];	// user login email
 		WCHAR	m_szUserPassword[MAX_PASSWORD_LENGTH+1];	// user login password
+
+		WCHAR	m_szCustomWorldName[MAX_NAME_LENGTH+1];	// custom world name
 
 		void	Reset();
 		bool	Load( TCHAR*szFileName );
@@ -131,6 +135,9 @@ private:
 
 	CGameMenuScreen	*m_menuScreens[msCount];
 	IGameMenuControl*m_pEmailCtrl,*m_pPasswordCtrl,*m_pUsernameCtrl;
+	
+	CMenuConnectButton*m_pDefaultConnectButton;
+	CList<CMenuEditBox> m_customWorldNameCopies;
 
 	bool	InitMenuScreens();
 	void	InitConnectMenu();
