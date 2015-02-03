@@ -96,6 +96,8 @@ namespace SnakeWorld_Server
 		
 		private int _recordId;
 		
+		private int _applesEaten;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -116,6 +118,8 @@ namespace SnakeWorld_Server
     partial void OnplayDateChanged();
     partial void OnrecordIdChanging(int value);
     partial void OnrecordIdChanged();
+    partial void OnapplesEatenChanging(int value);
+    partial void OnapplesEatenChanged();
     #endregion
 		
 		public SnakeInfo()
@@ -279,6 +283,26 @@ namespace SnakeWorld_Server
 					this._recordId = value;
 					this.SendPropertyChanged("recordId");
 					this.OnrecordIdChanged();
+				}
+			}
+		}
+		
+		[Column(Storage="_applesEaten", DbType="Int NOT NULL")]
+		public int applesEaten
+		{
+			get
+			{
+				return this._applesEaten;
+			}
+			set
+			{
+				if ((this._applesEaten != value))
+				{
+					this.OnapplesEatenChanging(value);
+					this.SendPropertyChanging();
+					this._applesEaten = value;
+					this.SendPropertyChanged("applesEaten");
+					this.OnapplesEatenChanged();
 				}
 			}
 		}

@@ -11,6 +11,7 @@
       <Column Name="plays" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="playDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
       <Column Name="recordId" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="applesEaten" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
 </Database>

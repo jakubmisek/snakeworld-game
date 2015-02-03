@@ -121,6 +121,7 @@ namespace SnakeWorld_Server
         protected DateTime playStartTime = DateTime.Now;
         protected int suicidesCount = 0;
         protected int killsCount = 0;
+        protected int applesEaten = 0;
 
         /// <summary>
         /// generate hash (to be send via emails and other unsafe paths)
@@ -191,6 +192,7 @@ namespace SnakeWorld_Server
                     loggedSnakeUser.plays++;
                     loggedSnakeUser.kills += killsCount;
                     loggedSnakeUser.suicides += suicidesCount;
+                    loggedSnakeUser.applesEaten += applesEaten;
 
                     TimeSpan playLength = DateTime.Now - playStartTime;
                     loggedSnakeUser.timeSecondsPlayed += (int)playLength.TotalSeconds;
@@ -234,6 +236,14 @@ namespace SnakeWorld_Server
                 // ++
                 ++killsCount;
             }
+        }
+
+        /// <summary>
+        /// An apple was eaten.
+        /// </summary>
+        public void AppleEaten()
+        {
+            ++applesEaten;
         }
 
         #endregion

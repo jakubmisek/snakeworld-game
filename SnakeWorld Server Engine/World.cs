@@ -521,6 +521,7 @@ namespace SnakeWorld_Server
                     {
                         UInt32 iEatenApple = br.ReadUInt32();
                         scene.OnAppleEaten(iEatenApple);
+                        snake.AppleEaten();
                     }
                     break;
                 case ECmdIds.CMD_CHATMESSAGE:
