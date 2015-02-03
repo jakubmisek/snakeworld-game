@@ -80,6 +80,11 @@ public partial class _Default : System.Web.UI.Page
             _suicides = snake.suicides;
             _plays = snake.plays;
             _playtime = TimeSpan.FromSeconds((double)snake.timeSecondsPlayed);
+
+            if (_name.Length > 11)
+            {
+                _name = _name.Remove(9) + "..";
+            }
         }
     }
 
