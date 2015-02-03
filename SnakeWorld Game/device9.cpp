@@ -251,6 +251,7 @@ void	CDX9Device::RenderText(wchar_t*str, D3DXCOLOR&color, D3DXVECTOR2&position, 
 CDX9Device::TextureLoader::TextureLoader(CString&filename, CDX9Device*dev)
 :CDeviceTextureLoader(filename)
 {
+	pTexture9 = 0;
 	//return 
 	D3DXCreateTextureFromFileEx(dev->pd3dDevice, filename.str(),
 		D3DX_DEFAULT,D3DX_DEFAULT,1,0,D3DFMT_UNKNOWN,D3DPOOL_MANAGED,D3DX_DEFAULT,D3DX_DEFAULT ,0, NULL,NULL,&pTexture9);

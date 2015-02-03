@@ -7,7 +7,7 @@
 
 #include <WinSock.h>
 
-#define CONNECTION_BUFF_SIZE	(1024)
+#define CONNECTION_BUFF_SIZE	(2048)
 //
 
 #include "binaryio.h"
@@ -47,12 +47,12 @@ public:
 	// Connecting
 	//
 
-	bool	Connect( char*szAddress, int iPort, /*HWND hReceiveWnd = 0, UINT uReceiveMsg = 0,*/ CCommandsObserver*pObserver = 0, bool bThreaded = false );
-	void	Disconnect( CString*message = 0 );
+	virtual bool	Connect( char*szAddress, int iPort, /*HWND hReceiveWnd = 0, UINT uReceiveMsg = 0,*/ CCommandsObserver*pObserver = 0, bool bThreaded = false );
+	virtual void	Disconnect( CString*message = 0 );
 
 	// parse the commands and process them
-	int		RefillBuffer();
-	int		ParseCommands();
+	virtual int		RefillBuffer();
+			int		ParseCommands();
 
 	inline char* GetReceiveBuffer( int*pn ){ *pn = m_receivebufferlength; return m_receivebuffer; }
 	inline void ClearReceiveBuffer( int n ){ moveReceiveBuffer(n); }
@@ -85,22 +85,22 @@ public:
 
 protected:
 
-	SOCKET	m_sock;			// connection
+			SOCKET	m_sock;			// connection
 
-	SOCKADDR_IN SockAddrIn;
-	bool	DoConnect();	// socket.connect() using SockAddrIn
+			SOCKADDR_IN SockAddrIn;
+	virtual bool	DoConnect();	// socket.connect() using SockAddrIn
 
-	bool	m_bIsConnected;	// connection is established
+			bool	m_bIsConnected;	// connection is established
 	
-	char	m_receivebuffer[CONNECTION_BUFF_SIZE];
-	int		m_receivebufferlength;
-	void	moveReceiveBuffer(int bytes);
+			char	m_receivebuffer[CONNECTION_BUFF_SIZE];
+			int		m_receivebufferlength;
+			void	moveReceiveBuffer(int bytes);
 
-	char	m_sendbuffer[CONNECTION_BUFF_SIZE];
-	int		m_sendbufferlength;
-	int		WriteToBuff( char*p, int n );
+			char	m_sendbuffer[CONNECTION_BUFF_SIZE];
+			int		m_sendbufferlength;
+	virtual int		WriteToBuff( char*p, int n );
 
-	CCommandsObserver*m_pObserver;
+			CCommandsObserver*m_pObserver;
 
 private:
 

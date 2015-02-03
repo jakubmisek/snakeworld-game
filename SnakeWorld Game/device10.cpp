@@ -536,6 +536,9 @@ void	CDX10Device::RenderText( wchar_t*str, D3DXCOLOR&color, D3DXVECTOR2&position
 CDX10Device::TextureLoader::TextureLoader(CString&filename, CDX10Device*dev)
 :CDeviceTextureLoader(filename)
 {
+	pTexture10 = 0;
+	pTexture10View = 0;
+
 	HRESULT hr = S_OK;
 	if ( FAILED(hr=D3DX10CreateTextureFromFile( dev->pd3dDevice, filename.str(), NULL, NULL, &pTexture10, NULL )) )
 		return;

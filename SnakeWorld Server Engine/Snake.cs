@@ -388,11 +388,11 @@ namespace SnakeWorld_Server
             }
             set
             {
-                /*string filename = "public\\media\\snakes\\" + value;
+                string filename = "public\\media\\snakes\\" + value;
                 FileInfo fi = new FileInfo(filename);
 
                 if (!fi.Exists)
-                    throw new InvalidDataException("\"" + value + "\" is not a valid texture!");*/
+                    throw new InvalidDataException("\"" + value + "\" is not a valid texture!");
 
                 _TextureFile = value;
             }
