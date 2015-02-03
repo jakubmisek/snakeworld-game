@@ -203,7 +203,7 @@ public partial class _Default : System.Web.UI.Page
                 break;
             case StatsPeriod.Week:
                 {
-                    DateTime weekStart = DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek);
+                    DateTime weekStart = DateTime.Now.AddDays(-(int)DateTime.Now.DayOfWeek).Date;
                     DateTime week2Start = weekStart.AddDays(7.0);
                     requestedInfos = (from a in snakeworldDb.SnakeInfos
                                       where a.playDate >= weekStart && a.playDate < week2Start
