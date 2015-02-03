@@ -9,4 +9,9 @@
   <string key="lastplaybefore" title="">Last play</string>
   <string key="playingnow" title="">Playing now</string>
   
+  <string key="stats_total" title="">Total</string>
+  <string key="stats_day" title="">Today</string>
+  <string key="stats_week" title="">This week</string>
+  <string key="stats_month" title="">This month</string>  
+  
 </language>

@@ -10,6 +10,32 @@
 </head>
 <body>
     <form id="form1" runat="server">
+    
+    <table cellpadding="0" cellspacing="0" class="period">
+    <tr>
+        <td>
+            <%= (statsPeriod == StatsPeriod.Today) ? RoundBox.HtmlBeginEx(false,true,"c") : null %>
+            <asp:HyperLink runat="server" ID="statsDay"></asp:HyperLink>
+            <%= (statsPeriod == StatsPeriod.Today) ? RoundBox.HtmlEnd : null%>
+        </td>
+        <td>
+            <%= (statsPeriod == StatsPeriod.Week) ? RoundBox.HtmlBeginEx(false, true, "c") : null%>
+            <asp:HyperLink runat="server" ID="statsWeek"></asp:HyperLink>
+            <%= (statsPeriod == StatsPeriod.Week) ? RoundBox.HtmlEnd : null%>
+        </td>
+        <td>
+            <%= (statsPeriod == StatsPeriod.Month) ? RoundBox.HtmlBeginEx(false, true, "c") : null%>
+            <asp:HyperLink runat="server" ID="statsMonth"></asp:HyperLink>
+            <%= (statsPeriod == StatsPeriod.Month) ? RoundBox.HtmlEnd : null%>
+        </td>
+        <td>
+            <%= (statsPeriod == StatsPeriod.Total) ? RoundBox.HtmlBeginEx(false, true, "c") : null%>
+            <asp:HyperLink runat="server" ID="statsTotal"></asp:HyperLink>
+            <%= (statsPeriod == StatsPeriod.Total) ? RoundBox.HtmlEnd : null%>
+        </td>
+    </tr>
+    </table>
+    
     <%= RoundBox.HtmlBegin %>
     
     <asp:DataGrid

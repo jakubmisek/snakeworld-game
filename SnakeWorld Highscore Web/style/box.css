@@ -1,7 +1,7 @@
 ﻿/* round box */
 
 /* default box style */
-.rndboxtop {background-color:#ffffff;background-position:top left;background-image:url(box/bck.gif);background-repeat:repeat-x;margin:6px 0 6px 0;padding:0;display:block;}
+.rndboxtop {background-color:#ffffff;background-position:top left;background-image:url(box/bck.gif);background-repeat:repeat-x;margin:0;padding:0;display:block;}
 .rndboxtop .b {background-image: url(box/dot.gif);background-position:bottom;background-repeat:repeat-x;}
 .rndboxtop .l {background-image: url(box/dot.gif);background-position:left;background-repeat:repeat-y;}
 .rndboxtop .r {background-image: url(box/dot.gif);background-position:right;background-repeat:repeat-y;}
@@ -29,4 +29,4 @@
 .bottomjoin .b {background:none;}
 .bottomjoin .bl {background:none;}
 .bottomjoin .br {background:none;}
-.bottomjoin .rndboxend {height:14px;}
+.bottomjoin .rndboxend {height:0;}
