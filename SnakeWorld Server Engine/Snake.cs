@@ -194,9 +194,17 @@ namespace SnakeWorld_Server
 
                 _loggedWebUser = null;
             }
-            catch(Exception)
+            catch(Exception ex)
             {
-
+                try
+                {
+                    FileInfo f = new FileInfo("snakeworld-log.txt");
+                    StreamWriter w = f.AppendText();
+                    w.WriteLine(ex.ToString());
+                    w.Close();
+                }catch(Exception)
+                {
+                }
             }
         }
 
