@@ -26,7 +26,7 @@
     
     <asp:DataGrid
      runat="server" ID="results"
-      AllowSorting="true"
+      AllowSorting="true" AllowPaging="true" AllowCustomPaging="true"
       onpageindexchanged="results_Change"
        GridLines="Vertical" CellSpacing="3" ShowHeader="true" Width="100%" BorderStyle="None"
         AutoGenerateColumns="false" onsortcommand="results_SortCommand">
