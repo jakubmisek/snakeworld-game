@@ -30,6 +30,9 @@ namespace SnakeWorld_Server
 		
     #region Extensibility Method Definitions
     partial void OnCreated();
+    partial void InsertSnakeInfo(SnakeInfo instance);
+    partial void UpdateSnakeInfo(SnakeInfo instance);
+    partial void DeleteSnakeInfo(SnakeInfo instance);
     #endregion
 		
 		public snakeworldDataContext() : 
@@ -72,8 +75,10 @@ namespace SnakeWorld_Server
 	}
 	
 	[Table(Name="dbo.SnakeInfo")]
-	public partial class SnakeInfo
+	public partial class SnakeInfo : INotifyPropertyChanging, INotifyPropertyChanged
 	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
 		
 		private int _userId;
 		
@@ -91,8 +96,31 @@ namespace SnakeWorld_Server
 		
 		private int _recordId;
 		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnuserIdChanging(int value);
+    partial void OnuserIdChanged();
+    partial void OntimeSecondsPlayedChanging(int value);
+    partial void OntimeSecondsPlayedChanged();
+    partial void OnmaxLengthChanging(double value);
+    partial void OnmaxLengthChanged();
+    partial void OnkillsChanging(int value);
+    partial void OnkillsChanged();
+    partial void OnsuicidesChanging(int value);
+    partial void OnsuicidesChanged();
+    partial void OnplaysChanging(int value);
+    partial void OnplaysChanged();
+    partial void OnplayDateChanging(System.DateTime value);
+    partial void OnplayDateChanged();
+    partial void OnrecordIdChanging(int value);
+    partial void OnrecordIdChanged();
+    #endregion
+		
 		public SnakeInfo()
 		{
+			OnCreated();
 		}
 		
 		[Column(Storage="_userId", DbType="Int NOT NULL")]
@@ -106,7 +134,11 @@ namespace SnakeWorld_Server
 			{
 				if ((this._userId != value))
 				{
+					this.OnuserIdChanging(value);
+					this.SendPropertyChanging();
 					this._userId = value;
+					this.SendPropertyChanged("userId");
+					this.OnuserIdChanged();
 				}
 			}
 		}
@@ -122,7 +154,11 @@ namespace SnakeWorld_Server
 			{
 				if ((this._timeSecondsPlayed != value))
 				{
+					this.OntimeSecondsPlayedChanging(value);
+					this.SendPropertyChanging();
 					this._timeSecondsPlayed = value;
+					this.SendPropertyChanged("timeSecondsPlayed");
+					this.OntimeSecondsPlayedChanged();
 				}
 			}
 		}
@@ -138,7 +174,11 @@ namespace SnakeWorld_Server
 			{
 				if ((this._maxLength != value))
 				{
+					this.OnmaxLengthChanging(value);
+					this.SendPropertyChanging();
 					this._maxLength = value;
+					this.SendPropertyChanged("maxLength");
+					this.OnmaxLengthChanged();
 				}
 			}
 		}
@@ -154,7 +194,11 @@ namespace SnakeWorld_Server
 			{
 				if ((this._kills != value))
 				{
+					this.OnkillsChanging(value);
+					this.SendPropertyChanging();
 					this._kills = value;
+					this.SendPropertyChanged("kills");
+					this.OnkillsChanged();
 				}
 			}
 		}
@@ -170,7 +214,11 @@ namespace SnakeWorld_Server
 			{
 				if ((this._suicides != value))
 				{
+					this.OnsuicidesChanging(value);
+					this.SendPropertyChanging();
 					this._suicides = value;
+					this.SendPropertyChanged("suicides");
+					this.OnsuicidesChanged();
 				}
 			}
 		}
@@ -186,7 +234,11 @@ namespace SnakeWorld_Server
 			{
 				if ((this._plays != value))
 				{
+					this.OnplaysChanging(value);
+					this.SendPropertyChanging();
 					this._plays = value;
+					this.SendPropertyChanged("plays");
+					this.OnplaysChanged();
 				}
 			}
 		}
@@ -202,12 +254,16 @@ namespace SnakeWorld_Server
 			{
 				if ((this._playDate != value))
 				{
+					this.OnplayDateChanging(value);
+					this.SendPropertyChanging();
 					this._playDate = value;
+					this.SendPropertyChanged("playDate");
+					this.OnplayDateChanged();
 				}
 			}
 		}
 		
-		[Column(Storage="_recordId", AutoSync=AutoSync.Always, DbType="Int NOT NULL IDENTITY", IsDbGenerated=true)]
+		[Column(Storage="_recordId", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
 		public int recordId
 		{
 			get
@@ -218,8 +274,32 @@ namespace SnakeWorld_Server
 			{
 				if ((this._recordId != value))
 				{
+					this.OnrecordIdChanging(value);
+					this.SendPropertyChanging();
 					this._recordId = value;
+					this.SendPropertyChanged("recordId");
+					this.OnrecordIdChanged();
 				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
