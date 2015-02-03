@@ -9,18 +9,9 @@ public partial class _Default : System.Web.UI.Page
 {
     public class ResultInfo
     {
-        private int _num;
         private string _name;
         private int _length, _kills, _suicides, _plays;
         private TimeSpan _playtime, _lastplayago;
-
-        public int num
-        {
-            get
-            {
-                return _num;
-            }
-        }
 
         public string name
         {
@@ -73,9 +64,8 @@ public partial class _Default : System.Web.UI.Page
         }
 
 
-        public ResultInfo(UserInfo user, SnakeInfo snake, int num)
+        public ResultInfo(UserInfo user, SnakeInfo snake)
         {
-            _num = num;
             _name = user.name;
             _length = (int)snake.maxLength;
             _kills = snake.kills;
@@ -157,13 +147,12 @@ public partial class _Default : System.Web.UI.Page
                      select a);
 
         List<ResultInfo> resultInfo = new List<ResultInfo>();
-        int num = 0;
-
+        
         foreach (var v in users)
         {
             var user = webDb.UserInfos.SingleOrDefault(u => u.userId == v.userId);
             if (user != null)
-                resultInfo.Add(new ResultInfo(user, v, ++num));
+                resultInfo.Add(new ResultInfo(user, v));
         }
 
         IEnumerable<ResultInfo> shortedResults = null;

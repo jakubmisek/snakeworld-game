@@ -18,7 +18,7 @@
        GridLines="Vertical" CellSpacing="4" ShowHeader="true" Width="100%" BorderStyle="None"
         AutoGenerateColumns="false" onsortcommand="results_SortCommand">
     <Columns>
-        <asp:BoundColumn DataField="num" ></asp:BoundColumn>
+        <asp:TemplateColumn><ItemTemplate><%# (Container.ItemIndex+1) + "." %></ItemTemplate></asp:TemplateColumn>
         <asp:BoundColumn DataField="name" ></asp:BoundColumn>
         <asp:BoundColumn DataField="length" SortExpression="length"  />
         <asp:BoundColumn DataField="plays" SortExpression="plays"/>
