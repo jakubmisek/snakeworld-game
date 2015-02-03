@@ -271,7 +271,9 @@ public partial class _Default : System.Web.UI.Page
 
         foreach (var v in users)
         {
-            UserInfo user = (v.userId != (-1)) ? webDb.UserInfos.SingleOrDefault(u => u.userId == v.userId) : (new UserInfo() { name = TextItems.unregistered, userId = (-1) });
+            UserInfo user = (v.userId != (-1)) ? webDb.UserInfos.SingleOrDefault(u => u.userId == v.userId) : null;
+            if (user == null)
+                user = (new UserInfo() { name = TextItems.unregistered, userId = (-1) });
 
             resultInfo.Add(new ResultInfo(user, v));
         }
