@@ -175,18 +175,28 @@ namespace SnakeWorld_Server
         /// </summary>
         public void Logout()
         {
-            // update statistics
-            TimeSpan playLength = DateTime.Now - playStartTime;
-
-            if (loggedSnakeUser != null)
+            try
             {
-                loggedSnakeUser.timeSecondsPlayed += (int)playLength.TotalSeconds;
 
-                if (snakeDb != null)
+                // update statistics
+                TimeSpan playLength = DateTime.Now - playStartTime;
+
+                if (loggedSnakeUser != null)
                 {
-                    // save changes into the database
-                    snakeDb.SubmitChanges();
+                    loggedSnakeUser.timeSecondsPlayed += (int)playLength.TotalSeconds;
+                    loggedSnakeUser.lastPlayTime = DateTime.Now;
+
+                    if (snakeDb != null)
+                    {
+                        // save changes into the database
+                        snakeDb.SubmitChanges();
+                    }
                 }
+
+            }
+            catch(Exception)
+            {
+
             }
         }
 
