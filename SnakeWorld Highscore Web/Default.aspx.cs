@@ -76,10 +76,13 @@ public partial class _Default : System.Web.UI.Page
         Month = 3,
     }
 
-    protected StatsPeriod statsPeriod = StatsPeriod.Total;
+    protected StatsPeriod statsPeriod = StatsPeriod.Today;
     protected LanguageInfo CurrentLanguage = null;
     protected string sortColumn = "length";
-    
+    protected int skipItems = 0;
+
+    protected const int itemsOnPage = 15;
+
     protected Texts TextItems
     {
         get
@@ -106,6 +109,8 @@ public partial class _Default : System.Web.UI.Page
         {
             sortColumn = Request["s"];
         }
+
+        skipItems = 0;
 
         if (IsPostBack)
             return;
@@ -199,7 +204,7 @@ public partial class _Default : System.Web.UI.Page
                 {
                     DateTime monthStart = new DateTime(DateTime.Now.Year, DateTime.Now.Month, 1);
                     DateTime month2Start = monthStart.AddMonths(1);
-                    
+
                     requestedInfos = (from a in snakeworldDb.SnakeInfos
                                       where a.playDate >= monthStart && a.playDate < month2Start
                                       select a);
@@ -221,12 +226,12 @@ public partial class _Default : System.Web.UI.Page
                      });
 
         List<ResultInfo> resultInfo = new List<ResultInfo>();
-        
+
         foreach (var v in users)
         {
             var user = webDb.UserInfos.SingleOrDefault(u => u.userId == v.userId);
-            if (user != null)
-                resultInfo.Add(new ResultInfo(user, v));
+                if (user != null)
+                    resultInfo.Add(new ResultInfo(user, v));
         }
 
         IEnumerable<ResultInfo> shortedResults = null;
@@ -248,16 +253,35 @@ public partial class _Default : System.Web.UI.Page
             case "playtime":
                 shortedResults = resultInfo.OrderByDescending(a => a.playtime);
                 break;
-            
+
         }
 
-        results.DataSource = shortedResults;
+        // paging
+        results.AllowPaging = true;
+        results.AllowCustomPaging = true;
+        results.PageSize = itemsOnPage;
+        results.VirtualItemCount = shortedResults.Count();
+
+        results.DataSource = shortedResults.Skip(results.CurrentPageIndex * itemsOnPage).Take(itemsOnPage);
         results.DataBind();
+
     }
+
+    protected void results_Change(Object sender, DataGridPageChangedEventArgs e)
+    {
+
+        // Set CurrentPageIndex to the page the user clicked.
+        results.CurrentPageIndex = e.NewPageIndex;
+
+        RebindResults();
+    }
+
 
     protected void results_SortCommand(object source, DataGridSortCommandEventArgs e)
     {
         sortColumn = e.SortExpression;
+        results.CurrentPageIndex = 0;
         RebindResults();
     }
+    
 }

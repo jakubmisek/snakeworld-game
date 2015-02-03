@@ -8,3 +8,6 @@ td.sort a{text-decoration:none;color:#ffffff;}
 .period{padding:0 0 0 24px;}
 .period a{margin:0 18px 0 18px;}
 .period .c a{color:#ffffff;text-decoration:none;}
+
+.pager{border-top:solid 1px #d5dfec;}
+.pager a,.pager span{padding:4px;}

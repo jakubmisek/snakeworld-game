@@ -11,6 +11,7 @@
 <body>
     <form id="form1" runat="server">
     
+    <center>
     <table cellpadding="0" cellspacing="0" class="period">
     <tr>
         <td>
@@ -35,16 +36,18 @@
         </td>
     </tr>
     </table>
+    </center>
     
     <%= RoundBox.HtmlBegin %>
     
     <asp:DataGrid
      runat="server" ID="results"
       AllowSorting="true"
-       GridLines="Vertical" CellSpacing="4" ShowHeader="true" Width="100%" BorderStyle="None"
+      onpageindexchanged="results_Change"
+       GridLines="Vertical" CellSpacing="3" ShowHeader="true" Width="100%" BorderStyle="None"
         AutoGenerateColumns="false" onsortcommand="results_SortCommand">
     <Columns>
-        <asp:TemplateColumn><ItemTemplate><%# (Container.ItemIndex+1) + "." %></ItemTemplate></asp:TemplateColumn>
+        <asp:TemplateColumn><ItemTemplate><%# (Container.ItemIndex + results.CurrentPageIndex*itemsOnPage + 1) %></ItemTemplate></asp:TemplateColumn>
         <asp:BoundColumn DataField="name" ></asp:BoundColumn>
         <asp:BoundColumn DataField="length" SortExpression="length"  />
         <asp:BoundColumn DataField="plays" SortExpression="plays"/>
@@ -52,12 +55,13 @@
         <asp:BoundColumn DataField="suicides" SortExpression="suicides"  />
         <asp:BoundColumn DataField="playtime" SortExpression="playtime" />
     </Columns>
-    <HeaderStyle />
+    <PagerStyle Mode="NumericPages" CssClass="pager" HorizontalAlign="Center" PageButtonCount="15" Position="Bottom" />
     <ItemStyle BackColor="#ffffff" />
     <AlternatingItemStyle BackColor="#e5effc" />
     </asp:DataGrid>
     
     <%= RoundBox.HtmlEnd %>
+    
     </form>
 </body>
 </html>
