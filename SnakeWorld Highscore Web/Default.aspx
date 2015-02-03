@@ -5,17 +5,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title>Sacredware Snakeworld Highscore table</title>
+    <link rel="stylesheet" href="style/box.css" type="text/css" />
+    <link rel="stylesheet" href="style/default.css" type="text/css" />
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
+    <%= RoundBox.HtmlBegin %>
     
     <asp:DataGrid
      runat="server" ID="results"
       AllowSorting="true"
-       CellSpacing="8" GridLines="Vertical" ShowHeader="true" Width="100%" BorderStyle="None"
+       GridLines="Vertical" CellSpacing="4" ShowHeader="true" Width="100%" BorderStyle="None"
         AutoGenerateColumns="false" onsortcommand="results_SortCommand">
     <Columns>
+        <asp:BoundColumn DataField="num" ></asp:BoundColumn>
         <asp:BoundColumn DataField="name" ></asp:BoundColumn>
         <asp:BoundColumn DataField="length" SortExpression="length"  />
         <asp:BoundColumn DataField="plays" SortExpression="plays"/>
@@ -23,12 +26,12 @@
         <asp:BoundColumn DataField="suicides" SortExpression="suicides"  />
         <asp:BoundColumn DataField="playtime" SortExpression="playtime" />
     </Columns>
-    <HeaderStyle BackColor="#c0c0c0"  />
+    <HeaderStyle />
     <ItemStyle BackColor="#ffffff" />
     <AlternatingItemStyle BackColor="#e5effc" />
     </asp:DataGrid>
     
-    </div>
+    <%= RoundBox.HtmlEnd %>
     </form>
 </body>
 </html>

@@ -1,0 +1,32 @@
+﻿/* round box */
+
+/* default box style */
+.rndboxtop {background-color:#ffffff;background-position:top left;background-image:url(box/bck.gif);background-repeat:repeat-x;margin:6px 0 6px 0;padding:0;display:block;}
+.rndboxtop .b {background-image: url(box/dot.gif);background-position:bottom;background-repeat:repeat-x;}
+.rndboxtop .l {background-image: url(box/dot.gif);background-position:left;background-repeat:repeat-y;}
+.rndboxtop .r {background-image: url(box/dot.gif);background-position:right;background-repeat:repeat-y;}
+.rndboxtop .bl {background-image: url(box/bl.gif);background-position:bottom left;background-repeat:no-repeat;}
+.rndboxtop .br {background-image: url(box/br.gif);background-position:bottom right;background-repeat:no-repeat;}
+.rndboxtop .tl {background-image: url(box/tl.gif);background-position:top left;background-repeat:no-repeat;}
+.rndboxtop .tr {background-image: url(box/tr.gif);background-position:top right;background-repeat:no-repeat; padding:6px 6px 0 6px;}
+.rndboxtop .rndboxend {display:block;height:6px;clear:both;float:none;}/*fix wrong padding manipulation on some browsers (insted of .tr{padding-bottom:2px;})*/
+
+.topjoin .tl {background-image: url(box/tbl.gif);}
+.topjoin .tr {background-image: url(box/tbr.gif); padding:6px 6px 0 6px;}
+.topjoin {margin-top:0;}
+
+/* light box style */
+/*.boxlight {background-color:#ffffff;background-image:url(box_light/bck.gif);}*/
+
+/* blue box style */
+.boxblue {background-image:url(box_blue/bck.gif);}
+.boxblue .tl {background-image: url(box_blue/tl.gif);}
+.boxblue .tr {background-image: url(box_blue/tr.gif);}
+
+
+/* clear background for bottom joined */
+.bottomjoin {margin-bottom:0;}
+.bottomjoin .b {background:none;}
+.bottomjoin .bl {background:none;}
+.bottomjoin .br {background:none;}
+.bottomjoin .rndboxend {height:14px;}

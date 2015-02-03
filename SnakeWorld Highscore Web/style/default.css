@@ -1,0 +1,4 @@
+﻿body{padding:0;margin:0;}
+a:hover{color:#000000;}
+td.sort{background:url(sortArrow.gif) 100% 50% no-repeat;}
+td.sort a{text-decoration:none;}
