@@ -3,6 +3,7 @@
   <string key="username" title="">User name</string>
   <string key="bestscore" title="">Best score</string>
   <string key="playscount" title="">Plays count</string>
+  <string key="apples" title="">Apples</string>
   <string key="kills" title="">Kills</string>
   <string key="suicides" title="">Suicides</string>
   <string key="playtime" title="">Total time</string>
