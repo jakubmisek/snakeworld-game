@@ -58,7 +58,7 @@
     <PagerStyle Mode="NumericPages" CssClass="pager" HorizontalAlign="Center" PageButtonCount="15" Position="Bottom" />
     <ItemStyle BackColor="#ffffff" />
     <AlternatingItemStyle BackColor="#e5effc" />
-    <SelectedItemStyle ForeColor="DarkGray" />
+    <SelectedItemStyle ForeColor="#404040" />
     </asp:DataGrid>
     
     <%= RoundBox.HtmlEnd %>
