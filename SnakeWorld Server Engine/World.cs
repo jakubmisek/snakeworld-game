@@ -39,13 +39,13 @@ namespace SnakeWorld_Server
         /// </summary>
         /// <param name="id">new snake id</param>
         /// <param name="strName">new snake name</param>
-        public delegate void NewSnakeDelegate(Snake newSnake);
+        public delegate void NewSnakeDelegate(Snake newSnake, World world);
 
         /// <summary>
         /// on snake dead callback
         /// </summary>
         /// <param name="id">dead snake id</param>
-        public delegate void SnakeDeadDelegate(Snake deadSnake);
+        public delegate void SnakeDeadDelegate(Snake deadSnake, World world);
 
         #region world objects
         /// <summary>
@@ -83,7 +83,26 @@ namespace SnakeWorld_Server
         /// callback methods
         /// </summary>
         NewSnakeDelegate onNewSnake;
-        SnakeDeadDelegate onSnakeDead;  
+        SnakeDeadDelegate onSnakeDead;
+
+        private string _worldName = null;
+        public string WorldName
+        {
+            get
+            {
+                return _worldName;
+            }
+        }
+
+
+        private DateTime _lastActivityTime = DateTime.Now;
+        public DateTime LastActivityTime
+        {
+            get
+            {
+                return _lastActivityTime;
+            }
+        }
 
         #endregion
 
@@ -96,12 +115,15 @@ namespace SnakeWorld_Server
         /// <param name="sceneCY">y-size of the scene</param>
         /// <param name="sceneRefreshDistance">scene draw distance (+ some tolerance)</param>
         /// <param name="applesCountInSqueareUnit">apples in one square unit</param>
-        public World(NewSnakeDelegate onNewSnake, SnakeDeadDelegate onSnakeDead, double sceneCX, double sceneCY, double refreshDistace, double applesCountInSqueareUnit)
+        public World(NewSnakeDelegate onNewSnake, SnakeDeadDelegate onSnakeDead, double sceneCX, double sceneCY, double refreshDistace, double applesCountInSqueareUnit, string worldName)
         {
             this.onNewSnake = onNewSnake;
             this.onSnakeDead = onSnakeDead;
 
             scene = new WorldScene( sceneCX, sceneCY, refreshDistace, applesCountInSqueareUnit );  // world size-x, size-y, refresh-distance
+
+            _worldName = WorldName;
+            BestScore.FileNameId = worldName;
         }
 
         #region adding new snakes
@@ -166,6 +188,7 @@ namespace SnakeWorld_Server
 
                 // ok
                 ++snakescount;  // increase snakes count
+                _lastActivityTime = DateTime.Now;
             }
 
             // this snake is killed by:
@@ -181,7 +204,7 @@ namespace SnakeWorld_Server
                 SendInitDone(newSnake);
 
                 // add the snake to the list of snakes
-                if (onNewSnake != null) onNewSnake(newSnake);
+                if (onNewSnake != null) onNewSnake(newSnake, this);
                 scene.AddSnake(newSnake);
 
                 // send apples list
@@ -221,9 +244,11 @@ namespace SnakeWorld_Server
             {
                 --snakescount;  // decrease snakes count
             }
+
+            _lastActivityTime = DateTime.Now;
             
             if (onSnakeDead != null)
-                onSnakeDead(newSnake);
+                onSnakeDead(newSnake, this);
 
             
             // inform the clients, the "newSnake" is dead

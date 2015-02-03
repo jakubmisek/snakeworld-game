@@ -23,13 +23,15 @@ void CConnectionProtocol::Send_IDontKnow(CBinaryWriter*pbw, unsigned int unknown
 
 	);
 }
-void CConnectionProtocol::Send_Request(CBinaryWriter*pbw,wchar_t*name,wchar_t*email,wchar_t*password, wchar_t*desc, wchar_t*type, wchar_t*texture, unsigned int lng)
+void CConnectionProtocol::Send_Request(CBinaryWriter*pbw,wchar_t*name,wchar_t*email,wchar_t*password, wchar_t*desc, wchar_t*type, wchar_t*texture, unsigned int lng, wchar_t*worldname)
 {
 	if ( !pbw )	return;
 
 	locked(
 	// "NEW SNAKE" COMMAND 
-	pbw->Write( CMD_NEWGAMECMD );
+	wchar_t newCmd[1024];
+	swprintf_s(newCmd, 1024, L"%s %s", CMD_NEWGAMECMD, worldname?worldname:L"");
+	pbw->Write( newCmd );
 
 	if (email != 0 && password != 0 && wcslen(email) > 0 && wcslen(password) > 0)
 	{	// authorized login

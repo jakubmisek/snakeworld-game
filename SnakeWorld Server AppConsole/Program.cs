@@ -104,9 +104,9 @@ namespace SnakeWorld_Server_ConsoleApp
         /// </summary>
         static CommandDesc[] commands = {
                                          new CommandDesc( new string[]{"help","?"}, "display available commands", cmdHelp ),
-                                         new CommandDesc( new string[]{"stats","statistics","state"}, "display game info", cmdStats ),
-                                         new CommandDesc( new string[]{"maxsnakes"}, "set maximum snakes count", cmdMaxSnakes ),
-                                         new CommandDesc( new string[]{"closelistener", "stop"}, "closes the listener", cmdCloseListener ),
+                                         //new CommandDesc( new string[]{"stats","statistics","state"}, "display game info", cmdStats ),
+                                         //new CommandDesc( new string[]{"maxsnakes"}, "set maximum snakes count", cmdMaxSnakes ),
+                                         //new CommandDesc( new string[]{"closelistener", "stop"}, "closes the listener", cmdCloseListener ),
                                          };
 
         static bool CallCommand(ConsoleMain main, string[] prms)
@@ -144,12 +144,12 @@ namespace SnakeWorld_Server_ConsoleApp
             }
         }
 
-        static void cmdStats(ConsoleMain main, string[] prms)
+        /*static void cmdStats(ConsoleMain main, string[] prms)
         {
             Console.WriteLine("Snakes count: {0}", main.SnakeWorld.SnakesCount.ToString());
             Console.WriteLine("Maximum snakes: {0}", main.SnakeWorld.MaxSnakesCount.ToString());
             Console.WriteLine("Maximum snakes at one time: {0}", main.MaxSnakesAtSameTime.ToString());
-
+            
             if (main.SnakeWorld.BestScore.BestName != null)
                 Console.WriteLine("Best player: {0}, {1} points", main.SnakeWorld.BestScore.BestName, main.SnakeWorld.BestScore.BestLength.ToString());
         }
@@ -175,7 +175,7 @@ namespace SnakeWorld_Server_ConsoleApp
             }
 
             Console.WriteLine("Listener closed, new connection won't be accepted.");
-        }
+        }*/
 
         #endregion
 
@@ -189,6 +189,7 @@ namespace SnakeWorld_Server_ConsoleApp
         {
             int port = 1234;
             double sceneCX = 200.0, sceneCY = 200.0, refreshDistance = 300.0, applesCountInSqueareUnit = 0.00004;
+            uint maxSnakes = 50;
 
             // parse command line
             Parser parser = new Parser();
@@ -223,11 +224,11 @@ namespace SnakeWorld_Server_ConsoleApp
 
             if (parser.Options['a'].Exists) applesCountInSqueareUnit = ((double)parser.Options['a'].UIntParameter) / (sceneCX * sceneCY);
 
-            // create server object
-            ConsoleMain newMain = new ConsoleMain(port, sceneCX, sceneCY, refreshDistance, applesCountInSqueareUnit);
+            if (parser.Options['m'].Exists) maxSnakes = parser.Options['m'].UIntParameter;
 
-            // check some params
-            if (parser.Options['m'].Exists) newMain.SnakeWorld.MaxSnakesCount = parser.Options['m'].UIntParameter;
+            // create server object
+            ConsoleMain newMain = new ConsoleMain(port, sceneCX, sceneCY, refreshDistance, applesCountInSqueareUnit, maxSnakes);
+            
 
             // done
             return newMain;

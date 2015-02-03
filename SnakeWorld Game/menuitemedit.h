@@ -87,7 +87,7 @@ public:
 	{
 		// callback
 		if (pObserver)
-			pObserver->OnCommandButton( this, m_iCmd );
+			pObserver->OnCommandButton( this, m_iCmd, 1 );
 	}
 	virtual	void	OnLeft( CGameMenuObserver*pObserver )
 	{

@@ -165,9 +165,9 @@ namespace SnakeWorld_Server_App
         /// </summary>
         private void InitWorld()
         {
-            State = "Creating the world ...";
-            world = new World(OnNewSnake, OnSnakeDead, parameters.cx, parameters.cy, parameters.refreshdist, parameters.applesinsquare);
-            world.MaxSnakesCount = parameters.maxsnakes;
+            //State = "Creating the world ...";
+            //world = new World(OnNewSnake, OnSnakeDead, parameters.cx, parameters.cy, parameters.refreshdist, parameters.applesinsquare);
+            //world.MaxSnakesCount = parameters.maxsnakes;
         }
 
         /// <summary>
@@ -179,7 +179,7 @@ namespace SnakeWorld_Server_App
             
             try
             {
-                listener = new Listener(parameters.port, world);
+                //listener = new Listener(parameters.port, world);
 
                 // done
                 State = "Running on port " + parameters.port;

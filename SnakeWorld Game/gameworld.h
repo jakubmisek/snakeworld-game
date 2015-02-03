@@ -66,6 +66,10 @@ public:
 	{
 		m_strUsersDefaultTexture = strTextureFile;
 	}
+	inline	void	SetWorldName( CString&strWorldName )
+	{
+		m_strWorldName = strWorldName;
+	}
 
 protected:
 
@@ -84,6 +88,7 @@ protected:
 
 	// current snake info
 	CString		m_strUsersName, m_strUsersEmail, m_strUsersPassword, m_strUsersDescription, m_strUsersDefaultTexture;	// users info
+	CString		m_strWorldName;
 	unsigned int	m_iLanguageId;		// language id (LANGID)
 
 	// best snake score

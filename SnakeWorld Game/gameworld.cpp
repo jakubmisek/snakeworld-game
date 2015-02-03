@@ -4,7 +4,7 @@
 //////////////////////////////////////////////////////////////////////////
 //
 
-#define SNAKE_LENGTH_ADD_FOR_KILL	(10.0)
+#define SNAKE_LENGTH_ADD_FOR_KILL	(4.0)
 #define	SNAKE_LENGTH_ADD_FOR_APPLE	(3.0)
 
 #define WORLD_DEFAULT_SIZE	(10000.0)
@@ -218,7 +218,7 @@ void	CGameWorld::OnConnectionConnected( CConnection*pConnection, CString*message
 			m_snakes.Clear(true);
 			
 			// request for new game
-			Send_Request( m_pConnection, m_strUsersName, m_strUsersEmail,m_strUsersPassword, m_strUsersDescription, L"default", m_strUsersDefaultTexture, m_iLanguageId );
+			Send_Request( m_pConnection, m_strUsersName, m_strUsersEmail,m_strUsersPassword, m_strUsersDescription, L"default", m_strUsersDefaultTexture, m_iLanguageId, m_strWorldName );
 		}
 		else
 		{
@@ -500,7 +500,11 @@ void CGameWorld::Receive_Dead(CBinaryReader*pbr)
 			m_pUserSnake = 0;	// at this time not reachable, server cannot kill me, but this option have to be handled
 		else if ( m_pUserSnake && pKilledBy == m_pUserSnake )
 		{
-			m_pUserSnake->LengthAdd( SNAKE_LENGTH_ADD_FOR_KILL );	// I killed this snake, so expand me
+			double bonus = 0.0;
+			if (m_pCurReceivingSnake){bonus += (m_pCurReceivingSnake->GetLength() - 30.0) * 0.2;}
+			if (bonus < 0.0)bonus = 0.0;
+
+			m_pUserSnake->LengthAdd( SNAKE_LENGTH_ADD_FOR_KILL + bonus );	// I killed this snake, so expand me
 		}
 
 		// event

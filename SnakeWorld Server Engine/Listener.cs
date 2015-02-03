@@ -19,7 +19,9 @@ namespace SnakeWorld_Server
         /// <summary>
         /// the world object used by all connections accepted by this listener
         /// </summary>
-        private World world;
+        private readonly WorldParams _worldParameters;
+
+        private readonly int _listenerPort = 0;
 
         /// <summary>
         /// current tcp listener started in constructor
@@ -27,16 +29,43 @@ namespace SnakeWorld_Server
         private TcpListener tcpListener;
 
         /// <summary>
+        /// Loader parameters
+        /// </summary>
+        public class WorldParams
+        {
+            public readonly double cx, cy, refreshdist, applesinsquare;
+            public readonly uint maxsnakes;
+
+            /// <summary>
+            /// Init
+            /// </summary>
+            /// <param name="port">listening port number</param>
+            /// <param name="cx">scene cx</param>
+            /// <param name="cy">scene cy</param>
+            /// <param name="refreshdist">scene refresh distance</param>
+            /// <param name="applesinsquare">apples count in square</param>
+            /// <param name="maxsnakes">maximum snakes count</param>
+            public WorldParams(double cx, double cy, double refreshdist, double applesinsquare, uint maxsnakes)
+            {
+                this.cx = cx;
+                this.cy = cy;
+                this.refreshdist = refreshdist;
+                this.applesinsquare = applesinsquare;
+                this.maxsnakes = maxsnakes;
+            }
+        }
+
+        /// <summary>
         /// start the server
         /// </summary>
         /// <param name="port">listening port</param>
         /// <param name="world">the world associated with this listener</param>
-        public Listener(int port, World world)
+        public Listener(int port, WorldParams worldParameters)
         {
             // the world associated with this listener
-            this.world = world;
-            world.BestScore.PortNumber = port;
-
+            _worldParameters = worldParameters;
+            _listenerPort = port;
+            
             // create the listener object
             // start listening on the specified port
             tcpListener = new TcpListener(IPAddress.Any, port);
@@ -118,7 +147,7 @@ namespace SnakeWorld_Server
                 switch (strCommand[0])
                 {
                     case ConnectionData.CMD_NEWGAMECMD:
-                        world.AddSnake(newClient);
+                        GetWorld(strCommand).AddSnake(newClient);
                         return; // do not close the connection !
 
                     case ConnectionData.CMD_GETTEXTURE:
@@ -140,6 +169,68 @@ namespace SnakeWorld_Server
             finally
             {
                 
+            }
+        }
+
+
+        /// <summary>
+        /// Worlds by their names.
+        /// </summary>
+        private Dictionary<string, World> _worlds = new Dictionary<string, World>();
+
+
+        /// <summary>
+        /// Get the world by its name.
+        /// The new world can be initialized.
+        /// </summary>
+        /// <param name="worldNames"></param>
+        /// <returns></returns>
+        private World GetWorld(string[] worldNames)
+        {
+            string worldName = _listenerPort.ToString();
+
+            for (int i = 1; i < worldNames.Length; ++i )
+                worldName += worldNames[i].ToLower();
+
+            lock(this)
+            {
+                World world = null;
+
+                if ( !_worlds.TryGetValue(worldName, out world))
+                {
+                    if (_worlds.Count > 50)
+                        RemoveEmptyWorldsL();
+
+                    world = new World(null, null, _worldParameters.cx, _worldParameters.cy, _worldParameters.refreshdist, _worldParameters.applesinsquare, worldName);
+                    world.MaxSnakesCount = _worldParameters.maxsnakes;
+
+                    _worlds[worldName] = world;                    
+                }
+
+                return world;
+            }
+        }
+
+
+        /// <summary>
+        /// removes all inactive worlds without snakes.
+        /// </summary>
+        private void RemoveEmptyWorldsL()
+        {
+            List<string> toremove = new List<string>();
+
+            foreach (KeyValuePair<string,World> w in _worlds)
+            {
+                if (w.Value.SnakesCount == 0 &&
+                    w.Value.LastActivityTime.AddMinutes(5.0) < DateTime.Now)
+                {
+                    toremove.Add(w.Key);
+                }
+            }
+
+            foreach (string w in toremove)
+            {
+                _worlds.Remove(w);
             }
         }
 
