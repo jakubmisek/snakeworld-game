@@ -48,6 +48,6 @@
     <%= RoundBox.HtmlEnd %>
     
     </form>
-    <div class="bottomLink">...<a href="http://www.sacredware.com/snake-world.aspx" title="Snake World Game">Snake World</a>...</div>
+    <div class="bottomLink">[<a href="http://www.sacredware.com/snake-world.aspx" title="Snake World Game">Snake World</a>]</div>
 </body>
 </html>
