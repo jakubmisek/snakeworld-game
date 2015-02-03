@@ -153,6 +153,8 @@ namespace SnakeWorld_Server
             playStartTime = DateTime.Now;
         }
 
+        private static object _lockDbSubmit = new object();
+
         /// <summary>
         /// Users session end.
         /// </summary>
@@ -166,37 +168,40 @@ namespace SnakeWorld_Server
                 var snakeDb = new snakeworldDataContext();
                 SnakeInfo loggedSnakeUser;
 
-                if (_loggedWebUser != null)
-                    loggedSnakeUser = snakeDb.SnakeInfos.SingleOrDefault(u => u.userId == _loggedWebUser.userId && u.playDate == playDate);
-                else
-                    loggedSnakeUser = snakeDb.SnakeInfos.SingleOrDefault(u => u.userId == (-1) && u.playDate == playDate);
-                    
-                if (loggedSnakeUser == null)
+                lock (_lockDbSubmit)
                 {
-                    loggedSnakeUser = new SnakeInfo();
+                    if (_loggedWebUser != null)
+                        loggedSnakeUser = snakeDb.SnakeInfos.SingleOrDefault(u => u.userId == _loggedWebUser.userId && u.playDate == playDate);
+                    else
+                        loggedSnakeUser = snakeDb.SnakeInfos.SingleOrDefault(u => u.userId == (-1) && u.playDate == playDate);
 
-                    if (_loggedWebUser != null) loggedSnakeUser.userId = _loggedWebUser.userId;
-                    else    loggedSnakeUser.userId = (-1);
+                    if (loggedSnakeUser == null)
+                    {
+                        loggedSnakeUser = new SnakeInfo();
 
-                    loggedSnakeUser.playDate = playDate;
+                        if (_loggedWebUser != null) loggedSnakeUser.userId = _loggedWebUser.userId;
+                        else loggedSnakeUser.userId = (-1);
 
-                    snakeDb.SnakeInfos.InsertOnSubmit(loggedSnakeUser);
+                        loggedSnakeUser.playDate = playDate;
+
+                        snakeDb.SnakeInfos.InsertOnSubmit(loggedSnakeUser);
+                    }
+
+                    // update statistics
+                    loggedSnakeUser.plays++;
+                    loggedSnakeUser.kills += killsCount;
+                    loggedSnakeUser.suicides += suicidesCount;
+
+                    TimeSpan playLength = DateTime.Now - playStartTime;
+                    loggedSnakeUser.timeSecondsPlayed += (int)playLength.TotalSeconds;
+
+                    // update snake high score
+                    if (loggedSnakeUser.maxLength < snakeLength)
+                        loggedSnakeUser.maxLength = snakeLength;
+
+                    // save changes into the database
+                    snakeDb.SubmitChanges();
                 }
-
-                // update statistics
-                loggedSnakeUser.plays++;
-                loggedSnakeUser.kills += killsCount;
-                loggedSnakeUser.suicides += suicidesCount;
-
-                TimeSpan playLength = DateTime.Now - playStartTime;
-                loggedSnakeUser.timeSecondsPlayed += (int)playLength.TotalSeconds;
-                
-                // update snake high score
-                if (loggedSnakeUser.maxLength < snakeLength)
-                    loggedSnakeUser.maxLength = snakeLength;
-                
-                // save changes into the database
-                snakeDb.SubmitChanges();
 
                 _loggedWebUser = null;
             }
