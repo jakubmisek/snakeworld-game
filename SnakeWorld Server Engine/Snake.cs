@@ -169,14 +169,14 @@ namespace SnakeWorld_Server
                 if (_loggedWebUser != null)
                     loggedSnakeUser = snakeDb.SnakeInfos.SingleOrDefault(u => u.userId == _loggedWebUser.userId && u.playDate == playDate);
                 else
-                    loggedSnakeUser = snakeDb.SnakeInfos.SingleOrDefault(u => u.userId == null && u.playDate == playDate);
+                    loggedSnakeUser = snakeDb.SnakeInfos.SingleOrDefault(u => u.userId == (-1) && u.playDate == playDate);
                     
                 if (loggedSnakeUser == null)
                 {
                     loggedSnakeUser = new SnakeInfo();
 
                     if (_loggedWebUser != null) loggedSnakeUser.userId = _loggedWebUser.userId;
-                    else    loggedSnakeUser.userId = null;
+                    else    loggedSnakeUser.userId = (-1);
 
                     loggedSnakeUser.playDate = playDate;
 

@@ -3,7 +3,7 @@
   <Connection Mode="AppSettings" ConnectionString="Data Source=.\SQLEXPRESS;Initial Catalog=snakeworld;Integrated Security=True" SettingsObjectName="SnakeWorld_Server.Properties.Settings" SettingsPropertyName="snakeworldConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.SnakeInfo" Member="SnakeInfos">
     <Type Name="SnakeInfo">
-      <Column Name="userId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="userId" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="timeSecondsPlayed" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="maxLength" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
       <Column Name="kills" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
