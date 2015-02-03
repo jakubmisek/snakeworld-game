@@ -34,7 +34,7 @@
         <asp:TemplateColumn><ItemTemplate><%# ((int)Eval("num") >= 0)?(Eval("num")):(null) %></ItemTemplate></asp:TemplateColumn>
         <asp:BoundColumn DataField="name" ></asp:BoundColumn>
         <asp:BoundColumn DataField="length" SortExpression="length"  />
-        <asp:BoundColumn DataField="plays" SortExpression="plays"/>
+        <asp:BoundColumn DataField="apples" SortExpression="apples"/>
         <asp:BoundColumn DataField="kills" SortExpression="kills" />
         <asp:BoundColumn DataField="suicides" SortExpression="suicides"  />
         <asp:BoundColumn DataField="playtime" SortExpression="playtime" />

@@ -3,6 +3,7 @@
   <string key="username" title="">Jméno</string>
   <string key="bestscore" title="">Nejlepší score</string>
   <string key="playscount" title="">Počet her</string>
+  <string key="apples" title="">Jablek</string>
   <string key="kills" title="">Zabito hadů</string>
   <string key="suicides" title="">Sebevražd</string>
   <string key="playtime" title="">Čas celkem</string>

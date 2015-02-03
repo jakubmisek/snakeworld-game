@@ -14,6 +14,9 @@ public partial class Texts
 	/// <summary>Plays count</summary>
 	public TextField playscount;
 
+	/// <summary>Apples</summary>
+	public TextField apples;
+
 	/// <summary>Kills</summary>
 	public TextField kills;
 
@@ -41,12 +44,12 @@ public partial class Texts
 	/// <summary>This month</summary>
 	public TextField stats_month;
 
-	/// <summary>(Not registered)</summary>
+	/// <summary>Not registered</summary>
 	public TextField unregistered;
 
 	// Text items initialization
 	private void InitTextItems()
 	{
-username=new TextField("username", this);bestscore=new TextField("bestscore", this);playscount=new TextField("playscount", this);kills=new TextField("kills", this);suicides=new TextField("suicides", this);playtime=new TextField("playtime", this);lastplaybefore=new TextField("lastplaybefore", this);playingnow=new TextField("playingnow", this);stats_total=new TextField("stats_total", this);stats_day=new TextField("stats_day", this);stats_week=new TextField("stats_week", this);stats_month=new TextField("stats_month", this);unregistered=new TextField("unregistered", this);
+username=new TextField("username", this);bestscore=new TextField("bestscore", this);playscount=new TextField("playscount", this);apples=new TextField("apples", this);kills=new TextField("kills", this);suicides=new TextField("suicides", this);playtime=new TextField("playtime", this);lastplaybefore=new TextField("lastplaybefore", this);playingnow=new TextField("playingnow", this);stats_total=new TextField("stats_total", this);stats_day=new TextField("stats_day", this);stats_week=new TextField("stats_week", this);stats_month=new TextField("stats_month", this);unregistered=new TextField("unregistered", this);
 	}
 }

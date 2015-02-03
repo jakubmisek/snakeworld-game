@@ -10,7 +10,7 @@ public partial class _Default : System.Web.UI.Page
     public class ResultInfo
     {
         private string _name;
-        private int _length, _kills, _suicides, _plays;
+        private int _length, _kills, _suicides, _plays, _apples;
         private TimeSpan _playtime;
         private int _num = -1;
 
@@ -69,6 +69,13 @@ public partial class _Default : System.Web.UI.Page
                 _num = value;
             }
         }
+        public int apples
+        {
+            get
+            {
+                return _apples;
+            }
+        }
 
         public ResultInfo(UserInfo user, SnakeInfo snake)
         {
@@ -80,6 +87,7 @@ public partial class _Default : System.Web.UI.Page
             _suicides = snake.suicides;
             _plays = snake.plays;
             _playtime = TimeSpan.FromSeconds((double)snake.timeSecondsPlayed);
+            _apples = snake.applesEaten;
 
             if (_name.Length > 16)
             {
@@ -253,6 +261,7 @@ public partial class _Default : System.Web.UI.Page
                          playDate = g.Max(s => s.playDate),
                          plays = g.Sum(s => s.plays),
                          suicides = g.Sum(s => s.suicides),
+                         applesEaten = g.Sum(s => s.applesEaten),
                          timeSecondsPlayed = g.Sum(s => s.timeSecondsPlayed)
                      });
 
@@ -283,6 +292,9 @@ public partial class _Default : System.Web.UI.Page
                 break;
             case "playtime":
                 shortedResults = resultInfo.OrderByDescending(a => a.playtime);
+                break;
+            case "apples":
+                shortedResults = resultInfo.OrderByDescending(a => a.apples);
                 break;
 
         }
