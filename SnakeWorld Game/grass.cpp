@@ -3,7 +3,7 @@
 
 #include <math.h>
 
-#define GRASS_STALKS_1X1_COUNT		(2.0)	// number of grass points per 1 square unit (0.1 - 3.0)
+#define GRASS_STALKS_1X1_COUNT		(3.0)	// number of grass points per 1 square unit (0.1 - 3.0)
 #define GRASS_STALKS_COUNT			(UINT)( GRASS_STALKS_1X1_COUNT * TERRAIN_SIZE * TERRAIN_SIZE )	// number of grass points per one square terrain unit
 
 LPCTSTR g_szGrassTextureNames[] = 

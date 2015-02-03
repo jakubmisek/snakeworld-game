@@ -537,7 +537,7 @@ void AdvanceSnakeBodyGS( line VS_SB_INPUT input[2], inout PointStream<VS_SB_INPU
 [maxvertexcount(36)]	// (nBodyPoints - 1) * 6
 void SnakeBodyGS( line GS_SB_INPUT input[2], inout TriangleStream<PS_SB_INPUT> TriStream )
 {
-	PS_SB_INPUT output[4];
+	PS_SB_INPUT output[4] = { {{0,0,0,0},{0,0},{0,0,0},{0,0,0}}, {{0,0,0,0},{0,0},{0,0,0},{0,0,0}}, {{0,0,0,0},{0,0},{0,0,0},{0,0,0}}, {{0,0,0,0},{0,0},{0,0,0},{0,0,0}} };
 	float4 wt[4];
 	float3x3 tangentSpaceMatrix;
 	
@@ -577,9 +577,8 @@ void SnakeBodyGS( line GS_SB_INPUT input[2], inout TriangleStream<PS_SB_INPUT> T
 	output[3].Camera = mul(tangentSpaceMatrix, normalize(vecView));
 	output[3].Light = mul(tangentSpaceMatrix, normalize(vecLightDirection));	
 	
-	
 	/* PT i+1 */
-	for( uint i=1; i<nBodyPoints; i++ )
+	for( uint i=1; i<nBodyPoints; ++i )
 	{
 		// (next pt)
 		wt[0] = wt[2];
@@ -617,7 +616,7 @@ void SnakeBodyGS( line GS_SB_INPUT input[2], inout TriangleStream<PS_SB_INPUT> T
 		output[3].Light = mul(tangentSpaceMatrix, normalize(vecLightDirection));
 		
 		output[2].Tex.x = output[3].Tex.x = (float)(i) / (float)nBodyPoints;
-		
+			
 		/* append triangles */
 		// 0 1 2
 		TriStream.Append( output[0] );
@@ -643,9 +642,9 @@ void SnakeBodyGrassMoveMaskGS( line GS_SB_INPUT input[2], inout TriangleStream<P
 	
 	float3 vecDir = normalize(input[1].Pos - input[0].Pos).xyz;
 	
-	output.Dir = float2( vecDir.x, vecDir.z )*0.8f;
+	output.Dir = float2( vecDir.x, vecDir.z );//*0.8f;
 	
-	float2 v[4];	
+	float2 v[4];
 	v[0] = float2( input[0].Pos.x - input[0].Norm.x*1.2, input[0].Pos.z - input[0].Norm.z*1.2 ) / flTerrainSize * 2.0 - 1.0;
 	v[1] = float2( input[0].Pos.x + input[0].Norm.x*1.2, input[0].Pos.z + input[0].Norm.z*1.2 ) / flTerrainSize * 2.0 - 1.0;
 	v[2] = float2( input[1].Pos.x - input[1].Norm.x*1.2, input[1].Pos.z - input[1].Norm.z*1.2 ) / flTerrainSize * 2.0 - 1.0;
@@ -688,8 +687,8 @@ void SnakeBodyGrassMoveMaskGS( line GS_SB_INPUT input[2], inout TriangleStream<P
 [maxvertexcount(120)]	// shadow volume
 void SnakeBodyShadowVolumeGS( line GS_SB_INPUT input[2], inout TriangleStream<PS_SHADOWVOLUME_INPUT> TriStream )
 {
-	float4	wt[4];
-	PS_SHADOWVOLUME_INPUT output[4];
+	float4	wt[4]= {{0,0,0,0},{0,0,0,0},{0,0,0,0},{0,0,0,0}};
+	PS_SHADOWVOLUME_INPUT output[4] = { {{0,0,0,0}},{{0,0,0,0}},{{0,0,0,0}},{{0,0,0,0}} };
 	uint bShadowing = 0;	
 	
 	float3 vecN = float3(0,-1,0);
@@ -1019,8 +1018,8 @@ void StoneWallGS( triangle GS_ST_INPUT input[3], inout TriangleStream<PS_ST_INPU
 		output[i].Pos = mul( input[i].Pos, matViewProj );
 		output[i].Tex = input[i].Tex;
 		
-		tangentSpaceMatrix[0] = normalize( input[(i+1)%3].Pos - input[i].Pos ); // tangent
-		tangentSpaceMatrix[1] = normalize( input[(i+2)%3].Pos - input[i].Pos );	// binormal
+		tangentSpaceMatrix[0] = normalize( input[(i+1)%3].Pos - input[i].Pos ).xyz; // tangent
+		tangentSpaceMatrix[1] = normalize( input[(i+2)%3].Pos - input[i].Pos ).xyz;	// binormal
 		tangentSpaceMatrix[2] = normalize( input[i].Norm );// normal
 				
 		output[i].Light = mul(tangentSpaceMatrix, normalize(vecLightDirection));
@@ -1058,7 +1057,7 @@ void StoneWallGSShadowVolume( triangle GS_ST_INPUT input[3], inout TriangleStrea
 	
 	float3 vecShadowDir = vecLightDirection * 10.0f;
 	
-	PS_SHADOWVOLUME_INPUT	output[4];
+	PS_SHADOWVOLUME_INPUT	output[4] = { {{0,0,0,0}},{{0,0,0,0}},{{0,0,0,0}},{{0,0,0,0}} };
 	
 	output[2].Pos = mul( input[2].Pos, matViewProj );
 	output[3].Pos = mul( float4( input[2].Pos.xyz + vecShadowDir, 1), matViewProj );

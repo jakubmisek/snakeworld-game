@@ -6,7 +6,7 @@
 //////////////////////////////////////////////////////////////////////////
 //
 #define ADD_SEGMENT_MININTERVAL	(0.165)		// only one segment can be created in this time
-#define ADD_SEGMENT_MAXINTERVAL	(10.0)		// after this time, new segment have to be created (to keep positions updated)
+#define ADD_SEGMENT_MAXINTERVAL	(1.5)		// after this time, new segment have to be created (to keep positions updated)
 
 #define	TEST_COLLISION_MIN_LENGTH	(25.0)	// collision is tested only with snakes with length greater or equal to this
 

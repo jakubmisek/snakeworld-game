@@ -36,13 +36,13 @@
   <text key="wait">Please wait ...</text>
   <text key="cancel">Cancel</text>
   <text key="length">Length</text>
-  <text key="youkilled">You killed '%s' !!</text>
-  <text key="selfkill">You killed yourself ...</text>
+  <text key="youkilled">You've killed '%s' !!</text>
+  <text key="selfkill">You've killed yourself ...</text>
   <text key="killedby">'%s' killed you ...</text>
   <text key="bestscore">Best score</text>
   <text key="chat">Chat</text>
   <text key="chatflow">Do not send so many messages please ...</text>
   <text key="chatvisibility">Chat visibility</text>
-  <text key="useauthorization">Use your internet login (www.sacredware.com)</text>
+  <text key="useauthorization">Use your internet login (www.besnaked.com)</text>
 
 </language>
