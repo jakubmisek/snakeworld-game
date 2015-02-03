@@ -47,6 +47,11 @@
     <Compile Include="ApplesList.cs" />
     <Compile Include="BoundRect.cs" />
     <Compile Include="BufferedBinaryWriter.cs" />
+    <Compile Include="cmsdb.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cmsdb.dbml</DependentUpon>
+    </Compile>
     <Compile Include="ConnectionData.cs" />
     <Compile Include="DirtyValueBits.cs" />
     <Compile Include="HashTable.cs" />
@@ -69,20 +74,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>snakeworld.dbml</DependentUpon>
     </Compile>
-    <Compile Include="web.designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>web.dbml</DependentUpon>
-    </Compile>
     <Compile Include="World.cs" />
     <Compile Include="WorldScene.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="web.dbml">
-      <Generator>MSLinqToSQLGenerator</Generator>
-      <LastGenOutput>web.designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
@@ -98,13 +91,20 @@
       <LastGenOutput>snakeworld.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
-    <None Include="web.dbml.layout">
-      <DependentUpon>web.dbml</DependentUpon>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="cmsdb.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>cmsdb.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="snakeworld.dbml.layout">
+      <DependentUpon>snakeworld.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="snakeworld.dbml.layout">
-      <DependentUpon>snakeworld.dbml</DependentUpon>
+    <None Include="cmsdb.dbml.layout">
+      <DependentUpon>cmsdb.dbml</DependentUpon>
     </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -10,6 +10,8 @@ using System.IO;
 using System.Net;
 using System.Net.Sockets;
 
+using SnakeWorld_Highscore;
+
 namespace SnakeWorld_Server
 {
     public class Snake : SceneTreeItem<Snake>, Identificable
@@ -143,12 +145,14 @@ namespace SnakeWorld_Server
         public void Login(string userEmail, string password)
         {
             // login, can throw an exception
-            var webDb = new webDataContext();
-            _loggedWebUser = webDb.UserInfos.Single(u => u.email == userEmail.ToLower());
-            if (GenerateHash(password + _loggedWebUser.saltHash) != _loggedWebUser.passwordHash)
+            var webDb = new cmsdbDataContext();
+            _loggedWebUser = webDb.UserInfos.Single(u => u.Email == userEmail.ToLower());
+            if (!_loggedWebUser.IsActive)
+                throw new Exception("User not activated");
+            if (GenerateHash(password + _loggedWebUser.SaltHash) != _loggedWebUser.PasswordHash)
                 throw new Exception("Invalid password");
 
-            this.Name = "® " + _loggedWebUser.name;  // registered user name
+            this._Name = "® " + _loggedWebUser.FullName;  // registered user name
             
             // start values
             playStartTime = DateTime.Now;
@@ -172,7 +176,7 @@ namespace SnakeWorld_Server
                 lock (_lockDbSubmit)
                 {
                     if (_loggedWebUser != null)
-                        loggedSnakeUser = snakeDb.SnakeInfos.SingleOrDefault(u => u.userId == _loggedWebUser.userId && u.playDate == playDate);
+                        loggedSnakeUser = snakeDb.SnakeInfos.SingleOrDefault(u => u.userId == _loggedWebUser.UserId && u.playDate == playDate);
                     else
                         loggedSnakeUser = snakeDb.SnakeInfos.SingleOrDefault(u => u.userId == (-1) && u.playDate == playDate);
 
@@ -180,7 +184,7 @@ namespace SnakeWorld_Server
                     {
                         loggedSnakeUser = new SnakeInfo();
 
-                        if (_loggedWebUser != null) loggedSnakeUser.userId = _loggedWebUser.userId;
+                        if (_loggedWebUser != null) loggedSnakeUser.userId = _loggedWebUser.UserId;
                         else loggedSnakeUser.userId = (-1);
 
                         loggedSnakeUser.playDate = playDate;
@@ -402,7 +406,7 @@ namespace SnakeWorld_Server
             }
             set
             {
-                _Name = value;
+                _Name = value.Replace("®", "(FŇ)");
             }
         }
 

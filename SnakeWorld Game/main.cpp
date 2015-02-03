@@ -30,7 +30,7 @@ void	DoMessageLoop(CGameWindow&aGameWindow)
 // check the instance is already running
 bool	CheckInstanceRunning()
 {
-	#define MUTEX_NAME	(L"snakeworld_game_instance_mutex")
+#define MUTEX_NAME	(L"snakeworld_game_instance_mutex")
 
 	HANDLE instanceMutex = OpenMutex(MUTEX_ALL_ACCESS , TRUE, MUTEX_NAME);
 

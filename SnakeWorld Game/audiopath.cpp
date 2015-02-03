@@ -119,8 +119,9 @@ bool		CAudioPath::PlaySegment( CSoundSegment*pSegment, bool bRepeat, bool b3D )
 	//
     // Play the wave using a XAudio2SourceVoice
     //
-    const IXAudio2Voice* voices[] = { m_pManager->GetMasteringVoice() };
-    const XAUDIO2_VOICE_SENDS sendList = { 1, (IXAudio2Voice**)voices };
+    //const IXAudio2Voice* voices[] = { m_pManager->GetMasteringVoice() };
+	XAUDIO2_SEND_DESCRIPTOR desc = {0, m_pManager->GetMasteringVoice() };
+	const XAUDIO2_VOICE_SENDS sendList = { 1, &desc};
 
     // Create the source voice
     if (FAILED( m_pManager->GetXAudio2()->CreateSourceVoice( &pSourceVoice, pSegment->GetWaveFormat(), 0,

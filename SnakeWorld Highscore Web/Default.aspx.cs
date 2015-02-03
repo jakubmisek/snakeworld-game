@@ -5,6 +5,8 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
+using SnakeWorld_highscore;
+
 public partial class _Default : System.Web.UI.Page 
 {
     public class ResultInfo
@@ -79,9 +81,9 @@ public partial class _Default : System.Web.UI.Page
 
         public ResultInfo(UserInfo user, SnakeInfo snake)
         {
-            IsRegisteredPlayer = (user.userId != (-1));
+            IsRegisteredPlayer = (user.UserId != (-1));
 
-            _name = user.name;
+            _name = user.FullName;
             _length = (int)snake.maxLength;
             _kills = snake.kills;
             _suicides = snake.suicides;
@@ -213,7 +215,7 @@ public partial class _Default : System.Web.UI.Page
         SetActiveHeader();
         
         var snakeworldDb = new snakeworldDataContext();
-        var webDb = new webDataContext();
+        var webDb = new cmsDataContext();
 
         IEnumerable<SnakeInfo> requestedInfos = null;
 
@@ -271,9 +273,9 @@ public partial class _Default : System.Web.UI.Page
 
         foreach (var v in users)
         {
-            UserInfo user = (v.userId != (-1)) ? webDb.UserInfos.SingleOrDefault(u => u.userId == v.userId) : (new UserInfo() { name = TextItems.unregistered, userId = (-1) });
+            UserInfo user = (v.userId != (-1)) ? webDb.UserInfos.SingleOrDefault(u => u.UserId == v.userId) : (new UserInfo() { FullName = TextItems.unregistered, UserId = (-1) });
             if (user == null)
-                user = (new UserInfo() { name = "(deleted)", userId = (-1) });
+                user = (new UserInfo() { FullName = "(deleted)", UserId = (-1) });
 
             resultInfo.Add(new ResultInfo(user, v));
         }
