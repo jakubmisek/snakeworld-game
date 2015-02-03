@@ -27,9 +27,32 @@ void	DoMessageLoop(CGameWindow&aGameWindow)
 
 
 //////////////////////////////////////////////////////////////////////////
+// check the instance is already running
+bool	CheckInstanceRunning()
+{
+	#define MUTEX_NAME	(L"snakeworld_game_instance_mutex")
+
+	HANDLE instanceMutex = OpenMutex(MUTEX_ALL_ACCESS , TRUE, MUTEX_NAME);
+
+	if (instanceMutex != NULL)
+	{
+		MessageBox(NULL, L"The game is already running.", L"Snake World",MB_ICONWARNING);
+		return true;
+	}
+
+	instanceMutex = CreateMutex(NULL,TRUE,MUTEX_NAME);
+	
+	return false;
+}
+
+
+//////////////////////////////////////////////////////////////////////////
 // WinMain
 int __stdcall WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
+	if (CheckInstanceRunning())
+		return -1;
+
 	// create the main window object
 	CGameWindow aGameWindow(hInstance);
 

@@ -5,7 +5,7 @@
 
 Jakub Míšek
 červen 2008
-http://www.sacredware.com/snakeworld.aspx
+http://www.sacredware.com/snake-world.aspx
 
 
 
