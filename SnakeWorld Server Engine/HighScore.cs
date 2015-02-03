@@ -110,9 +110,18 @@ namespace SnakeWorld_Server
             {
                 lock (snakeTo.bw)
                 {
-                    ConnectionData.Send_CmdId(snakeTo.bw, ECmdIds.CMD_BESTSNAKE);
-                    ConnectionData.Send_String(snakeTo.bw, BestName);
-                    snakeTo.bw.Write(BestLength);
+                    try
+                    {
+                        ConnectionData.Send_CmdId(snakeTo.bw, ECmdIds.CMD_BESTSNAKE);
+                        ConnectionData.Send_String(snakeTo.bw, BestName);
+                        snakeTo.bw.Write(BestLength);
+
+                        snakeTo.bw.Flush();
+                    }
+                    catch(Exception)
+                    {
+
+                    }
                 }
             }
         }
