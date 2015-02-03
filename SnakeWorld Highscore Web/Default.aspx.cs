@@ -190,7 +190,8 @@ public partial class _Default : System.Web.UI.Page
                 results.Columns[2].HeaderStyle.CssClass = "sort";
                 //results.Columns[2].ItemStyle.BackColor = System.Drawing.Color.FromArgb(0xe5, 0xef, 0xfc);
                 break;
-            case "plays":
+            //case "plays":
+            case "apples":
                 results.Columns[3].HeaderStyle.CssClass = "sort";
                 break;
             case "kills":
@@ -202,6 +203,7 @@ public partial class _Default : System.Web.UI.Page
             case "playtime":
                 results.Columns[6].HeaderStyle.CssClass = "sort";
                 break;
+            
 
         }
     }
