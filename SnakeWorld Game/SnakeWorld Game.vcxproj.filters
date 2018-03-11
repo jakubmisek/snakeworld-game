@@ -1,0 +1,486 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Source Files\math">
+      <UniqueIdentifier>{b9c468e4-77a5-49ab-9497-e05f813f892e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\rendering">
+      <UniqueIdentifier>{4c9fd085-7685-4e16-ad1a-dfb2682171c5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\rendering\scenetree">
+      <UniqueIdentifier>{d5029fd5-0d3f-4278-b628-f6e60400bfdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\rendering\models">
+      <UniqueIdentifier>{6bf41b22-5bcb-46f3-8f43-76e8c59babc7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\rendering\models\DX10">
+      <UniqueIdentifier>{a28b2a2c-57c5-4aa4-b897-ea670a6c4092}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\rendering\models\DX9">
+      <UniqueIdentifier>{da9c7c02-7e4b-4015-ae72-66797966fc0a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\base">
+      <UniqueIdentifier>{bc99bd5c-88e0-41e5-ae1b-6ef76999c8ad}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\menu">
+      <UniqueIdentifier>{c0eef048-3560-4663-87c3-7453ed48fd7f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\dxdevice">
+      <UniqueIdentifier>{3c8f3b34-6f88-4399-b6a0-66771227bbed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\threaded">
+      <UniqueIdentifier>{150d27c4-cd28-4278-ad1a-fc41da60cf75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\sound">
+      <UniqueIdentifier>{ef061497-e199-40ee-9211-76cd70b1a237}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\text">
+      <UniqueIdentifier>{6cf683ca-76b6-45d2-947f-3e2ee1e81963}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\web">
+      <UniqueIdentifier>{eff0d1b3-67b9-4e32-955d-ef16d1582ec2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\connection">
+      <UniqueIdentifier>{2107f5c3-529d-48fd-9cdd-c50c2c71a171}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Header Files\rendering">
+      <UniqueIdentifier>{361ba12e-bc97-40d6-87aa-bcc0ba09ec51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\rendering\scenetree">
+      <UniqueIdentifier>{fa77c481-150c-4ef3-a3aa-9ba300521cbf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\rendering\models">
+      <UniqueIdentifier>{1ee598cd-0e2b-4fad-ac64-b617d07da990}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\rendering\models\DX9">
+      <UniqueIdentifier>{a1fcd9ac-6f46-4fe8-9f06-603d0d64ad30}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\math">
+      <UniqueIdentifier>{9e8027ef-51ae-42dd-b53b-ed195ef68f46}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\collections">
+      <UniqueIdentifier>{b848597b-e2ff-4861-9cc5-cebc66b407ff}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\text">
+      <UniqueIdentifier>{cb40fff5-55e6-4d9a-a8d7-463ad3477fe4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\base">
+      <UniqueIdentifier>{15457433-0b68-4fb8-84b5-c1e78b3a7f18}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\menu">
+      <UniqueIdentifier>{eaa84b6c-6780-45d0-a96d-779bcb82b09e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\dxdevice">
+      <UniqueIdentifier>{877e819e-f476-4079-971a-19bd41929037}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\threaded">
+      <UniqueIdentifier>{a03b2ab7-05d5-4d00-a5a4-6a5fec4eff2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\sound">
+      <UniqueIdentifier>{3bde7eda-5443-4c6b-89b5-a031fc91c9e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\web">
+      <UniqueIdentifier>{140facc3-b9a5-4bd3-befd-016c530e0122}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\connection">
+      <UniqueIdentifier>{dbfd21c1-86cb-4bba-8769-3fdf3413589f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav</Extensions>
+    </Filter>
+    <Filter Include="Resource Files\effects">
+      <UniqueIdentifier>{39ca3332-52ac-4595-a265-da8dd468620b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="errorlog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="gamewindow.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="boundrect.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="vector.cpp">
+      <Filter>Source Files\math</Filter>
+    </ClCompile>
+    <ClCompile Include="butterfly.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="myapple.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="mychat.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="mysnake.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="myworld.cpp">
+      <Filter>Source Files\rendering</Filter>
+    </ClCompile>
+    <ClCompile Include="myscenetree.cpp">
+      <Filter>Source Files\rendering\scenetree</Filter>
+    </ClCompile>
+    <ClCompile Include="scenetreemoving.cpp">
+      <Filter>Source Files\rendering\scenetree</Filter>
+    </ClCompile>
+    <ClCompile Include="applemodel.cpp">
+      <Filter>Source Files\rendering\models</Filter>
+    </ClCompile>
+    <ClCompile Include="butterflymodel.cpp">
+      <Filter>Source Files\rendering\models</Filter>
+    </ClCompile>
+    <ClCompile Include="grass.cpp">
+      <Filter>Source Files\rendering\models</Filter>
+    </ClCompile>
+    <ClCompile Include="segmentsmodel.cpp">
+      <Filter>Source Files\rendering\models</Filter>
+    </ClCompile>
+    <ClCompile Include="skybox.cpp">
+      <Filter>Source Files\rendering\models</Filter>
+    </ClCompile>
+    <ClCompile Include="stonewall.cpp">
+      <Filter>Source Files\rendering\models</Filter>
+    </ClCompile>
+    <ClCompile Include="terrain.cpp">
+      <Filter>Source Files\rendering\models</Filter>
+    </ClCompile>
+    <ClCompile Include="applemodel10.cpp">
+      <Filter>Source Files\rendering\models\DX10</Filter>
+    </ClCompile>
+    <ClCompile Include="butterflymodel10.cpp">
+      <Filter>Source Files\rendering\models\DX10</Filter>
+    </ClCompile>
+    <ClCompile Include="grass10.cpp">
+      <Filter>Source Files\rendering\models\DX10</Filter>
+    </ClCompile>
+    <ClCompile Include="headmodel10.cpp">
+      <Filter>Source Files\rendering\models\DX10</Filter>
+    </ClCompile>
+    <ClCompile Include="segmentsmodel10.cpp">
+      <Filter>Source Files\rendering\models\DX10</Filter>
+    </ClCompile>
+    <ClCompile Include="stonewall10.cpp">
+      <Filter>Source Files\rendering\models\DX10</Filter>
+    </ClCompile>
+    <ClCompile Include="applemodel9.cpp">
+      <Filter>Source Files\rendering\models\DX9</Filter>
+    </ClCompile>
+    <ClCompile Include="butterflymodel9.cpp">
+      <Filter>Source Files\rendering\models\DX9</Filter>
+    </ClCompile>
+    <ClCompile Include="grass9.cpp">
+      <Filter>Source Files\rendering\models\DX9</Filter>
+    </ClCompile>
+    <ClCompile Include="headmodel9.cpp">
+      <Filter>Source Files\rendering\models\DX9</Filter>
+    </ClCompile>
+    <ClCompile Include="segmentsmodel9.cpp">
+      <Filter>Source Files\rendering\models\DX9</Filter>
+    </ClCompile>
+    <ClCompile Include="stonewall9.cpp">
+      <Filter>Source Files\rendering\models\DX9</Filter>
+    </ClCompile>
+    <ClCompile Include="appleobject.cpp">
+      <Filter>Source Files\base</Filter>
+    </ClCompile>
+    <ClCompile Include="connectionprotocol.cpp">
+      <Filter>Source Files\base</Filter>
+    </ClCompile>
+    <ClCompile Include="gameworld.cpp">
+      <Filter>Source Files\base</Filter>
+    </ClCompile>
+    <ClCompile Include="snakeobject.cpp">
+      <Filter>Source Files\base</Filter>
+    </ClCompile>
+    <ClCompile Include="menu.cpp">
+      <Filter>Source Files\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="menuitemtextureselect.cpp">
+      <Filter>Source Files\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="menuscreen.cpp">
+      <Filter>Source Files\menu</Filter>
+    </ClCompile>
+    <ClCompile Include="boundbox.cpp">
+      <Filter>Source Files\dxdevice</Filter>
+    </ClCompile>
+    <ClCompile Include="camera.cpp">
+      <Filter>Source Files\dxdevice</Filter>
+    </ClCompile>
+    <ClCompile Include="device.cpp">
+      <Filter>Source Files\dxdevice</Filter>
+    </ClCompile>
+    <ClCompile Include="device10.cpp">
+      <Filter>Source Files\dxdevice</Filter>
+    </ClCompile>
+    <ClCompile Include="device9.cpp">
+      <Filter>Source Files\dxdevice</Filter>
+    </ClCompile>
+    <ClCompile Include="dx_dynamic.cpp">
+      <Filter>Source Files\dxdevice</Filter>
+    </ClCompile>
+    <ClCompile Include="downloader.cpp">
+      <Filter>Source Files\threaded</Filter>
+    </ClCompile>
+    <ClCompile Include="grasstextureloader.cpp">
+      <Filter>Source Files\threaded</Filter>
+    </ClCompile>
+    <ClCompile Include="locker.cpp">
+      <Filter>Source Files\threaded</Filter>
+    </ClCompile>
+    <ClCompile Include="textureloader.cpp">
+      <Filter>Source Files\threaded</Filter>
+    </ClCompile>
+    <ClCompile Include="threadedloader.cpp">
+      <Filter>Source Files\threaded</Filter>
+    </ClCompile>
+    <ClCompile Include="webdownloader.cpp">
+      <Filter>Source Files\threaded</Filter>
+    </ClCompile>
+    <ClCompile Include="audiopath.cpp">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="soundmanager.cpp">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="soundsegment.cpp">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="wavefile.cpp">
+      <Filter>Source Files\sound</Filter>
+    </ClCompile>
+    <ClCompile Include="texts.cpp">
+      <Filter>Source Files\text</Filter>
+    </ClCompile>
+    <ClCompile Include="xml.cpp">
+      <Filter>Source Files\text</Filter>
+    </ClCompile>
+    <ClCompile Include="web.cpp">
+      <Filter>Source Files\web</Filter>
+    </ClCompile>
+    <ClCompile Include="connection.cpp">
+      <Filter>Source Files\connection</Filter>
+    </ClCompile>
+    <ClCompile Include="connectionlocal.cpp">
+      <Filter>Source Files\connection</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="errorlog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="gamewindow.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="butterfly.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="myapple.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="mychat.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="mysnake.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="myworld.h">
+      <Filter>Header Files\rendering</Filter>
+    </ClInclude>
+    <ClInclude Include="myscenetree.h">
+      <Filter>Header Files\rendering\scenetree</Filter>
+    </ClInclude>
+    <ClInclude Include="scenetreemoving.h">
+      <Filter>Header Files\rendering\scenetree</Filter>
+    </ClInclude>
+    <ClInclude Include="applemodel.h">
+      <Filter>Header Files\rendering\models</Filter>
+    </ClInclude>
+    <ClInclude Include="butterflymodel.h">
+      <Filter>Header Files\rendering\models</Filter>
+    </ClInclude>
+    <ClInclude Include="grass.h">
+      <Filter>Header Files\rendering\models</Filter>
+    </ClInclude>
+    <ClInclude Include="segmentsmodel.h">
+      <Filter>Header Files\rendering\models</Filter>
+    </ClInclude>
+    <ClInclude Include="skybox.h">
+      <Filter>Header Files\rendering\models</Filter>
+    </ClInclude>
+    <ClInclude Include="stonewall.h">
+      <Filter>Header Files\rendering\models</Filter>
+    </ClInclude>
+    <ClInclude Include="terrain.h">
+      <Filter>Header Files\rendering\models</Filter>
+    </ClInclude>
+    <ClInclude Include="segmentsmodel9.h">
+      <Filter>Header Files\rendering\models\DX9</Filter>
+    </ClInclude>
+    <ClInclude Include="boundrect.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="constants.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="vector.h">
+      <Filter>Header Files\math</Filter>
+    </ClInclude>
+    <ClInclude Include="hashedlist.h">
+      <Filter>Header Files\collections</Filter>
+    </ClInclude>
+    <ClInclude Include="list.h">
+      <Filter>Header Files\collections</Filter>
+    </ClInclude>
+    <ClInclude Include="elasticarray.h">
+      <Filter>Header Files\text</Filter>
+    </ClInclude>
+    <ClInclude Include="string.h">
+      <Filter>Header Files\text</Filter>
+    </ClInclude>
+    <ClInclude Include="texts.h">
+      <Filter>Header Files\text</Filter>
+    </ClInclude>
+    <ClInclude Include="xml.h">
+      <Filter>Header Files\text</Filter>
+    </ClInclude>
+    <ClInclude Include="xmlsax.h">
+      <Filter>Header Files\text</Filter>
+    </ClInclude>
+    <ClInclude Include="appleobject.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="appleparam.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="connectiondata.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="connectionprotocol.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="gameworld.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="snakeobject.h">
+      <Filter>Header Files\base</Filter>
+    </ClInclude>
+    <ClInclude Include="menu.h">
+      <Filter>Header Files\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="menuitemedit.h">
+      <Filter>Header Files\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="menuitems.h">
+      <Filter>Header Files\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="menuitemtextureselect.h">
+      <Filter>Header Files\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="menuscreen.h">
+      <Filter>Header Files\menu</Filter>
+    </ClInclude>
+    <ClInclude Include="boundbox.h">
+      <Filter>Header Files\dxdevice</Filter>
+    </ClInclude>
+    <ClInclude Include="camera.h">
+      <Filter>Header Files\dxdevice</Filter>
+    </ClInclude>
+    <ClInclude Include="device.h">
+      <Filter>Header Files\dxdevice</Filter>
+    </ClInclude>
+    <ClInclude Include="dx_dynamic.h">
+      <Filter>Header Files\dxdevice</Filter>
+    </ClInclude>
+    <ClInclude Include="memtool.h">
+      <Filter>Header Files\dxdevice</Filter>
+    </ClInclude>
+    <ClInclude Include="downloader.h">
+      <Filter>Header Files\threaded</Filter>
+    </ClInclude>
+    <ClInclude Include="grasstextureloader.h">
+      <Filter>Header Files\threaded</Filter>
+    </ClInclude>
+    <ClInclude Include="locker.h">
+      <Filter>Header Files\threaded</Filter>
+    </ClInclude>
+    <ClInclude Include="textureloader.h">
+      <Filter>Header Files\threaded</Filter>
+    </ClInclude>
+    <ClInclude Include="threadedloader.h">
+      <Filter>Header Files\threaded</Filter>
+    </ClInclude>
+    <ClInclude Include="webdownloader.h">
+      <Filter>Header Files\threaded</Filter>
+    </ClInclude>
+    <ClInclude Include="audiopath.h">
+      <Filter>Header Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="soundmanager.h">
+      <Filter>Header Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="soundsegment.h">
+      <Filter>Header Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="wavefile.h">
+      <Filter>Header Files\sound</Filter>
+    </ClInclude>
+    <ClInclude Include="web.h">
+      <Filter>Header Files\web</Filter>
+    </ClInclude>
+    <ClInclude Include="binaryio.h">
+      <Filter>Header Files\connection</Filter>
+    </ClInclude>
+    <ClInclude Include="connection.h">
+      <Filter>Header Files\connection</Filter>
+    </ClInclude>
+    <ClInclude Include="connectionlocal.h">
+      <Filter>Header Files\connection</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="snakeworld.ico">
+      <Filter>Resource Files</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Game Definition\SnakeWorldGameDef.rc">
+      <Filter>Resource Files</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Media\effects10.fx">
+      <Filter>Resource Files\effects</Filter>
+    </CustomBuild>
+    <CustomBuild Include="media\effects9.fx">
+      <Filter>Resource Files\effects</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Media\menu10.fx">
+      <Filter>Resource Files\effects</Filter>
+    </CustomBuild>
+    <CustomBuild Include="media\menu9.fx">
+      <Filter>Resource Files\effects</Filter>
+    </CustomBuild>
+    <CustomBuild Include="Media\sky10.fx">
+      <Filter>Resource Files\effects</Filter>
+    </CustomBuild>
+    <CustomBuild Include="media\sky9.fx">
+      <Filter>Resource Files\effects</Filter>
+    </CustomBuild>
+  </ItemGroup>
+</Project>

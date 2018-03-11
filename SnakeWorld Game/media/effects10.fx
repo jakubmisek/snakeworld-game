@@ -19,9 +19,9 @@ cbuffer cbEverySnakeSegment
 
 cbuffer cbConstant
 {
-	const uint nBodyPoints = 7;			// snake body shape points count
+	static const uint nBodyPoints = 7;			// snake body shape points count
 
-	const float2 vecBodyPoints[7] =		// snake body shape
+	static const float2 vecBodyPoints[7] =		// snake body shape
 		{
 			float2( -1.0f, 0.0f ),
 			float2( -0.866f, 0.5f ),
@@ -32,13 +32,13 @@ cbuffer cbConstant
 			float2( +1.0f, 0.0f ),
 		};
 		
-	const float3 vecLightDirection = float3( -0.883, -0.342, -0.3214 );	// world light direction
+	static const float3 vecLightDirection = float3( -0.883, -0.342, -0.3214 );	// world light direction
 	
-	const float flGrassBounce = 0.2f;		// grass bounce, 0.0 - 0.5
+	static const float flGrassBounce = 0.2f;		// grass bounce, 0.0 - 0.5
 	
-	const float flGravity = 9.81f;	// gravitation constant (m / s^2)
+	static const float flGravity = 9.81f;	// gravitation constant (m / s^2)
 	
-	const float flTerrainSize = 50.0f;	// terrain plate size ( see terrain.h -> TERRAIN_SIZE !!! )
+	static const float flTerrainSize = 50.0f;	// terrain plate size ( see terrain.h -> TERRAIN_SIZE !!! )
 };
 
 cbuffer cbEveryObject

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A676BEE9-C814-4947-829A-00FA72172C83}</ProjectGuid>
+    <RootNamespace>SnakeWorldGame</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.16299.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <PlatformToolset>v141</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>15.0.27413.0</_ProjectFileVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>true</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)$(Configuration)\</OutDir>
+    <IntDir>$(Configuration)\</IntDir>
+    <LinkIncremental>false</LinkIncremental>
+    <GenerateManifest>false</GenerateManifest>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules />
+    <CodeAnalysisRuleAssemblies />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <CustomBuildStep>
+      <Command>media\buildeffects.bat debug
+</Command>
+      <Outputs>.;%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;DEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(IncludePath);$(DXSDK_DIR)Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dxerr.lib;dxguid.lib;d3dx9d.lib;d3d9.lib;winmm.lib;comctl32.lib;dxgi.lib;d3d10.lib;d3dx10d.lib;x3daudio.lib;Xaudio2.lib;Wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>d3dx10d_40.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <LargeAddressAware>true</LargeAddressAware>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(LibraryPath);$(DXSDK_DIR)Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <CustomBuildStep>
+      <Command>media\buildeffects.bat release
+</Command>
+      <Outputs>.;%(Outputs)</Outputs>
+    </CustomBuildStep>
+    <ClCompile>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_WINDOWS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <PrecompiledHeader />
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <AdditionalIncludeDirectories>$(IncludePath);$(DXSDK_DIR)Include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ClCompile>
+    <Link>
+      <AdditionalDependencies>dxerr.lib;dxguid.lib;d3dx9.lib;d3d9.lib;winmm.lib;comctl32.lib;dxgi.lib;d3d10.lib;d3dx10.lib;x3daudio.lib;Xaudio2.lib;Wininet.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <DelayLoadDLLs>d3dx10_40.dll;d3dx9_40.dll;%(DelayLoadDLLs)</DelayLoadDLLs>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <SubSystem>Windows</SubSystem>
+      <LargeAddressAware>true</LargeAddressAware>
+      <OptimizeReferences>true</OptimizeReferences>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention />
+      <TargetMachine>MachineX86</TargetMachine>
+      <AdditionalLibraryDirectories>$(LibraryPath);$(DXSDK_DIR)Lib\x86;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="applemodel.cpp" />
+    <ClCompile Include="applemodel10.cpp" />
+    <ClCompile Include="applemodel9.cpp" />
+    <ClCompile Include="appleobject.cpp" />
+    <ClCompile Include="audiopath.cpp" />
+    <ClCompile Include="boundbox.cpp" />
+    <ClCompile Include="boundrect.cpp" />
+    <ClCompile Include="butterfly.cpp" />
+    <ClCompile Include="butterflymodel.cpp" />
+    <ClCompile Include="butterflymodel10.cpp" />
+    <ClCompile Include="butterflymodel9.cpp" />
+    <ClCompile Include="camera.cpp" />
+    <ClCompile Include="connection.cpp" />
+    <ClCompile Include="connectionlocal.cpp" />
+    <ClCompile Include="connectionprotocol.cpp" />
+    <ClCompile Include="device.cpp" />
+    <ClCompile Include="device10.cpp" />
+    <ClCompile Include="device9.cpp" />
+    <ClCompile Include="downloader.cpp" />
+    <ClCompile Include="dx_dynamic.cpp" />
+    <ClCompile Include="errorlog.cpp" />
+    <ClCompile Include="gamewindow.cpp" />
+    <ClCompile Include="gameworld.cpp" />
+    <ClCompile Include="grass.cpp" />
+    <ClCompile Include="grass10.cpp" />
+    <ClCompile Include="grass9.cpp" />
+    <ClCompile Include="grasstextureloader.cpp" />
+    <ClCompile Include="headmodel10.cpp" />
+    <ClCompile Include="headmodel9.cpp" />
+    <ClCompile Include="locker.cpp" />
+    <ClCompile Include="main.cpp" />
+    <ClCompile Include="menu.cpp" />
+    <ClCompile Include="menuitemtextureselect.cpp" />
+    <ClCompile Include="menuscreen.cpp" />
+    <ClCompile Include="myapple.cpp" />
+    <ClCompile Include="mychat.cpp" />
+    <ClCompile Include="myscenetree.cpp" />
+    <ClCompile Include="mysnake.cpp" />
+    <ClCompile Include="myworld.cpp" />
+    <ClCompile Include="scenetreemoving.cpp" />
+    <ClCompile Include="segmentsmodel.cpp" />
+    <ClCompile Include="segmentsmodel10.cpp" />
+    <ClCompile Include="segmentsmodel9.cpp" />
+    <ClCompile Include="skybox.cpp" />
+    <ClCompile Include="snakeobject.cpp" />
+    <ClCompile Include="soundmanager.cpp" />
+    <ClCompile Include="soundsegment.cpp" />
+    <ClCompile Include="stonewall.cpp" />
+    <ClCompile Include="stonewall10.cpp" />
+    <ClCompile Include="stonewall9.cpp" />
+    <ClCompile Include="terrain.cpp" />
+    <ClCompile Include="texts.cpp" />
+    <ClCompile Include="textureloader.cpp" />
+    <ClCompile Include="threadedloader.cpp" />
+    <ClCompile Include="vector.cpp" />
+    <ClCompile Include="wavefile.cpp" />
+    <ClCompile Include="web.cpp" />
+    <ClCompile Include="webdownloader.cpp" />
+    <ClCompile Include="xml.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="applemodel.h" />
+    <ClInclude Include="appleobject.h" />
+    <ClInclude Include="appleparam.h" />
+    <ClInclude Include="audiopath.h" />
+    <ClInclude Include="binaryio.h" />
+    <ClInclude Include="boundbox.h" />
+    <ClInclude Include="boundrect.h" />
+    <ClInclude Include="butterfly.h" />
+    <ClInclude Include="butterflymodel.h" />
+    <ClInclude Include="camera.h" />
+    <ClInclude Include="connection.h" />
+    <ClInclude Include="connectiondata.h" />
+    <ClInclude Include="connectionlocal.h" />
+    <ClInclude Include="connectionprotocol.h" />
+    <ClInclude Include="constants.h" />
+    <ClInclude Include="device.h" />
+    <ClInclude Include="downloader.h" />
+    <ClInclude Include="dx_dynamic.h" />
+    <ClInclude Include="elasticarray.h" />
+    <ClInclude Include="errorlog.h" />
+    <ClInclude Include="gamewindow.h" />
+    <ClInclude Include="gameworld.h" />
+    <ClInclude Include="grass.h" />
+    <ClInclude Include="grasstextureloader.h" />
+    <ClInclude Include="hashedlist.h" />
+    <ClInclude Include="list.h" />
+    <ClInclude Include="locker.h" />
+    <ClInclude Include="memtool.h" />
+    <ClInclude Include="menu.h" />
+    <ClInclude Include="menuitemedit.h" />
+    <ClInclude Include="menuitems.h" />
+    <ClInclude Include="menuitemtextureselect.h" />
+    <ClInclude Include="menuscreen.h" />
+    <ClInclude Include="myapple.h" />
+    <ClInclude Include="mychat.h" />
+    <ClInclude Include="myscenetree.h" />
+    <ClInclude Include="mysnake.h" />
+    <ClInclude Include="myworld.h" />
+    <ClInclude Include="scenetreemoving.h" />
+    <ClInclude Include="segmentsmodel.h" />
+    <ClInclude Include="segmentsmodel9.h" />
+    <ClInclude Include="skybox.h" />
+    <ClInclude Include="snakeobject.h" />
+    <ClInclude Include="soundmanager.h" />
+    <ClInclude Include="soundsegment.h" />
+    <ClInclude Include="stonewall.h" />
+    <ClInclude Include="string.h" />
+    <ClInclude Include="terrain.h" />
+    <ClInclude Include="texts.h" />
+    <ClInclude Include="textureloader.h" />
+    <ClInclude Include="threadedloader.h" />
+    <ClInclude Include="vector.h" />
+    <ClInclude Include="wavefile.h" />
+    <ClInclude Include="web.h" />
+    <ClInclude Include="webdownloader.h" />
+    <ClInclude Include="xml.h" />
+    <ClInclude Include="xmlsax.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="snakeworld.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Game Definition\SnakeWorldGameDef.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="Media\effects10.fx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+    </CustomBuild>
+    <CustomBuild Include="media\effects9.fx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+    </CustomBuild>
+    <CustomBuild Include="Media\menu10.fx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+    </CustomBuild>
+    <CustomBuild Include="media\menu9.fx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+    </CustomBuild>
+    <CustomBuild Include="Media\sky10.fx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+    </CustomBuild>
+    <CustomBuild Include="media\sky9.fx">
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+      </Command>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+      </Command>
+    </CustomBuild>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

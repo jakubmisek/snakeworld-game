@@ -502,7 +502,7 @@ bool	CGameWindow::CreateGameWindow( unsigned int iWidth, unsigned int iHeight, i
 	//
 	// Create window
 	//
-	RECT rc = { 0, 0, iWidth, iHeight };
+	RECT rc = { 0, 0, (LONG)iWidth, (LONG)iHeight };
 	AdjustWindowRect( &rc, WS_OVERLAPPEDWINDOW, FALSE );
 
 	m_hWnd = CreateWindow(
